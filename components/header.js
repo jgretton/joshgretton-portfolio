@@ -43,16 +43,16 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 mx-auto bg-white  px-6 py-6 xl:container sm:px-16 ">
-      <div className="row flex items-center justify-between">
+    <header className="fixed inset-x-0 top-0 z-20  bg-white py-6   ">
+      <div className=" mx-auto flex items-center justify-between px-4 xl:container sm:px-16">
         <Link href="/" className="text-4xl">
           JG <span className="text-blue-300"> / </span>
         </Link>
-        <nav className="hidden sm:block">
-          <Link href="/about" className="mx-10">
+        <nav className="hidden sm:flex sm:gap-10">
+          <Link href="/about" className="hover:underline">
             About
           </Link>
-          <Link href="/" className="mx-10">
+          <Link href="/" className="hover:underline">
             Contact
           </Link>
         </nav>
