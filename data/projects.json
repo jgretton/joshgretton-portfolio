@@ -9,15 +9,6 @@
     "github_href": ""
   },
   {
-    "title": "Guidecks",
-    "slug": "Guidecks",
-    "tags": ["NextJS", "TailwindCSS"],
-    "image": "https://utfs.io/f/8afd3473-a622-4342-b98a-78227dcb9958-b17oa1.png",
-    "image_alt": "",
-    "live_href": "www.volleyscore.vercel.com",
-    "github_href": ""
-  },
-  {
     "title": "Blubutton Digital",
     "slug": "blubuttondigital",
     "tags": ["NextJS", "TailwindCSS"],
