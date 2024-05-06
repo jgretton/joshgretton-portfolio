@@ -1,5 +1,6 @@
 import WorkItem from "@/components/workCard";
-import { liveProjects } from "@/data/liveProjects";
+// import { liveProjects } from "@/projects.json/liveProjects";
+import liveProjects from "@/data/projects.json";
 import Image from "next/image";
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
       </section>
 
       {/* projects */}
-      <section className="sm:mt-v60 mt-96 bg-white opacity-100   transition-opacity duration-300  xl:container  sm:px-10 xl:mx-auto">
+      <section className="mt-96 bg-white opacity-100 transition-opacity   duration-300 xl:container  sm:mt-[60svh]  sm:px-10 xl:mx-auto">
         <div
           id="liveProjects"
           className="relative z-10  mb-32 mt-[60svh] w-full bg-white px-2 sm:mb-44"
@@ -28,7 +29,7 @@ export default function Home() {
           </h3>
           <div className="mx-auto w-full ">
             {liveProjects.map((item, index) => {
-              const { title, tags, live_href, github_href } = item;
+              const { title, tags, live_href, github_href, image, slug } = item;
               return (
                 <article
                   key={index}
@@ -39,18 +40,13 @@ export default function Home() {
                     tags={tags}
                     live_href={live_href}
                     github_href={github_href}
+                    image={image}
+                    slug={slug}
                   />
                 </article>
               );
             })}
           </div>
-          {/* <div className="sm:px-4 mb-10 relative group overflow-hidden">
-        <WorkItem
-          img={Guidecks}
-          title="Guidecks App"
-          tags={["React Native", "Expo"]}
-        />
-      </div> */}
         </div>
       </section>
     </>

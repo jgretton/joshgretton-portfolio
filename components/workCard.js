@@ -1,19 +1,27 @@
 import React from "react";
 import Image from "next/image";
 import Tag from "./tag";
+import Link from "next/link";
 
-const WorkItem = ({ image, title, tags, github_href, live_href, alt }) => {
+const WorkItem = ({
+  image,
+  title,
+  tags,
+  github_href,
+  live_href,
+  alt,
+  slug,
+}) => {
   return (
     <>
-      <div className=" sm:h-134 group relative h-80 w-full bg-red-100 ">
-        {/* <Image
-          src={img}
+      <div className=" group relative h-80 w-full sm:h-[34rem]  ">
+        <Image
+          src={image}
           alt={alt}
-          className="h-full w-full object-cover object-top rounded-t-lg"
+          className="h-full w-full rounded-t-lg object-cover object-top"
           layout="fill"
           priority
-          placeholder="blur"
-        /> */}
+        />
       </div>
       <div className="mt-5 h-auto transform bg-white transition-all duration-200 group-hover:translate-y-0 md:relative md:translate-y-0 ">
         <h3 className="transform bg-white py-3 text-2xl font-light tracking-wide sm:text-3xl  md:translate-y-0 lg:-translate-y-full">
@@ -26,7 +34,6 @@ const WorkItem = ({ image, title, tags, github_href, live_href, alt }) => {
             <a
               href={live_href}
               target="_blank"
-              rel="noreferrer"
               className="sm:text-md mb-3 flex flex-row self-start text-sm  font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 "
             >
               <svg
@@ -71,6 +78,13 @@ const WorkItem = ({ image, title, tags, github_href, live_href, alt }) => {
               View code on Github
             </a>
           ) : null}
+
+          <Link
+            href={`/projects/${slug}`}
+            className="sm:text-md mb-3 flex flex-row self-start text-sm  font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 "
+          >
+            View project details
+          </Link>
         </div>
         <div className="transform pb-3 pl-3 lg:-translate-y-full">
           {tags.map((tag, index) => {
