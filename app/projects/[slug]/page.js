@@ -5,6 +5,11 @@ import { readFileSync } from "fs";
 import path from "path";
 
 import Blubutton from "@/public/Blubuttonlaptop.png";
+import Link from "next/link";
+import {
+  ArrowLeftStartOnRectangleIcon,
+  ArrowTopRightOnSquareIcon,
+} from "@heroicons/react/24/outline";
 
 const getProjectsData = () => {
   const filePath = path.join(process.cwd(), "data", "projects.json");
@@ -31,16 +36,15 @@ const Page = ({ params }) => {
       <section className="mt-[60svh] h-full w-full bg-white">
         <div className=" sm:h-134 group relative  h-80 w-full cursor-pointer ">
           <Image
-            src={Blubutton}
+            src={image}
             alt="guidecks header"
             className="h-full w-full rounded-t-lg object-cover object-top"
             layout="fill"
             priority
-            placeholder="blur"
           />
         </div>
         <div className="flex flex-col md:flex-row">
-          <div className="mt-20 w-full p-5 md:w-1/4">
+          <div className="mt-20 w-full px-5 md:w-1/4">
             <p className="text-base font-normal">Project Name</p>
             <p className="mb-5 ml-1 text-base font-light">{title}</p>
 
@@ -53,7 +57,7 @@ const Page = ({ params }) => {
               ))}
             </ul>
           </div>
-          <div className="mt-20  flex-1">
+          <div className="mt-20  grid flex-1 gap-10">
             <p className="text-lg font-light leading-relaxed">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id
               dui mauris. Vivamus vehicula, nibh dapibus hendrerit finibus, quam
@@ -66,7 +70,7 @@ const Page = ({ params }) => {
               parturient montes, nascetur ridiculus mus. Donec elementum eros
               sagittis lectus ornare sagittis.
             </p>
-            <p className="mt-10 text-lg font-light leading-relaxed">
+            <p className="text-lg font-light leading-relaxed">
               Nulla aliquet lectus vestibulum augue tempus condimentum
               sollicitudin id elit. Integer vel viverra ex. Nunc vitae molestie
               ipsum, ac posuere ex. Donec cursus pulvinar euismod. Quisque
@@ -78,6 +82,14 @@ const Page = ({ params }) => {
               Phasellus fermentum a diam at suscipit. Donec eleifend maximus
               augue vel dictum.{" "}
             </p>
+            <Link
+              href={live_href}
+              className="sm:text-md group mb-3 inline-flex items-center gap-2 self-start  text-sm font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 "
+            >
+              {" "}
+              <ArrowTopRightOnSquareIcon className=" size-6 " /> See the live
+              project
+            </Link>
           </div>
         </div>
         <div className=" sm:h-134 group relative mt-20 h-80 w-full cursor-pointer ">
