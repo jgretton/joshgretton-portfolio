@@ -24,7 +24,7 @@ const WorkItem = ({
         />
       </div>
       <div className="mt-5 h-auto transform bg-white transition-all duration-200 group-hover:translate-y-0 md:relative md:translate-y-0 ">
-        <h3 className="transform bg-white py-3 text-2xl font-light tracking-wide sm:text-3xl  md:translate-y-0 lg:-translate-y-full">
+        <h3 className="transform bg-white py-3 text-2xl font-light tracking-wide sm:text-3xl  md:translate-y-0">
           <span className=" mr-3 h-full w-px border-2 border-blue-300 "></span>
           {title}
         </h3>
@@ -34,7 +34,7 @@ const WorkItem = ({
           to save them clicking the link for more.
         </p>
 
-        <div className="m-5 flex transform flex-col md:translate-y-0 lg:-translate-y-full">
+        <div className="m-5 flex transform flex-col ">
           <Link
             href={`/projects/${slug}`}
             className="sm:text-md mb-3 flex flex-row self-start text-sm  font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 "
@@ -90,7 +90,7 @@ const WorkItem = ({
             </a>
           ) : null}
         </div>
-        <div className="transform pb-3 pl-3 lg:-translate-y-full">
+        <div className="transform pb-3 pl-3 ">
           {tags.map((tag, index) => {
             return (
               //   <span
