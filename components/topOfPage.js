@@ -18,7 +18,7 @@ const TopOfPage = () => {
     <div
       className={`${
         showScroll ? "opacity-100" : "hidden opacity-0"
-      } duration-400 sticky bottom-28 z-40 pr-3 text-right transition-opacity`}
+      } duration-400 sticky bottom-20 right-3 z-40 text-right transition-opacity`}
     >
       <button
         className={`h-8 w-8 rounded bg-blue-300`}
