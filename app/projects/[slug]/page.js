@@ -10,6 +10,7 @@ import {
   ArrowLeftStartOnRectangleIcon,
   ArrowTopRightOnSquareIcon,
 } from "@heroicons/react/24/outline";
+import Hero from "@/components/hero";
 
 const getProjectsData = () => {
   const filePath = path.join(process.cwd(), "data", "projects.json");
@@ -25,14 +26,15 @@ const Page = ({ params }) => {
   console.log("project", project);
   const { title, tags, image, live_href, github_href } = project;
   return (
-    <div className=" px-6">
-      <div
+    <div className=" mx-auto px-6 xl:container sm:px-16">
+      <Hero>{title}</Hero>
+      {/* <div
         className={` fixed inset-x-0 top-0 -z-10 mx-auto flex h-[60svh] transform items-center bg-white px-4 pt-12 transition-all xl:container sm:px-16`}
       >
         <h2 className="text-2xl font-light tracking-widest sm:text-4xl md:text-5xl">
           <span className="text-blue-300">{title}</span>
         </h2>
-      </div>
+      </div> */}
       <section className="mt-[60svh] h-full w-full bg-white">
         <div className=" sm:h-134 group relative  h-80 w-full cursor-pointer ">
           <Image
@@ -44,7 +46,7 @@ const Page = ({ params }) => {
           />
         </div>
         <div className="flex flex-col md:flex-row">
-          <div className="mt-20 w-full px-5 md:w-1/4">
+          <div className="px\-5 mt-20 w-full md:w-1/4">
             <p className="text-base font-normal">Project Name</p>
             <p className="mb-5 ml-1 text-base font-light">{title}</p>
 
