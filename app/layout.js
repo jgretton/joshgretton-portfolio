@@ -17,8 +17,8 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} relative mx-auto max-w-[96rem] `}>
         <Header />
         <main>{children}</main>
-        <Footer />
         <TopOfPage />
+        <Footer />
       </body>
     </html>
   );
