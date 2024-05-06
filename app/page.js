@@ -27,7 +27,15 @@ export default function Home() {
           </h3>
           <div className="mx-auto w-full ">
             {liveProjects.map((item, index) => {
-              const { title, tags, live_href, github_href, image, slug } = item;
+              const {
+                title,
+                tags,
+                live_href,
+                github_href,
+                image,
+                slug,
+                small_description,
+              } = item;
               return (
                 <article
                   key={index}
@@ -40,6 +48,7 @@ export default function Home() {
                     github_href={github_href}
                     image={image}
                     slug={slug}
+                    small_description={small_description}
                   />
                 </article>
               );

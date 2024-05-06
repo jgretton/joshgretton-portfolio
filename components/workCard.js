@@ -11,6 +11,7 @@ const WorkItem = ({
   live_href,
   alt,
   slug,
+  small_description,
 }) => {
   return (
     <>
@@ -30,8 +31,7 @@ const WorkItem = ({
         </h3>
 
         <p className=" px-5 text-sm font-light tracking-wider">
-          This is the part where i write a small description about the project
-          to save them clicking the link for more.
+          {small_description}
         </p>
 
         <div className="m-5 flex transform flex-col ">
@@ -47,9 +47,10 @@ const WorkItem = ({
               target="_blank"
               className="sm:text-md mb-3 flex flex-row self-start text-sm  font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 "
             >
+              Preview live site
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="mr-3 h-5 w-5 sm:h-6 sm:w-6"
+                className="ml-3 h-5 w-5 sm:h-6 sm:w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -61,7 +62,6 @@ const WorkItem = ({
                   d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                 />
               </svg>
-              Preview live site
             </a>
           ) : null}
 
@@ -92,15 +92,7 @@ const WorkItem = ({
         </div>
         <div className="transform pb-3 pl-3 ">
           {tags.map((tag, index) => {
-            return (
-              //   <span
-              //     key={tag}
-              //     className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-xs font-medium tracking-wide text-gray-700 sm:text-sm"
-              //   >
-              //     {tag}
-              //   </span>
-              <Tag key={index}>{tag}</Tag>
-            );
+            return <Tag key={index}>{tag}</Tag>;
           })}
         </div>
       </div>
