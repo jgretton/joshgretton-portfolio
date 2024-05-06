@@ -2,21 +2,8 @@
 
 import Link from "next/link";
 import React, { useState, Fragment } from "react";
-import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
-import {
-  ArrowPathIcon,
-  Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
-import {
-  ChevronDownIcon,
-  PhoneIcon,
-  PlayCircleIcon,
-} from "@heroicons/react/20/solid";
+import { Dialog } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -84,7 +71,11 @@ const Header = () => {
                 alt=""
               />
             </a> */}
-            <Link href="/" className="text-4xl">
+            <Link
+              href="/"
+              className="text-4xl"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               JG <span className="text-blue-300"> / </span>
             </Link>
             <button
@@ -103,6 +94,7 @@ const Header = () => {
                   <Link
                     href={link.link}
                     key={index}
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     {link.title}
