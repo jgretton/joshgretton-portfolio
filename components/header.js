@@ -45,7 +45,7 @@ const Header = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-20  bg-white py-6   ">
       <div className=" mx-auto flex items-center justify-between px-4 xl:container sm:px-16">
-        <Link href="/" className="text-4xl">
+        <Link href="/" className="text-4xl hover:underline">
           JG <span className="text-blue-300"> / </span>
         </Link>
         <nav className="hidden sm:flex sm:gap-10">
