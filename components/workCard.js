@@ -29,7 +29,18 @@ const WorkItem = ({
           {title}
         </h3>
 
+        <p className=" px-5 text-sm font-light tracking-wider">
+          This is the part where i write a small description about the project
+          to save them clicking the link for more.
+        </p>
+
         <div className="m-5 flex transform flex-col md:translate-y-0 lg:-translate-y-full">
+          <Link
+            href={`/projects/${slug}`}
+            className="sm:text-md mb-3 flex flex-row self-start text-sm  font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 "
+          >
+            View project details
+          </Link>
           {live_href ? (
             <a
               href={live_href}
@@ -78,13 +89,6 @@ const WorkItem = ({
               View code on Github
             </a>
           ) : null}
-
-          <Link
-            href={`/projects/${slug}`}
-            className="sm:text-md mb-3 flex flex-row self-start text-sm  font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 "
-          >
-            View project details
-          </Link>
         </div>
         <div className="transform pb-3 pl-3 lg:-translate-y-full">
           {tags.map((tag, index) => {
