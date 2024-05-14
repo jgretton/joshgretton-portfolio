@@ -22,12 +22,11 @@ const Page = ({ params }) => {
   const { slug } = params;
   const projects = getProjectsData();
   const project = projects.find((p) => p.slug === slug);
-
-  console.log("project", project);
   const { title, tags, image, live_href, github_href } = project;
   return (
     <div className=" mx-auto px-6 xl:container sm:px-16">
-      <Hero>{title}</Hero>
+      {/* <p>back</p> */}
+      <Hero back> {title}</Hero>
       {/* <div
         className={` fixed inset-x-0 top-0 -z-10 mx-auto flex h-[60svh] transform items-center bg-white px-4 pt-12 transition-all xl:container sm:px-16`}
       >
@@ -35,8 +34,8 @@ const Page = ({ params }) => {
           <span className="text-blue-300">{title}</span>
         </h2>
       </div> */}
-      <section className="mt-[60svh] h-full w-full bg-white">
-        <div className=" sm:h-134 group relative  h-80 w-full cursor-pointer ">
+      <section className="mt-[60svh] h-full w-full bg-white dark:bg-[#15202b]">
+        <div className=" sm:h-134 group relative h-80 w-full cursor-pointer overflow-hidden ">
           <Image
             src={image}
             alt="guidecks header"
@@ -86,7 +85,7 @@ const Page = ({ params }) => {
             </p>
             <Link
               href={live_href}
-              className="sm:text-md group mb-3 inline-flex items-center gap-2 self-start  text-sm font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 "
+              className="sm:text-md group mb-3 inline-flex items-center gap-2 self-start  text-sm font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 dark:text-white "
             >
               {" "}
               <ArrowTopRightOnSquareIcon className=" size-6 " /> See the live

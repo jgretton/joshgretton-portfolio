@@ -6,13 +6,13 @@ const Footer = () => {
 
   return (
     <footer className="px-6 xl:container xl:mx-auto">
-      <div className=" flex flex-row justify-between border-t border-gray-200 py-5 sm:mt-20 sm:px-0">
-        <p className="self-center text-sm tracking-wide text-gray-700">
+      <div className=" flex flex-row justify-between border-t border-gray-200 py-5 sm:mt-0 sm:px-0">
+        <p className="self-center text-sm tracking-wide text-gray-700 dark:text-white/80">
           &copy; Josh Gretton {currentYear}
         </p>
 
         <div className="flex flex-row self-center">
-          <button className="hover:text-github mr-5 h-6 w-6 text-gray-600">
+          <button className="hover:text-github mr-5 h-6 w-6 text-gray-600 dark:text-white/80">
             <a
               href="https://www.github.com/jgretton"
               target="_blank"
@@ -30,7 +30,7 @@ const Footer = () => {
               </svg>{" "}
             </a>
           </button>
-          <button className="hover:text-linkedIn h-6 w-6 text-gray-600">
+          <button className="hover:text-linkedIn h-6 w-6 text-gray-600 dark:text-white/80">
             <a>
               <svg
                 role="img"

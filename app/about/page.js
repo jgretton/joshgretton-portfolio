@@ -21,11 +21,11 @@ const AboutPage = () => {
 
       <div
         className={
-          "mt-[60svh] scale-100 transform   bg-white opacity-100 transition-all duration-300 xl:container  sm:px-10 xl:mx-auto"
+          "mt-[60svh] scale-100 transform   bg-white opacity-100 transition-all duration-300 xl:container sm:px-10  xl:mx-auto dark:bg-[#15202b]"
         }
       >
-        <div className="relative  z-10 mb-32 w-full bg-white px-3">
-          <div className="relative clear-left mb-10 flex flex-col overflow-hidden sm:px-4 md:flex-row ">
+        <div className="relative  z-10 mb-32 w-full bg-white px-3 dark:bg-[#15202b]">
+          <div className="relative clear-left mb-10 flex flex-col gap-10 overflow-hidden sm:px-4 md:flex-row ">
             <div className="relative w-4/6 self-center sm:h-1/2 md:self-start lg:h-full lg:w-1/3 lg:self-center">
               <Image
                 src={PhotoOfMe}
@@ -35,11 +35,11 @@ const AboutPage = () => {
               />
             </div>
             <div className="relative bottom-0 left-0 right-0 mt-5 h-auto w-full  px-4 lg:w-2/3">
-              <h3 className="bg-white py-3 text-2xl font-light  tracking-wide sm:text-3xl">
+              <h3 className="py-3 text-2xl font-light  tracking-wide sm:text-3xl">
                 <span className=" mr-3 h-full w-px border-2 border-blue-300 "></span>
                 About me
               </h3>
-              <p className="py-4 text-sm font-light leading-6 tracking-wider text-gray-700 md:text-base">
+              <p className="py-4 text-sm font-light leading-6 tracking-wider text-gray-700 md:text-base dark:text-white/80">
                 I am a self taught full stack developer. I started working on
                 Front end code around 4 years ago and slowly transitioned into
                 React. I am the co-founder of Guidecks; an audio guide solution

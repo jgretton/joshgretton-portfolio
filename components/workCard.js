@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Tag from "./tag";
 import Link from "next/link";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 const WorkItem = ({
   image,
@@ -15,17 +16,22 @@ const WorkItem = ({
 }) => {
   return (
     <>
-      <div className=" group relative h-80 w-full sm:h-[34rem]  ">
-        <Image
-          src={image}
-          alt={alt}
-          className="h-full w-full rounded-t-lg object-cover object-top"
-          layout="fill"
-          priority
-        />
+      <div className=" group/card relative h-80 w-full overflow-hidden rounded-t-lg sm:h-[34rem]">
+        <Link href={`/projects/${slug}`} className="">
+          <Image
+            src={image}
+            alt={alt}
+            className="h-full w-full rounded-t-lg object-cover object-top"
+            layout="fill"
+            priority
+          />
+          <div className="absolute bottom-0 right-0 grid size-20 place-items-center rounded-tl-3xl bg-blue-300 transition-all group-hover/card:w-32">
+            <ArrowRightIcon className="size-8 text-white" />
+          </div>
+        </Link>
       </div>
-      <div className="mt-5 h-auto transform bg-white transition-all duration-200 group-hover:translate-y-0 md:relative md:translate-y-0 ">
-        <h3 className="transform bg-white py-3 text-2xl font-light tracking-wide sm:text-3xl  md:translate-y-0">
+      <div className="mt-5 h-auto transform bg-white transition-all duration-200 group-hover:translate-y-0 md:relative md:translate-y-0 dark:bg-[#15202b] ">
+        <h3 className="transform  py-3 text-2xl font-light tracking-wide sm:text-3xl  md:translate-y-0">
           <span className=" mr-3 h-full w-px border-2 border-blue-300 "></span>
           {title}
         </h3>
@@ -37,7 +43,7 @@ const WorkItem = ({
         <div className="m-5 flex transform flex-col ">
           <Link
             href={`/projects/${slug}`}
-            className="sm:text-md mb-3 flex flex-row self-start text-sm  font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 "
+            className="sm:text-md mb-3 flex flex-row self-start text-sm  font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 dark:text-white/80 "
           >
             View project details
           </Link>
@@ -45,7 +51,7 @@ const WorkItem = ({
             <a
               href={live_href}
               target="_blank"
-              className="sm:text-md mb-3 flex flex-row self-start text-sm  font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 "
+              className="sm:text-md mb-3 flex flex-row self-start text-sm  font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 dark:text-white/80"
             >
               Preview live site
               <svg
