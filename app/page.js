@@ -26,7 +26,7 @@ export default function Home() {
             <h3 className="mb-5 transform px-4 text-xl font-light tracking-widest sm:sticky sm:top-[16rem] sm:float-left sm:mb-0 sm:h-0 sm:origin-top-left sm:-translate-x-12 sm:-rotate-90 sm:px-0 sm:text-4xl">
               <span className="text-blue-300 "> Projects</span>
             </h3>
-            <div className="mx-auto w-full ">
+            <div className="mx-auto grid w-full gap-20 ">
               {liveProjects.map((item, index) => {
                 const {
                   title,
