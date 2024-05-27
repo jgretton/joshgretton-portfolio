@@ -11,20 +11,27 @@ import {
   ArrowTopRightOnSquareIcon,
 } from "@heroicons/react/24/outline";
 import Hero from "@/components/hero";
+import Markdown from "react-markdown";
 
-const getProjectsData = () => {
-  const filePath = path.join(process.cwd(), "data", "projects.json");
+const getProjectsData = (personal) => {
+  let filePath;
+  if (personal)
+    filePath = path.join(process.cwd(), "data", "personalWork.json");
+  else filePath = path.join(process.cwd(), "data", "projects.json");
   const jsonData = readFileSync(filePath, "utf-8");
   return JSON.parse(jsonData);
 };
 
 const Page = ({ params }) => {
   const { slug } = params;
+  console.log("parms", params);
   const projects = getProjectsData();
   const project = projects.find((p) => p.slug === slug);
-  const { title, tags, image, live_href, github_href } = project;
+  const { title, tags, image, live_href, github_href, markdown } = project;
+
+  console.log(markdown);
   return (
-    <div className=" mx-auto px-6 xl:container sm:px-16">
+    <div className=" mx-auto px-6 pb-10 xl:container sm:px-16">
       {/* <p>back</p> */}
       <Hero back> {title}</Hero>
       {/* <div
@@ -57,9 +64,21 @@ const Page = ({ params }) => {
                 </li>
               ))}
             </ul>
+            <Link
+              href={live_href}
+              target="_blank"
+              className="sm:text-md group group mb-3 mt-5 inline-flex items-center  gap-2 self-start text-base leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
+            >
+              See the live project
+              <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
           </div>
-          <div className="mt-20  grid flex-1 gap-10">
-            <p className="text-lg font-light leading-relaxed">
+          <div className="mt-20 grid flex-1  gap-10">
+            {/* text-2xl font-light tracking-wide transition-colors sm:text-3xl */}
+            <Markdown className=" prose dark:prose-invert min-w-full font-light tracking-wide ">
+              {markdown}
+            </Markdown>
+            {/* <p className="text-lg font-light leading-relaxed">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id
               dui mauris. Vivamus vehicula, nibh dapibus hendrerit finibus, quam
               dolor volutpat lorem, sed pretium dui eros at libero. Vestibulum
@@ -82,15 +101,7 @@ const Page = ({ params }) => {
               efficitur. Integer cursus lectus libero. Etiam non luctus turpis.
               Phasellus fermentum a diam at suscipit. Donec eleifend maximus
               augue vel dictum.{" "}
-            </p>
-            <Link
-              href={live_href}
-              className="sm:text-md group mb-3 inline-flex items-center gap-2 self-start  text-sm font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 dark:text-white "
-            >
-              {" "}
-              <ArrowTopRightOnSquareIcon className=" size-6 " /> See the live
-              project
-            </Link>
+            </p> */}
           </div>
         </div>
         <div className=" sm:h-134 group relative mt-20 h-80 w-full cursor-pointer ">

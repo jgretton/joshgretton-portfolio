@@ -4,6 +4,8 @@ import Link from "next/link";
 import React, { useState, Fragment } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { usePathname } from "next/navigation";
+import ThemeToggle from "./themeToggle";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -18,30 +20,38 @@ const links = [
     link: "/",
   },
   {
-    title: "Live Projects",
-    link: "/#liveProjects",
+    title: "Client Work",
+    link: "/#clientWork",
   },
   {
-    title: "Projects",
-    link: "/#projects",
+    title: "Personal Projects",
+    link: "/#personalProjects",
   },
 ];
-const Header = () => {
+const Header = ({ setIsDarkMode, isDarkMode }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-20  bg-white py-6 dark:bg-[#15202b]  ">
-      <div className=" mx-auto flex items-center justify-between px-4 xl:container sm:px-16">
+    <header className="fixed inset-x-0 top-0 z-20  bg-white/80 py-2 backdrop-blur-lg dark:bg-[#15202b]/80  ">
+      <div className=" mx-auto flex items-center justify-between p-4 xl:container sm:px-14">
         <Link href="/" className="text-4xl hover:underline">
           JG <span className="text-blue-300"> / </span>
         </Link>
         <nav className="hidden sm:flex sm:gap-10">
-          <Link href="/about" className="hover:text-blue-300 hover:underline">
+          <Link
+            href="/about"
+            className={`${pathname === "/about" && "underline"} rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700`}
+          >
             About
           </Link>
-          <Link href="/" className="hover:text-blue-300 hover:underline">
+          <Link
+            href="/contact"
+            className={`${pathname === "/contact" && "underline"} rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700`}
+          >
             Contact
           </Link>
+          <ThemeToggle setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />
         </nav>
         <div className="flex sm:hidden">
           <button
@@ -50,7 +60,10 @@ const Header = () => {
             onClick={() => setIsMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <Bars3Icon
+              className="h-6 w-6 text-slate-800 dark:text-gray-300"
+              aria-hidden="true"
+            />
           </button>
         </div>
       </div>
@@ -61,7 +74,7 @@ const Header = () => {
         onClose={setIsMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <Dialog.Panel className="dark:bg-dark fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             {/* <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
@@ -84,7 +97,10 @@ const Header = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <XMarkIcon
+                className="h-6 w-6 text-slate-800 dark:text-gray-300"
+                aria-hidden="true"
+              />
             </button>
           </div>
           <div className="mt-6 flow-root">
@@ -95,7 +111,7 @@ const Header = () => {
                     href={link.link}
                     key={index}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900  dark:text-gray-300"
                   >
                     {link.title}
                   </Link>

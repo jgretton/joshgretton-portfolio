@@ -5,6 +5,14 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  theme: {
+    extend: {
+      colors: {
+        dark: "#15202b",
+      },
+    },
+  },
 
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
+  darkMode: "selector",
 };

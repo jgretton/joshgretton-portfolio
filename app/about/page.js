@@ -35,8 +35,8 @@ const AboutPage = () => {
               />
             </div>
             <div className="relative bottom-0 left-0 right-0 mt-5 h-auto w-full  px-4 lg:w-2/3">
-              <h3 className="py-3 text-2xl font-light  tracking-wide sm:text-3xl">
-                <span className=" mr-3 h-full w-px border-2 border-blue-300 "></span>
+              {/* <h3 className="py-3 text-2xl font-light  tracking-wide sm:text-3xl"> */}
+              <h3 className=" text-2xl font-light tracking-wide transition-colors sm:text-3xl">
                 About me
               </h3>
               <p className="py-4 text-sm font-light leading-6 tracking-wider text-gray-700 md:text-base dark:text-white/80">

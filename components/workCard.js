@@ -30,19 +30,17 @@ const WorkItem = ({
           </div>
         </Link>
       </div>
-      <div className="mt-5 h-auto transform bg-white transition-all duration-200 group-hover:translate-y-0 md:relative md:translate-y-0 dark:bg-[#15202b] ">
+      <div className="mt-5 h-auto transform  transition-all duration-200 group-hover:translate-y-0 md:relative md:translate-y-0 dark:bg-[#15202b] ">
         <h3 className="transform  py-3 text-2xl font-light tracking-wide sm:text-3xl  md:translate-y-0">
-          <span className=" mr-3 h-full w-px border-2 border-blue-300 "></span>
+          {/* <span className=" mr-3 h-full w-px border-2 border-blue-300 "></span> */}
           {title}
         </h3>
 
-        <p className=" px-5 text-sm font-light tracking-wider">
-          {small_description}
-        </p>
+        <p className="text-sm font-light tracking-wider">{small_description}</p>
 
-        <div className="m-5 flex transform flex-col ">
+        <div className="mt-5 flex transform flex-col ">
           <Link
-            href={`/projects/${slug}`}
+            href={{ pathname: `/projects/${slug}`, query: { title } }}
             className="sm:text-md mb-3 flex flex-row self-start text-sm  font-medium leading-6 tracking-wide text-gray-700 hover:text-blue-300 dark:text-white/80 "
           >
             View project details
