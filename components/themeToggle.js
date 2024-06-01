@@ -1,31 +1,20 @@
 "use client";
 import {
   ChevronDownIcon,
-  ComputerDesktopIcon,
   MoonIcon,
   SunIcon,
 } from "@heroicons/react/24/outline";
-import React, { useState, Fragment } from "react";
-import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
+import React, { Fragment } from "react";
+import { Popover, Transition } from "@headlessui/react";
+import { useTheme } from "next-themes";
 
-const ThemeToggle = ({ isDarkMode, setIsDarkMode }) => {
+const ThemeToggle = () => {
+  const { theme, setTheme } = useTheme();
+
   return (
-    // <button
-    //   type="button"
-    //   className="inline-flex items-center gap-1 rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700"
-    // >
-    //   {isDarkMode ? (
-    //     <MoonIcon className="size-5" />
-    //   ) : (
-    //     <SunIcon className="size-5" />
-    //   )}
-    //   <ChevronDownIcon className="size-3" />
-    // </button>
-
-    // <Popover.Group className="hidden lg:flex lg:gap-x-12">
     <Popover className="relative flex items-center rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700">
       <Popover.Button className="inline-flex items-center gap-1 ">
-        {isDarkMode ? (
+        {theme === "dark" ? (
           <MoonIcon className="size-5" aria-hidden="true" />
         ) : (
           <SunIcon className="size-5" aria-hidden="true" />
@@ -48,10 +37,9 @@ const ThemeToggle = ({ isDarkMode, setIsDarkMode }) => {
               <div className="group relative rounded-lg ">
                 <button
                   type="button"
-                  className="dark:bg-dark flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 dark:group-hover:bg-slate-400"
+                  className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 dark:bg-dark dark:group-hover:bg-slate-400"
                   onClick={() => {
-                    setIsDarkMode(false);
-                    localStorage.setItem("theme", "light");
+                    setTheme("light");
                     close();
                   }}
                 >
@@ -63,10 +51,9 @@ const ThemeToggle = ({ isDarkMode, setIsDarkMode }) => {
               </div>
               <div className="group relative mt-4 rounded-lg">
                 <button
-                  className="dark:bg-dark flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 dark:group-hover:bg-slate-400"
+                  className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 dark:bg-dark dark:group-hover:bg-slate-400"
                   onClick={() => {
-                    setIsDarkMode(true);
-                    localStorage.setItem("theme", "dark");
+                    setTheme("dark");
                     close();
                   }}
                 >
