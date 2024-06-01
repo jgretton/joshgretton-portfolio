@@ -28,8 +28,6 @@ const Page = ({ params }) => {
   const projects = getProjectsData();
   const project = projects.find((p) => p.slug === slug);
   const { title, tags, image, live_href, github_href, markdown } = project;
-
-  console.log(markdown);
   return (
     <div className=" mx-auto px-6 pb-10 xl:container sm:px-16">
       {/* <p>back</p> */}
@@ -41,7 +39,7 @@ const Page = ({ params }) => {
           <span className="text-blue-300">{title}</span>
         </h2>
       </div> */}
-      <section className="mt-[60svh] h-full w-full bg-white dark:bg-[#15202b]">
+      <section className="mt-[60dvh] h-full w-full bg-white dark:bg-[#15202b]">
         <div className=" sm:h-134 group relative h-80 w-full cursor-pointer overflow-hidden ">
           <Image
             src={image}
@@ -75,7 +73,7 @@ const Page = ({ params }) => {
           </div>
           <div className="mt-20 grid flex-1  gap-10">
             {/* text-2xl font-light tracking-wide transition-colors sm:text-3xl */}
-            <Markdown className=" prose dark:prose-invert min-w-full font-light tracking-wide ">
+            <Markdown className=" prose min-w-full font-light tracking-wide dark:prose-invert ">
               {markdown}
             </Markdown>
             {/* <p className="text-lg font-light leading-relaxed">

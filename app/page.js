@@ -21,39 +21,7 @@ export default function Home() {
       <div className=" rounded-t-[3rem] bg-gray-100 dark:bg-[#15202b]">
         <section className=" mt-96 opacity-100   transition-opacity duration-300  xl:container  sm:mt-[60dvh] sm:px-10 xl:mx-auto">
           <div className="relative z-10 mt-[60dvh] w-full  px-2 py-20 ">
-            <h2 className="text-xl font-light uppercase tracking-wide text-gray-500">
-              Client Work
-            </h2>
-            <div
-              id="clientWork"
-              className="place-items- mx-auto  mt-16 grid w-full scroll-m-44 gap-20 lg:grid-cols-2"
-            >
-              {clientWork.map((item, index) => {
-                const {
-                  title,
-                  tags,
-                  live_href,
-                  github_href,
-                  image,
-                  slug,
-                  small_description,
-                } = item;
-                return (
-                  <article key={index} className="relative mb-10 ">
-                    <Card
-                      title={title}
-                      tags={tags}
-                      live_href={live_href}
-                      github_href={github_href}
-                      image={image}
-                      slug={slug}
-                      small_description={small_description}
-                    />
-                  </article>
-                );
-              })}
-            </div>
-            <h2 className="mt-20 text-xl font-light uppercase tracking-wide text-gray-500">
+            <h2 className=" text-xl font-light uppercase tracking-wide text-gray-500">
               Personal Projects
             </h2>
             <div
@@ -67,20 +35,62 @@ export default function Home() {
                   live_href,
                   github_href,
                   image,
+                  mobileImage,
                   slug,
                   small_description,
+                  more_detail,
                 } = item;
                 return (
-                  <article key={index} className="relative mb-10 w-full ">
+                  <article key={index} className="relative h-full w-full ">
                     <Card
                       title={title}
                       tags={tags}
                       live_href={live_href}
                       github_href={github_href}
                       image={image}
+                      mobileImage={mobileImage}
                       slug={slug}
                       small_description={small_description}
                       personal
+                      more_detail={more_detail}
+                    />
+                  </article>
+                );
+              })}
+            </div>
+
+            <h2 className="mt-20 text-xl font-light uppercase tracking-wide text-gray-500">
+              Client Work
+            </h2>
+            <div
+              id="clientWork"
+              // className="place-items- mx-auto  mt-16 grid w-full scroll-m-44 gap-20 lg:grid-cols-2"
+              className=" mt-10 grid w-full scroll-m-44 grid-cols-1 place-items-center gap-20 lg:grid-cols-2 lg:place-items-start"
+            >
+              {clientWork.map((item, index) => {
+                const {
+                  title,
+                  tags,
+                  live_href,
+                  github_href,
+                  image,
+                  mobileImage,
+                  slug,
+                  small_description,
+                  more_detail,
+                } = item;
+                return (
+                  <article key={index} className="relative mb-10 grid w-full">
+                    <Card
+                      title={title}
+                      tags={tags}
+                      live_href={live_href}
+                      github_href={github_href}
+                      image={image}
+                      mobileImage={mobileImage}
+                      slug={slug}
+                      small_description={small_description}
+                      more_detail={more_detail}
                     />
                   </article>
                 );
