@@ -35,6 +35,7 @@ export default function Home() {
                   live_href,
                   github_href,
                   image,
+                  image_alt,
                   mobileImage,
                   slug,
                   small_description,
@@ -48,6 +49,7 @@ export default function Home() {
                       live_href={live_href}
                       github_href={github_href}
                       image={image}
+                      image_alt={image_alt}
                       mobileImage={mobileImage}
                       slug={slug}
                       small_description={small_description}
@@ -74,6 +76,7 @@ export default function Home() {
                   live_href,
                   github_href,
                   image,
+                  image_alt,
                   mobileImage,
                   slug,
                   small_description,
@@ -87,6 +90,7 @@ export default function Home() {
                       live_href={live_href}
                       github_href={github_href}
                       image={image}
+                      image_alt={image_alt}
                       mobileImage={mobileImage}
                       slug={slug}
                       small_description={small_description}
