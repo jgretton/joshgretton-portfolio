@@ -10,9 +10,16 @@ module.exports = {
       colors: {
         dark: "#15202b",
       },
+      gridTemplateColumns: {
+        "auto-fill-100": "repeat(auto-fill, minmax(300px, 1fr))",
+        "auto-fit-100": "repeat(auto-fit, minmax(300px, 1fr))",
+      },
+      flex: {
+        3: "1 1 calc(50% - 20px)",
+      },
     },
   },
 
-  plugins: [require("@tailwindcss/typography")],
-  darkMode: "selector",
+  plugins: [require("@tailwindcss/typography"), "prettier-plugin-tailwindcss"],
+  darkMode: "class",
 };
