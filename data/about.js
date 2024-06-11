@@ -13,7 +13,6 @@ Outside of coding, I have a passion for volleyball and I am a qualified coach an
 - **Front-End Development:** HTML, CSS, JavaScript, React, Next.js, Tailwind CSS
 - **Tools:** Git, GitHub, VS Code, Figma
 - **Other Skills:** SEO, responsive design, basic UX/UI principles
-- **Other Skills:** SEO, responsive design, basic UX/UI principles
 
 
 
