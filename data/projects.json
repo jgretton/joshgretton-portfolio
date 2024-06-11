@@ -1,35 +1,5 @@
 [
   {
-    "title": "Sheepbridge Business Centre",
-    "slug": "sheepbridge",
-    "small_description": "A digital agency I run as a side business. All the work complete is that of my own.",
-    "tags": ["NextJS", "TailwindCSS"],
-    "image": "https://utfs.io/f/f36d71a7-93b1-41f7-9a0a-59ae9a1fba1c-q9ux6o.jpg",
-    "image_alt": "This is the image alt",
-    "live_href": "http://www.sheepbridgebusinesscentre.co.uk",
-    "github_href": ""
-  },
-  {
-    "title": "The Wonky Labrador",
-    "slug": "wonkylabrador",
-    "small_description": "A digital agency I run as a side business. All the work complete is that of my own.",
-    "tags": ["NextJS", "TailwindCSS"],
-    "image": "https://utfs.io/f/82e1e257-9dec-4254-b3be-524a9b0b28bb-zc2cls.jpg",
-    "image_alt": "This is the image alt",
-    "live_href": "https://www.thewonkylabrador.co.uk",
-    "github_href": ""
-  },
-  {
-    "title": "Blubutton Digital",
-    "slug": "blubuttondigital",
-    "small_description": "A digital agency I run as a side business. All the work complete is that of my own.",
-    "tags": ["NextJS", "TailwindCSS"],
-    "image": "https://utfs.io/f/8afd3473-a622-4342-b98a-78227dcb9958-b17oa1.png",
-    "image_alt": "This is the image alt",
-    "live_href": "https://blubuttondigital.co.uk",
-    "github_href": ""
-  },
-  {
     "title": "Volleyscore",
     "slug": "volleyscore",
     "small_description": "A simple solution to scoring your friendly volleyball games.",
