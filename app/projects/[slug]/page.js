@@ -13,40 +13,38 @@ import {
 import Hero from "@/components/hero";
 import Markdown from "react-markdown";
 
-// const getProjectsData = (personal) => {
-//   let filePath;
-//   if (personal)
-//     filePath = path.join(process.cwd(), "data", "personalWork.json");
-//   else filePath = path.join(process.cwd(), "data", "projects.json");
-//   const jsonData = readFileSync(filePath, "utf-8");
-//   return JSON.parse(jsonData);
-// };
-
 const getProjectsData = (personal) => {
   let filePath;
   if (personal)
     filePath = path.join(process.cwd(), "data", "personalWork.json");
   else filePath = path.join(process.cwd(), "data", "projects.json");
-
   const jsonData = readFileSync(filePath, "utf-8");
-  const projects = JSON.parse(jsonData);
-
-  return projects.map((project) => {
-    if (project.markdown_path) {
-      const markdownFilePath = path.join(process.cwd(), project.markdown_path);
-      const markdownContent = readFileSync(markdownFilePath, "utf-8");
-      return { ...project, markdown: markdownContent };
-    }
-    return project;
-  });
+  return JSON.parse(jsonData);
 };
 
+const getMarkdownContent = (markdownPath) => {
+  const fullPath = path.join(process.cwd(), markdownPath);
+  return readFileSync(fullPath, "utf-8");
+};
 const Page = ({ params }) => {
   const { slug } = params;
   const projects = getProjectsData();
   const project = projects.find((p) => p.slug === slug);
+  if (!project) {
+    return <div>Project not found</div>;
+  }
   const { title, tags, image, live_href, image_alt, markdown, markdown_path } =
     project;
+
+  let markdownContent = "";
+  if (markdown_path) {
+    try {
+      markdownContent = getMarkdownContent(markdown_path);
+    } catch (error) {
+      console.error("Error reading markdown file:", error);
+      markdownContent = "Error loading project description.";
+    }
+  }
 
   return (
     <div className="mx-auto px-6 pb-10 xl:container sm:px-12">
