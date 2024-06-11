@@ -31,7 +31,7 @@ const AboutPage = () => {
                 src={PhotoOfMe}
                 alt="Photo of me"
                 className="h-1/3 rounded-2xl object-contain md:w-full lg:h-1/3 lg:object-cover lg:object-top"
-                priority
+                placeholder="blur"
               />
             </div>
             <div className="relative mt-5 h-auto w-full lg:w-2/3">
