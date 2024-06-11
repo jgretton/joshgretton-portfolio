@@ -69,12 +69,12 @@ const Page = ({ params }) => {
         <div className="relative flex flex-col md:flex-row">
           <div className="top-32 mt-20 h-fit w-full md:sticky md:w-1/4">
             <p className="text-base font-medium">Project Name</p>
-            <p className="mb-5 ml-1 text-base font-light">{title}</p>
+            <p className="mb-5 ml-2 text-sm font-light">{title}</p>
 
             <p className="text-base font-medium">Technologies used</p>
-            <ul className="ml-1">
+            <ul className="ml-2">
               {tags.map((tag, index) => (
-                <li className="text-base font-light" key={index}>
+                <li className="text-sm font-light" key={index}>
                   {tag}
                 </li>
               ))}
