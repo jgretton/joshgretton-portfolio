@@ -33,8 +33,7 @@ const Page = ({ params }) => {
   if (!project) {
     return <div>Project not found</div>;
   }
-  const { title, tags, image, live_href, image_alt, markdown, markdown_path } =
-    project;
+  const { title, tags, image, live_href, image_alt, markdown_path } = project;
 
   let markdownContent = "";
   if (markdown_path) {
@@ -92,7 +91,7 @@ const Page = ({ params }) => {
           <div className="mt-20 grid flex-1 gap-10">
             {/* text-2xl font-light tracking-wide transition-colors sm:text-3xl */}
             <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-img:rounded-lg">
-              {markdown}
+              {markdownContent}
             </Markdown>
           </div>
         </div>
