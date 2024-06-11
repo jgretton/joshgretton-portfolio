@@ -22,28 +22,31 @@ const getProjectsData = (personal) => {
   return JSON.parse(jsonData);
 };
 
-const getMarkdownContent = (markdownPath) => {
-  const fullPath = path.join(process.cwd(), markdownPath);
-  return readFileSync(fullPath, "utf-8");
-};
+// const getProjectsData = (personal) => {
+//   let filePath;
+//   if (personal)
+//     filePath = path.join(process.cwd(), "data", "personalWork.json");
+//   else filePath = path.join(process.cwd(), "data", "projects.json");
+
+//   const jsonData = readFileSync(filePath, "utf-8");
+//   const projects = JSON.parse(jsonData);
+
+//   return projects.map((project) => {
+//     if (project.markdown_path) {
+//       const markdownFilePath = path.join(process.cwd(), project.markdown_path);
+//       const markdownContent = readFileSync(markdownFilePath, "utf-8");
+//       return { ...project, markdown: markdownContent };
+//     }
+//     return project;
+//   });
+// };
+
 const Page = ({ params }) => {
   const { slug } = params;
   const projects = getProjectsData();
   const project = projects.find((p) => p.slug === slug);
-  if (!project) {
-    return <div>Project not found</div>;
-  }
-  const { title, tags, image, live_href, image_alt, markdown_path } = project;
-
-  let markdownContent = "";
-  if (markdown_path) {
-    try {
-      markdownContent = getMarkdownContent(markdown_path);
-    } catch (error) {
-      console.error("Error reading markdown file:", error);
-      markdownContent = "Error loading project description.";
-    }
-  }
+  const { title, tags, image, live_href, image_alt, markdown, markdown_path } =
+    project;
 
   return (
     <div className="mx-auto px-6 pb-10 xl:container sm:px-12">
@@ -91,7 +94,7 @@ const Page = ({ params }) => {
           <div className="mt-20 grid flex-1 gap-10">
             {/* text-2xl font-light tracking-wide transition-colors sm:text-3xl */}
             <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-img:rounded-lg">
-              {markdownContent}
+              {markdown}
             </Markdown>
           </div>
         </div>
