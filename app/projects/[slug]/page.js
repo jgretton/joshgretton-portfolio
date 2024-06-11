@@ -45,15 +45,8 @@ const Page = ({ params }) => {
   const { slug } = params;
   const projects = getProjectsData();
   const project = projects.find((p) => p.slug === slug);
-  const {
-    title,
-    tags,
-    image,
-    live_href,
-    github_href,
-    markdown,
-    markdown_path,
-  } = project;
+  const { title, tags, image, live_href, image_alt, markdown, markdown_path } =
+    project;
 
   return (
     <div className="mx-auto px-6 pb-10 xl:container sm:px-12">
@@ -70,10 +63,10 @@ const Page = ({ params }) => {
         <div className="sm:h-134 group relative h-80 w-full cursor-pointer overflow-hidden">
           <Image
             src={image}
-            alt="guidecks header"
+            alt={image_alt}
             className="h-full w-full rounded-t-lg object-cover object-top"
             layout="fill"
-            priority
+            // placeholder="blur"
           />
         </div>
         <div className="relative flex flex-col md:flex-row">
@@ -100,7 +93,7 @@ const Page = ({ params }) => {
           </div>
           <div className="mt-20 grid flex-1 gap-10">
             {/* text-2xl font-light tracking-wide transition-colors sm:text-3xl */}
-            <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert">
+            <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-img:rounded-lg">
               {markdown}
             </Markdown>
           </div>
