@@ -12,8 +12,8 @@ const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <Popover className="relative flex items-center rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700">
-      <Popover.Button className="inline-flex items-center gap-1 ">
+    <Popover className="relative flex items-center rounded-md transition-all hover:bg-slate-200 dark:hover:bg-slate-700">
+      <Popover.Button className="inline-flex items-center gap-1 px-4 py-2">
         {theme === "dark" ? (
           <MoonIcon className="size-5" aria-hidden="true" />
         ) : (
@@ -31,10 +31,10 @@ const ThemeToggle = () => {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-1"
       >
-        <Popover.Panel className="absolute right-0 top-full z-10 mt-3 max-w-md overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-slate-600">
+        <Popover.Panel className="absolute right-0 top-full z-10 mt-3 w-full max-w-md overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-slate-600">
           {({ close }) => (
-            <div className="p-4">
-              <div className="group relative rounded-lg ">
+            <div className="grid w-full place-items-center py-4">
+              <div className="group relative rounded-lg">
                 <button
                   type="button"
                   className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 dark:bg-dark dark:group-hover:bg-slate-400"
