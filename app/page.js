@@ -18,15 +18,15 @@ export default function Home() {
       </Hero>
 
       {/* projects */}
-      <div className=" rounded-t-[3rem] bg-gray-100 dark:bg-[#15202b]">
-        <section className=" mt-96 opacity-100   transition-opacity duration-300  xl:container  sm:mt-[60dvh] sm:px-10 xl:mx-auto">
-          <div className="relative z-10 mt-[60dvh] w-full  px-2 py-20 ">
-            <h2 className=" text-xl font-light uppercase tracking-wide text-gray-500">
+      <div className="rounded-t-[3rem] bg-white dark:bg-[#15202b]">
+        <section className="mt-96 opacity-100 transition-opacity duration-300 xl:container sm:mt-[60dvh] sm:px-10 xl:mx-auto">
+          <div className="relative z-10 mt-[60dvh] w-full px-2 pb-20">
+            <h2 className="text-xl font-light uppercase tracking-wide text-gray-500">
               Personal Projects
             </h2>
             <div
               id="personalProjects"
-              className=" mt-10 grid w-full scroll-m-44 grid-cols-1 place-items-center gap-20 lg:grid-cols-2 lg:place-items-start"
+              className="mt-10 grid w-full scroll-m-44 grid-cols-1 place-items-center gap-20 lg:grid-cols-2 lg:place-items-start"
             >
               {personalWork.map((item, index) => {
                 const {
@@ -42,7 +42,7 @@ export default function Home() {
                   more_detail,
                 } = item;
                 return (
-                  <article key={index} className="relative h-full w-full ">
+                  <article key={index} className="relative h-full w-full">
                     <Card
                       title={title}
                       tags={tags}
@@ -67,7 +67,7 @@ export default function Home() {
             <div
               id="clientWork"
               // className="place-items- mx-auto  mt-16 grid w-full scroll-m-44 gap-20 lg:grid-cols-2"
-              className=" mt-10 grid w-full scroll-m-44 grid-cols-1 place-items-center gap-20 lg:grid-cols-2 lg:place-items-start"
+              className="mt-10 grid w-full scroll-m-44 grid-cols-1 place-items-center gap-20 lg:grid-cols-2 lg:place-items-start"
             >
               {clientWork.map((item, index) => {
                 const {

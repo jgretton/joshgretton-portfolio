@@ -33,8 +33,8 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
   const pathname = usePathname();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-20  bg-white/80 py-2 backdrop-blur-lg dark:bg-[#15202b]/80  ">
-      <div className=" mx-auto flex items-center justify-between p-4 xl:container sm:px-14">
+    <header className="fixed inset-x-0 top-0 z-20 bg-white/80 py-2 backdrop-blur-lg dark:bg-[#15202b]/80">
+      <div className="mx-auto flex items-center justify-between p-4 xl:container sm:px-12">
         <Link href="/" className="text-4xl hover:underline">
           JG <span className="text-blue-300"> / </span>
         </Link>
@@ -77,7 +77,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
         onClose={setIsMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-dark">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 py-6 dark:bg-dark sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             {/* <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
@@ -115,7 +115,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
                     href={link.link}
                     key={index}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900  dark:text-gray-300"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-300"
                   >
                     {link.title}
                   </Link>

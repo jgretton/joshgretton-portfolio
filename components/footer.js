@@ -10,10 +10,10 @@ const Footer = () => {
 
   return (
     <footer
-      className={`${pathname.startsWith("/projects") || pathname === "/about" ? "bg-white" : "bg-gray-100 "} dark:bg-dark  `}
+      className={`${pathname.startsWith("/projects") || pathname === "/about" ? "bg-white" : "bg-white"} dark:bg-dark`}
     >
       <div className="px-6 xl:container xl:mx-auto">
-        <div className=" flex flex-row justify-between border-t border-gray-400 py-5 sm:mt-0 sm:px-0 ">
+        <div className="flex flex-row justify-between border-t border-gray-400 py-5 sm:mt-0 sm:px-0">
           <p className="self-center text-sm tracking-wide text-gray-700 dark:text-white/80">
             &copy; Josh Gretton {currentYear}
           </p>

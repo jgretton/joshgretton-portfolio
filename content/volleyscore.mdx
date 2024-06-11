@@ -1,0 +1,66 @@
+**Volleyscore** is a simple scoreboard app designed to track volleyball matches. I developed it to give referees, scorekeepers, and players a user-friendly scoring solution for both official and recreational games.
+
+As a volleyball coach, I run sessions that have practice matches and tournaments. During this, the team that is currently off the court is responsible for refereeing and scoring the current match. Usually, a single person referees whilst another keeps score (often using their fingers). As you can guess, this often leads to errors and confusion when they become distracted and lose count. I designed and developed Volleyscore as a way to address these issues by providing a user-friendly scoring solution.
+
+## Design Process
+
+Designing the user interface of the app provided many challenges. After looking at other scoreboard solutions online, I quickly noted the flaws in their designs and what they lacked. This helped me to decide what should be present in Volleyscore to make it effective:
+
+- **Simple**: only the relevant information to the user needed to be on the screen at all times
+- **User-friendly**: it needed to be intuitive; anyone looking at the screen needed to understand how it works.
+- **Aesthetic**: a smart and elegant design
+
+![Original Design](/images/projects/volleyscore/Volleyscore-v1.png)
+_My original design._
+
+I was very happy with the first iteration of the Volleyscore design. It provided a great base for the app and achieved the design outline above. However, there was definitely room for improvement to make it more aesthetically pleasing and also to provide an easier understanding of the match at a quick glance. The few areas of note were the size of the current score, the buttons at the top, and the history of the match.
+
+![Design v2](/images/projects/volleyscore/Volleyscore-v2.png)
+_Design v2_
+
+As you can see above, the text size of the current score was increased. A nice solution I found was to set a minimum value of the text and the maximum was based on the screen's viewport width. `text-[min(25vw,20rem)]`. Now when the site is viewed on a larger screen, the text size will stay relative. Deciding how to alter the design of the history section was tough. It needed to stay simple but allow the user to have an understanding of what has happened with the match/current set. The design of the whole site felt as though it was already split vertically and all the relevant information for each team is located on their side. With this in mind, I decided that displaying the match history vertically and splitting it made the most sense. Along with this, I removed the background of each history element as visually this was a distraction due to it leading the user’s focus away from the score and generally cluttering the screen (especially when viewed on a mobile browser). Finally, I tidied up the buttons at the top of the screen; now they take up less space and make for easier overall readability.
+
+## Development Process
+
+As this web app is something I needed, I felt as though I had a good understanding of what features a user might want. Overcomplicating the app was a concern so I narrowed the features down to accommodate two main use cases; a scoreboard with default indoor volleyball scoring rules and a scoreboard where the user can customize the rules. The custom rules included: allowing timed matches, changing team names, side, and number of points per set.
+
+Due to these use cases, it required me to carefully plan the logic of the app. I focused on making a robust data management system allowing for scalability along with future-proofing, and allowing for easier state management within the app. It did provide some challenges but I was able to learn a lot about data manipulation in JavaScript. A notable challenge was implementing the action history component, both in how to structure it and how it affects the match data when the most recent action is undone.
+The structure I decided on meant that I was able to easily add other action types in the future (substitutions, sanctions, and more).
+
+```javascript
+actions: [
+  {
+    type: "score",
+    team: homeTeam,
+    overallScore: { homeTeam: 2 },
+    timestamp: new Date().toISOString(),
+  },
+  {
+    type: "timeout",
+    team: homeTeam,
+    overallScore: { homeTeam: 1, awayTeam: 4 },
+    timestamp: new Date().toISOString(),
+  },
+];
+```
+
+However, when implementing the undo last action feature, I had to consider the knock-on effect within the rest of the match data. The type of previous action determined if I needed to update the score, timeouts taken, or even the serving indicator. What started out as a challenging feature proved to be a lot simpler than previously thought. If a 'score' action was removed, I could reduce the score by 1 for the team set within the object key. The same technique is used for removing the timeouts used by a team. To update the serving indicator, I would filter through the actions array after removing the most recent action to find the last 'score' action. This allowed me to determine which team should have the serve. This experience demonstrated the benefits of having a simple and effective data structure.
+
+In regards to state management, [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) was my solution of choice. The reasoning behind it was solely based on its simple and easy-to-use hook implementation. It also allowed me to persist the data in local storage, which was a nice feature for the user in case of any accidental reload.
+
+## Features
+
+- **Timeout Timer:** Automatically starts a 30-second timer when a team calls a timeout, ensuring adherence to official rules.
+- **Action History:** Provides a comprehensive log of all actions taken during the match, allowing users to track point runs and undo actions if necessary.
+- **Serving Indicator:** Accurately displays which team is currently serving, even when points are undone, to maintain correct serve tracking.
+- **Timed Games:** Enables the option to set specific time limits for matches.
+- **Custom Rules:** Allows users to set their own team names, adjust the number of points per set.
+- **Full Screen Mode:** Enables an immersive viewing experience by maximizing the display to fill the entire screen.
+- **Light/Dark Mode:** Offers adjustable lighting options to accommodate various environments, such as indoor sports halls or outdoor settings.
+
+## Future Features
+
+- **Sound:** Incorporate audio elements to enhance user experience, and provide auditory feedback.
+- **Player Lineups:** Displaying which player is next to serve, their current rotation, and facilitating substitutions.
+- **Comprehensive Match Tracking:** Including match details like location and times, tracking infringements, and other official scoresheet elements.
+- **Live Match Data Streaming:** Allowing users to share links for live match updates and providing referees with real-time score and player rotation information.
