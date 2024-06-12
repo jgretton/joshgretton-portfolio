@@ -21,7 +21,7 @@ export default function Home() {
       <div className="rounded-t-[3rem] bg-white dark:bg-[#15202b]">
         <section className="mt-96 opacity-100 transition-opacity duration-300 xl:container sm:mt-[60dvh] sm:px-10 xl:mx-auto">
           <div className="relative z-10 mt-[60dvh] w-full px-2 pb-20">
-            <h2 className="text-xl font-light uppercase tracking-wide text-gray-500">
+            <h2 className="font-light uppercase tracking-wide text-gray-500 sm:text-xl">
               Personal Projects
             </h2>
             <div
