@@ -93,7 +93,8 @@ const Page = ({ params }) => {
           </div>
           <div className="mt-20 grid flex-1 gap-10">
             {/* text-2xl font-light tracking-wide transition-colors sm:text-3xl */}
-            <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-img:rounded-lg">
+            <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-headings:font-light prose-h2:text-2xl prose-strong:font-normal prose-img:rounded-lg">
+              {/* <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-img:rounded-lg"> */}
               {markdown}
             </Markdown>
           </div>
