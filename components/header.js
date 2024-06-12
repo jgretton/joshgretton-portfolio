@@ -213,7 +213,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
                 </Disclosure>
               </div>
               <Link
-                href={"/personalProjects"}
+                href={"/#personalProjects"}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="-mx-3 block rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700"
               >
