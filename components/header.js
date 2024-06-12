@@ -29,7 +29,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 const Header = ({ setIsDarkMode, isDarkMode }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const [copiedText, setCopiedText] = useState(false);
 
