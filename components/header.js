@@ -62,7 +62,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
               }
             >
               Contact Me
-              <ChevronDownIcon className="size-4 group-data-[open]:rotate-180" />
+              <ChevronDownIcon className="size-4 transition-transform group-data-[open]:rotate-180" />
             </PopoverButton>
             <Transition
               enter="transition ease-out duration-200"
@@ -174,7 +174,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
                 <Disclosure as="div" className="-mx-3" defaultOpen={false}>
                   <DisclosureButton className="group flex min-w-full items-center justify-between rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700">
                     Contact
-                    <ChevronDownIcon className="size-5 fill-white/60 group-data-[open]:rotate-180 group-data-[hover]:fill-white/50" />
+                    <ChevronDownIcon className="size-5 transition-transform group-data-[open]:rotate-180" />
                   </DisclosureButton>
                   <DisclosurePanel className="mx-3 mt-2 origin-top text-sm/5 text-black/50 transition">
                     <Link
@@ -200,10 +200,10 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
                       <p className="font-semibold text-gray-950 dark:text-white">
                         Email
                       </p>
-                      <p className="flex items-center gap-5 text-gray-950/50 dark:text-white/50">
+                      <p className="flex items-end gap-5 text-gray-950/50 dark:text-white/50">
                         Copy my email address
                         {copiedText ? (
-                          <ClipboardDocumentCheckIcon className="size-6 text-green-400 dark:text-green-300" />
+                          <ClipboardDocumentCheckIcon className="size-5 text-green-400 dark:text-green-300" />
                         ) : (
                           <ClipboardDocumentIcon className="size-6" />
                         )}
