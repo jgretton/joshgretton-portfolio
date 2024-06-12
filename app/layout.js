@@ -8,7 +8,6 @@ const inter = Lato({
   subsets: ["latin"],
   weight: ["100", "300", "400", "700"],
 });
-// const cardo = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Josh Gretton || Portfolio",
@@ -25,7 +24,6 @@ export default function RootLayout({ children }) {
           <div>
             <Header />
             <main>{children}</main>
-            {/* <TopOfPage /> */}
             <Footer />
           </div>
         </ThemeProvider>
