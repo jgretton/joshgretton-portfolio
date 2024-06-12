@@ -19,7 +19,7 @@ const Card = ({
   return (
     // <div className="flex h-full w-full flex-col justify-between gap-5">
     <div className="grid h-full w-full grid-flow-row gap-5">
-      <div className="flex flex-col gap-2 pl-2">
+      <div className="flex flex-col gap-2">
         <h3 className="text-2xl font-light tracking-wide transition-colors sm:text-3xl">
           {title}
         </h3>
