@@ -8,6 +8,7 @@ import Link from "next/link";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import Hero from "@/components/hero";
 import Markdown from "react-markdown";
+import TopOfPage from "@/components/topOfPage";
 
 const getProjectsData = (personal) => {
   let filePath;
@@ -66,6 +67,7 @@ const Page = ({ params }) => {
               </Markdown>
             </div>
           </div>
+          <TopOfPage />
         </section>
       </div>
     </>
