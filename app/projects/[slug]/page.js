@@ -29,7 +29,7 @@ const Page = ({ params }) => {
   return (
     <>
       <Hero back>{title}</Hero>
-      <div className="bg-white pb-10">
+      <div className="bg-white pb-10 dark:bg-dark">
         <section className="relative mx-auto mt-[60dvh] h-full w-full bg-white px-4 xl:container dark:bg-[#15202b] sm:px-12">
           <div className="sm:h-134 group relative h-80 w-full cursor-pointer overflow-hidden">
             <Image
