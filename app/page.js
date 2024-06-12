@@ -1,15 +1,10 @@
 import Hero from "@/components/hero";
-import WorkItem from "@/components/workCard";
-// import { liveProjects } from "@/projects.json/liveProjects";
 import { clientWork, personalWork } from "@/data/projects";
-import Image from "next/image";
 import Card from "@/components/card";
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-
       <Hero>
         Hi! - My name is <span className="text-blue-300">Josh</span>. <br />
         I&apos;m a <span className="text-blue-300">Developer </span> based
@@ -66,7 +61,6 @@ export default function Home() {
             </h2>
             <div
               id="clientWork"
-              // className="place-items- mx-auto  mt-16 grid w-full scroll-m-44 gap-20 lg:grid-cols-2"
               className="mt-10 grid w-full scroll-m-44 grid-cols-1 place-items-center gap-20 lg:grid-cols-2 lg:place-items-start"
             >
               {clientWork.map((item, index) => {

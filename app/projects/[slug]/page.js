@@ -4,12 +4,8 @@ import React from "react";
 import { readFileSync } from "fs";
 import path from "path";
 
-import Blubutton from "@/public/Blubuttonlaptop.png";
 import Link from "next/link";
-import {
-  ArrowLeftStartOnRectangleIcon,
-  ArrowTopRightOnSquareIcon,
-} from "@heroicons/react/24/outline";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import Hero from "@/components/hero";
 import Markdown from "react-markdown";
 
@@ -21,25 +17,6 @@ const getProjectsData = (personal) => {
   const jsonData = readFileSync(filePath, "utf-8");
   return JSON.parse(jsonData);
 };
-
-// const getProjectsData = (personal) => {
-//   let filePath;
-//   if (personal)
-//     filePath = path.join(process.cwd(), "data", "personalWork.json");
-//   else filePath = path.join(process.cwd(), "data", "projects.json");
-
-//   const jsonData = readFileSync(filePath, "utf-8");
-//   const projects = JSON.parse(jsonData);
-
-//   return projects.map((project) => {
-//     if (project.markdown_path) {
-//       const markdownFilePath = path.join(process.cwd(), project.markdown_path);
-//       const markdownContent = readFileSync(markdownFilePath, "utf-8");
-//       return { ...project, markdown: markdownContent };
-//     }
-//     return project;
-//   });
-// };
 
 const Page = ({ params }) => {
   const { slug } = params;
@@ -59,7 +36,6 @@ const Page = ({ params }) => {
               alt={image_alt}
               className="h-full w-full rounded-t-lg object-cover object-top"
               layout="fill"
-              // placeholder="blur"
             />
           </div>
           <div className="relative flex flex-col md:flex-row">
@@ -85,9 +61,7 @@ const Page = ({ params }) => {
               </Link>
             </div>
             <div className="mt-20 grid flex-1 gap-10">
-              {/* text-2xl font-light tracking-wide transition-colors sm:text-3xl */}
               <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-headings:font-light prose-h2:text-2xl prose-strong:font-normal prose-img:rounded-lg">
-                {/* <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-img:rounded-lg"> */}
                 {markdown}
               </Markdown>
             </div>

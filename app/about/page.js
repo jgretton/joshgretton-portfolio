@@ -1,20 +1,11 @@
-"use client";
-// import TopOfPage from "../components/topOfPage";
-import { useState } from "react";
-
 import Image from "next/image";
 import PhotoOfMe from "@/public/Images/about/photo-of-me.png";
-import { languages } from "@/data/languages";
-import BluButton from "@/public/Blubutton.png";
 import Hero from "@/components/hero";
 import Markdown from "react-markdown";
-
 import { aboutMeText } from "@/data/about";
 
-// markup
 const AboutPage = () => {
   return (
-    // <div className="relative h-full w-full px-12">
     <>
       <Hero>
         Hi! - My name is <span className="text-blue-300">Josh</span>. <br />
@@ -35,11 +26,11 @@ const AboutPage = () => {
                   placeholder="blur"
                 />
               </div>
-              <div className="relative mt-5 h-auto w-full lg:w-2/3">
+              <article className="relative mt-5 h-auto w-full lg:w-2/3">
                 <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-headings:font-light prose-h2:text-2xl prose-strong:font-normal">
                   {aboutMeText.markdown}
                 </Markdown>
-              </div>
+              </article>
             </div>
           </div>
         </section>
