@@ -6,9 +6,9 @@ const TopOfPage = () => {
 
   useEffect(() => {
     const checkScrollTop = () => {
-      if (!showScroll && window.pageYOffset > 300) {
+      if (!showScroll && window.scrollY > 300) {
         setShowScroll(true);
-      } else if (showScroll && window.pageYOffset <= 300) {
+      } else if (showScroll && window.scrollY <= 300) {
         setShowScroll(false);
       }
     };
@@ -18,18 +18,18 @@ const TopOfPage = () => {
     <div
       className={`${
         showScroll ? "opacity-100" : "hidden opacity-0"
-      } duration-400 sticky bottom-20 right-3 z-40 text-right transition-opacity`}
+      } duration-400 sticky bottom-10 right-3 z-40 text-right transition-opacity`}
     >
       <button
-        className={`h-8 w-8 rounded bg-blue-300`}
+        className={`h-8 w-8 rounded bg-blue-900/40 text-gray-950`}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-8 w-8 text-white"
           viewBox="0 0 24 24"
-          fill="none"
           stroke="currentColor"
+          fill="none"
         >
           <path
             strokeLinecap="round"
