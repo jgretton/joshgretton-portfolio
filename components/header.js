@@ -4,14 +4,17 @@ import Link from "next/link";
 import React, { useState, Fragment } from "react";
 import {
   Dialog,
+  DialogPanel,
   Popover,
   PopoverButton,
   PopoverPanel,
   Transition,
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
 } from "@headlessui/react";
 import {
   ArrowTopRightOnSquareIcon,
-  ArrowsPointingOutIcon,
   Bars3Icon,
   ChevronDownIcon,
   ClipboardDocumentCheckIcon,
@@ -25,26 +28,8 @@ import copy from "copy-to-clipboard";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-const links = [
-  {
-    title: "About",
-    link: "/about",
-  },
-  {
-    title: "Contact",
-    link: "/",
-  },
-  {
-    title: "Client Work",
-    link: "/#clientWork",
-  },
-  {
-    title: "Personal Projects",
-    link: "/#personalProjects",
-  },
-];
 const Header = ({ setIsDarkMode, isDarkMode }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(true);
   const pathname = usePathname();
   const [copiedText, setCopiedText] = useState(false);
 
@@ -125,12 +110,6 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
               </PopoverPanel>
             </Transition>
           </Popover>
-
-          {/* <button
-            className={`${pathname === "/contact" && "underline"} rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700`}
-          >
-            Contact
-          </button> */}
           <ThemeToggle setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />
         </nav>
         <div className="flex sm:hidden">
@@ -152,21 +131,13 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
       </div>
 
       <Dialog
-        className="lg:hidden"
+        className="sm:hidden"
         open={isMobileMenuOpen}
         onClose={setIsMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 py-6 dark:bg-dark sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 py-6 dark:bg-dark sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            {/* <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              />
-            </a> */}
             <Link
               href="/"
               className="text-4xl"
@@ -188,22 +159,73 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
             </button>
           </div>
           <div className="mt-6 flow-root">
-            <div className="-my-6">
-              <div className="space-y-2 border-b border-gray-100 py-6 dark:border-gray-700">
-                {links.map((link, index) => (
-                  <Link
-                    href={link.link}
-                    key={index}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-300"
-                  >
-                    {link.title}
-                  </Link>
-                ))}
+            <div className="space-y-2 py-6">
+              <Link
+                href={"/about"}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="-mx-3 block rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700"
+              >
+                About
+              </Link>
+              <div className="min-w-full">
+                <Disclosure as="div" className="-mx-3" defaultOpen={false}>
+                  <DisclosureButton className="group flex min-w-full items-center justify-between rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700">
+                    Contact
+                    <ChevronDownIcon className="size-5 fill-white/60 group-data-[open]:rotate-180 group-data-[hover]:fill-white/50" />
+                  </DisclosureButton>
+                  <DisclosurePanel className="mx-3 mt-2 origin-top text-sm/5 text-black/50 transition">
+                    <Link
+                      className="group/github block rounded-lg px-3 py-2 transition hover:bg-black/5"
+                      href="https://github.com/jgretton"
+                      target="_blank"
+                    >
+                      <p className="font-semibold text-gray-950 dark:text-white">
+                        Github
+                      </p>
+                      <p className="flex gap-5 text-gray-950/50 dark:text-white/50">
+                        Go to my page{" "}
+                        <ArrowTopRightOnSquareIcon className="size-5 transition-transform group-hover/github:-translate-y-0.5 group-hover/github:translate-x-0.5" />
+                      </p>
+                    </Link>
+                    <button
+                      className="block w-full rounded-lg px-3 py-2 text-start transition hover:bg-black/5"
+                      type="button"
+                      onClick={() => {
+                        copyToClipboard();
+                      }}
+                    >
+                      <p className="font-semibold text-gray-950 dark:text-white">
+                        Email
+                      </p>
+                      <p className="flex items-center gap-5 text-gray-950/50 dark:text-white/50">
+                        Copy my email address
+                        {copiedText ? (
+                          <ClipboardDocumentCheckIcon className="size-6 text-green-400 dark:text-green-300" />
+                        ) : (
+                          <ClipboardDocumentIcon className="size-6" />
+                        )}
+                      </p>
+                    </button>
+                  </DisclosurePanel>
+                </Disclosure>
               </div>
+              <Link
+                href={"/personalProjects"}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="-mx-3 block rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700"
+              >
+                Personal Projects
+              </Link>
+              <Link
+                href={"/#clientwork"}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="-mx-3 block rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700"
+              >
+                Client Work
+              </Link>
             </div>
           </div>
-        </Dialog.Panel>
+        </DialogPanel>
       </Dialog>
     </header>
   );
