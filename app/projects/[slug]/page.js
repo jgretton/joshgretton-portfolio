@@ -39,7 +39,7 @@ const Page = ({ params }) => {
               layout="fill"
             />
           </div>
-          <div className="relative flex flex-col md:flex-row">
+          <div className="relative flex flex-col gap-5 md:flex-row">
             <div className="top-32 mt-20 h-fit w-full md:sticky md:w-1/4">
               <p className="text-base font-medium">Project Name</p>
               <p className="mb-5 ml-2 text-sm font-light">{title}</p>
