@@ -2,10 +2,25 @@
 
 import Link from "next/link";
 import React, { useState, Fragment } from "react";
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Dialog,
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+  Transition,
+} from "@headlessui/react";
+import {
+  ArrowTopRightOnSquareIcon,
+  ArrowsPointingOutIcon,
+  Bars3Icon,
+  ChevronDownIcon,
+  ClipboardDocumentCheckIcon,
+  ClipboardDocumentIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./themeToggle";
+import copy from "copy-to-clipboard";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -31,6 +46,13 @@ const links = [
 const Header = ({ setIsDarkMode, isDarkMode }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [copiedText, setCopiedText] = useState(false);
+
+  const copyToClipboard = () => {
+    let copyText = "jb.gretton@googlemail.com";
+    copy(copyText);
+    setCopiedText(true);
+  };
 
   return (
     <header className="fixed inset-x-0 top-0 z-20 bg-white/80 py-2 backdrop-blur-lg dark:bg-[#15202b]/80">
@@ -45,12 +67,70 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
           >
             About
           </Link>
-          <Link
-            href="/contact"
+          <Popover className={"group"}>
+            <PopoverButton
+              className={
+                "flex items-center gap-3 rounded-md px-4 py-2 transition-all hover:bg-slate-200 data-[active]:bg-slate-200 dark:hover:bg-slate-700 dark:data-[active]:bg-slate-700 dark:data-[active]:text-white"
+              }
+            >
+              Contact Me
+              <ChevronDownIcon className="size-4 group-data-[open]:rotate-180" />
+            </PopoverButton>
+            <Transition
+              enter="transition ease-out duration-200"
+              enterFrom="opacity-0 translate-y-1"
+              enterTo="opacity-100 translate-y-0"
+              leave="transition ease-in duration-150"
+              leaveFrom="opacity-100 translate-y-0"
+              leaveTo="opacity-0 translate-y-1"
+            >
+              <PopoverPanel
+                anchor="bottom"
+                className="z-50 flex flex-col divide-y divide-white/5 rounded-xl bg-white text-sm/6 shadow-lg ring-1 ring-gray-900/5 [--anchor-gap:0.5rem] dark:bg-slate-700"
+              >
+                <div className="p-3">
+                  <Link
+                    className="group/github block rounded-lg px-3 py-2 transition hover:bg-black/5"
+                    href="https://github.com/jgretton"
+                    target="_blank"
+                  >
+                    <p className="font-semibold text-gray-950 dark:text-white">
+                      Github
+                    </p>
+                    <p className="flex justify-between gap-2 text-gray-950/50 dark:text-white/50">
+                      Go to my page{" "}
+                      <ArrowTopRightOnSquareIcon className="size-5 transition-transform group-hover/github:-translate-y-0.5 group-hover/github:translate-x-0.5" />
+                    </p>
+                  </Link>
+                  <button
+                    className="block w-full rounded-lg px-3 py-2 text-start transition hover:bg-black/5"
+                    type="button"
+                    onClick={() => {
+                      copyToClipboard();
+                    }}
+                  >
+                    <p className="font-semibold text-gray-950 dark:text-white">
+                      Email
+                    </p>
+                    <p className="flex items-center gap-5 text-gray-950/50 dark:text-white/50">
+                      Copy my email address
+                      {copiedText ? (
+                        <ClipboardDocumentCheckIcon className="size-6 text-green-400 dark:text-green-300" />
+                      ) : (
+                        <ClipboardDocumentIcon className="size-6" />
+                      )}
+                    </p>
+                  </button>
+                </div>
+              </PopoverPanel>
+            </Transition>
+          </Popover>
+
+          {/* <button
             className={`${pathname === "/contact" && "underline"} rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700`}
           >
             Contact
-          </Link>
+          </button> */}
           <ThemeToggle setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />
         </nav>
         <div className="flex sm:hidden">
