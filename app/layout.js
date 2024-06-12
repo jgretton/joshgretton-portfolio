@@ -22,10 +22,12 @@ export default function RootLayout({ children }) {
         className={`${inter.className} relative mx-auto bg-white text-gray-900 dark:bg-[#15202b] dark:text-gray-100`}
       >
         <ThemeProvider attribute="class">
-          <Header />
-          <main>{children}</main>
-          {/* <TopOfPage /> */}
-          <Footer />
+          <div>
+            <Header />
+            <main>{children}</main>
+            {/* <TopOfPage /> */}
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
