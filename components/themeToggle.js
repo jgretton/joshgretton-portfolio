@@ -5,22 +5,27 @@ import {
   SunIcon,
 } from "@heroicons/react/24/outline";
 import React, { Fragment } from "react";
-import { Popover, Transition } from "@headlessui/react";
+import {
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+  Transition,
+} from "@headlessui/react";
 import { useTheme } from "next-themes";
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <Popover className="relative flex items-center rounded-md transition-all hover:bg-slate-200 dark:hover:bg-slate-700">
-      <Popover.Button className="inline-flex items-center gap-1 px-4 py-2">
+    <Popover className="relative flex items-center">
+      <PopoverButton className="inline-flex items-center gap-1 rounded-md px-4 py-2 transition-all hover:bg-slate-200 data-[active]:bg-slate-200 dark:hover:bg-slate-700 dark:data-[active]:bg-slate-700">
         {theme === "dark" ? (
           <MoonIcon className="size-5" aria-hidden="true" />
         ) : (
           <SunIcon className="size-5" aria-hidden="true" />
         )}
         <ChevronDownIcon className="size-3" aria-hidden="true" />
-      </Popover.Button>
+      </PopoverButton>
 
       <Transition
         as={Fragment}
@@ -31,7 +36,7 @@ const ThemeToggle = () => {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-1"
       >
-        <Popover.Panel className="absolute right-0 top-full z-10 mt-3 w-full max-w-md overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-slate-600">
+        <PopoverPanel className="absolute right-0 top-full z-10 mt-3 w-full max-w-md overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-slate-700">
           {({ close }) => (
             <div className="grid w-full place-items-center py-4">
               <div className="group relative rounded-lg">
@@ -65,7 +70,7 @@ const ThemeToggle = () => {
               </div>
             </div>
           )}
-        </Popover.Panel>
+        </PopoverPanel>
       </Transition>
     </Popover>
   );
