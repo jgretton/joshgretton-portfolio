@@ -52,7 +52,6 @@ const Card = ({
           alt={image_alt}
           className="hidden h-full w-full rounded-lg object-cover object-top md:block"
           fill
-          priority
           placeholder="blur"
         />
         <Image
@@ -60,7 +59,6 @@ const Card = ({
           alt={image_alt}
           className="h-full w-full rounded-lg object-cover object-top md:hidden"
           fill
-          priority
           placeholder="blur"
         />
       </div>
