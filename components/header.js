@@ -140,10 +140,10 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
       >
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 py-6 dark:bg-dark sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
+          <div className="my-0.5 flex items-center justify-between">
             <Link
               href="/"
-              className="text-4xl"
+              className="text-2xl sm:text-4xl"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               JG <span className="text-blue-300"> / </span>
