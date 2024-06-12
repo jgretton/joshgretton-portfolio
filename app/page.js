@@ -61,7 +61,7 @@ export default function Home() {
               })}
             </div>
 
-            <h2 className="mt-20 text-xl font-light uppercase tracking-wide text-gray-500">
+            <h2 className="mt-20 font-light uppercase tracking-wide text-gray-500 sm:text-xl">
               Client Work
             </h2>
             <div
