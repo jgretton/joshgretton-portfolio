@@ -14,7 +14,7 @@ const AboutPage = () => {
         in the UK.
       </Hero>
 
-      <div className="bg-white pb-10">
+      <div className="bg-white pb-10 dark:bg-dark">
         <section className="relative mx-auto mt-[60dvh] h-full w-full bg-white px-4 xl:container dark:bg-[#15202b] sm:px-12">
           <div className="z-10 mb-32 w-full bg-white dark:bg-[#15202b]">
             <div className="flex flex-col gap-14 md:flex-row">
