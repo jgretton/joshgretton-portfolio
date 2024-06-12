@@ -42,7 +42,10 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
   return (
     <header className="fixed inset-x-0 top-0 z-20 bg-white/80 py-2 backdrop-blur-lg dark:bg-[#15202b]/80">
       <div className="mx-auto flex items-center justify-between p-4 xl:container sm:px-12">
-        <Link href="/" className="text-4xl hover:underline">
+        <Link
+          href="/"
+          className="text-2xl decoration-2 hover:underline sm:text-4xl"
+        >
           JG <span className="text-blue-300"> / </span>
         </Link>
         <nav className="hidden sm:flex sm:gap-10">
