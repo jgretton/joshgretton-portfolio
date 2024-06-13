@@ -51,14 +51,12 @@ const Card = ({
           src={image}
           alt={image_alt}
           className="hidden h-full w-full rounded-lg object-cover object-top md:block"
-          fill
           placeholder="blur"
         />
         <Image
           src={mobileImage}
           alt={image_alt}
           className="h-full w-full rounded-lg object-cover object-top md:hidden"
-          fill
           placeholder="blur"
         />
       </div>
