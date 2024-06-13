@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "next-themes";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Lato({
   subsets: ["latin"],
@@ -10,7 +11,7 @@ const inter = Lato({
 });
 
 export const metadata = {
-  title: "Josh Gretton || Portfolio",
+  title: "Josh Gretton",
   description: "Portfolio site for Josh Gretton.",
 };
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
             <Footer />
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
