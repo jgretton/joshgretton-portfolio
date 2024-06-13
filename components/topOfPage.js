@@ -16,6 +16,7 @@ const TopOfPage = () => {
   }, [showScroll]);
   return (
     <div
+      aria-hidden="true"
       className={`${
         showScroll ? "opacity-100" : "hidden opacity-0"
       } duration-400 sticky bottom-10 right-3 z-40 text-right transition-opacity`}
