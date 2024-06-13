@@ -30,17 +30,18 @@ const Page = ({ params }) => {
     <>
       <Hero back>{title}</Hero>
       <div className="bg-white pb-10 dark:bg-dark">
-        <section className="relative mx-auto mt-[60dvh] h-full w-full bg-white px-4 xl:container dark:bg-[#15202b] sm:px-12">
+        <section className="relative mx-auto h-full w-full bg-white px-4 xl:container dark:bg-[#15202b] sm:px-12">
           <div className="sm:h-134 group relative h-80 w-full cursor-pointer overflow-hidden">
             <Image
               src={image}
               alt={image_alt}
               className="h-full w-full rounded-t-lg object-cover object-top"
-              layout="fill"
+              priority
+              fill
             />
           </div>
           <div className="relative flex flex-col gap-5 md:flex-row">
-            <div className="top-32 mt-20 h-fit w-full md:sticky md:w-1/4">
+            <aside className="top-32 mt-20 h-fit w-full md:sticky md:w-1/4">
               <p className="text-base font-medium">Project Name</p>
               <p className="mb-5 ml-2 text-sm font-light">{title}</p>
 
@@ -60,12 +61,12 @@ const Page = ({ params }) => {
                 See the live project
                 <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
-            </div>
-            <div className="mt-20 grid flex-1 gap-10">
+            </aside>
+            <article className="mt-20 grid flex-1 gap-10">
               <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-headings:font-light prose-h2:text-2xl prose-strong:font-normal prose-img:rounded-lg">
                 {markdown}
               </Markdown>
-            </div>
+            </article>
           </div>
           <TopOfPage />
         </section>
