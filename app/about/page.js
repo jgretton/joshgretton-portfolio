@@ -4,6 +4,14 @@ import Hero from "@/components/hero";
 import Markdown from "react-markdown";
 import { aboutMeText } from "@/data/about";
 
+export const metadata = {
+  title: "About || Josh Gretton",
+  description:
+    "Portfolio of a Uk based, self-taught front-end developer specialising in Nextjs and TailwindCss.",
+  keywords:
+    "Josh Gretton, front end web developer, web development portfolio, HTML, CSS, JavaScript, React, responsive design, UK developer, NextJs, tailwindcss, self-taught developer",
+};
+
 const AboutPage = () => {
   return (
     <>

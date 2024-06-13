@@ -10,11 +10,6 @@ const inter = Lato({
   weight: ["100", "300", "400", "700"],
 });
 
-export const metadata = {
-  title: "Josh Gretton",
-  description: "Portfolio site for Josh Gretton.",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>

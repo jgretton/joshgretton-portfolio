@@ -2,6 +2,14 @@ import Hero from "@/components/hero";
 import { clientWork, personalWork } from "@/data/projects";
 import Card from "@/components/card";
 
+export const metadata = {
+  title: "Josh Gretton",
+  description:
+    "Portfolio of a Uk based, self-taught front-end developer specialising in Nextjs and TailwindCss.",
+  keywords:
+    "Josh Gretton, front end web developer, web development portfolio, HTML, CSS, JavaScript, React, responsive design, UK developer, NextJs, tailwindcss, self-taught developer",
+};
+
 export default function Home() {
   return (
     <>

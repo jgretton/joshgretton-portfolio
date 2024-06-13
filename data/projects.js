@@ -34,7 +34,7 @@ export const clientWork = [
 export const personalWork = [
   {
     title: "Volley Score",
-    slug: "volleyscore",
+    slug: "Volleyscore",
     small_description:
       "A simple solution to scoring your friendly volleyball games.",
     tags: ["NextJS", "TailwindCSS"],

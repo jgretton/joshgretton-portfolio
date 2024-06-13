@@ -9,6 +9,28 @@ import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import Hero from "@/components/hero";
 import Markdown from "react-markdown";
 import TopOfPage from "@/components/topOfPage";
+import { notFound } from "next/navigation";
+
+// export const metadata = {
+//   title: "Volleyscore || Josh Gretton",
+//   description:
+//     "Portfolio of a Uk based, self-taught front-end developer specialising in Nextjs and TailwindCss.",
+//   keywords:
+//     "Josh Gretton, front end web developer, web development portfolio, HTML, CSS, JavaScript, React, responsive design, UK developer, NextJs, tailwindcss, self-taught developer",
+// };
+
+export async function generateMetadata({ params, searchParams }, parent) {
+  // read route params
+  const slug = params.slug;
+
+  return {
+    title: `${slug} || Josh Gretton`,
+    description:
+      "Volleyscore is a simple scoreboard app designed to track volleyball matches. I developed it to give referees, scorekeepers, and players a user-friendly scoring solution for both official and recreational games.",
+    keywords:
+      "Josh Gretton, front end web developer, web development portfolio, HTML, CSS, JavaScript, React, responsive design, UK developer, NextJs, tailwindcss, self-taught developer",
+  };
+}
 
 const getProjectsData = (personal) => {
   let filePath;
@@ -23,6 +45,9 @@ const Page = ({ params }) => {
   const { slug } = params;
   const projects = getProjectsData();
   const project = projects.find((p) => p.slug === slug);
+  if (!project) {
+    return notFound();
+  }
   const { title, tags, image, live_href, image_alt, markdown, markdown_path } =
     project;
 
