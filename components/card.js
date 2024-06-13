@@ -26,7 +26,7 @@ const Card = ({
         <p className="text-sm font-light tracking-wider dark:text-gray-300">
           {small_description}
         </p>
-        <div className="mt-3 grid gap-2">
+        <div className="mt-3 grid place-items-start gap-2">
           <Link
             href={live_href}
             target="_blank"
