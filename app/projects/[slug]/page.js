@@ -40,7 +40,7 @@ const Page = ({ params }) => {
               fill
             />
           </div>
-          <div className="relative flex flex-col gap-5 md:flex-row">
+          <div className="relative flex flex-col gap-x-5 md:flex-row">
             <aside className="top-32 mt-20 h-fit w-full md:sticky md:w-1/4">
               <p className="text-base font-medium">Project Name</p>
               <p className="mb-5 ml-2 text-sm font-light">{title}</p>
@@ -62,7 +62,7 @@ const Page = ({ params }) => {
                 <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
             </aside>
-            <article className="mt-20 grid flex-1 gap-10">
+            <article className="mt-20 grid flex-1">
               <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-headings:font-light prose-h2:text-2xl prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl prose-img:dark:border-slate-700">
                 {markdown}
               </Markdown>
