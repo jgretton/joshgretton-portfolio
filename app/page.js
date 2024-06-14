@@ -22,7 +22,7 @@ export default function Home() {
 
       {/* projects */}
       <div className="relative bg-white dark:bg-[#15202b]">
-        <section className="pl-2 opacity-100 transition-opacity duration-300 xl:container sm:px-10 xl:mx-auto">
+        <section className="px-2 opacity-100 transition-opacity duration-300 xl:container sm:px-10 xl:mx-auto">
           <div className="relative z-10 w-full px-2 pb-20">
             <h2 className="font-light uppercase tracking-wide text-gray-500 sm:text-xl">
               Personal Projects
