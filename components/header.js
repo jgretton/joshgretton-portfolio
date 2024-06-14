@@ -135,10 +135,10 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
                     <p className="dark:text-white§ font-semibold text-gray-950">
                       Email
                     </p>
-                    <p className="flex items-center gap-5 text-gray-950/50 dark:text-white/50">
-                      Copy my email address
+                    <div className="flex items-center gap-5 text-gray-950/50 dark:text-white/50">
+                      <span>Copy my email address</span>
                       <ClipboardButton copiedText={copiedText} />
-                    </p>
+                    </div>
                   </button>
                 </div>
               </PopoverPanel>
@@ -231,10 +231,10 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
                       <p className="font-semibold text-gray-950 dark:text-white">
                         Email
                       </p>
-                      <p className="flex items-end gap-5 text-gray-950/50 dark:text-white/50">
-                        Copy my email address
+                      <div className="flex items-end gap-5 text-gray-950/50 dark:text-white/50">
+                        <span>Copy my email address</span>
                         <ClipboardButton copiedText={copiedText} />
-                      </p>
+                      </div>
                     </button>
                   </DisclosurePanel>
                 </Disclosure>
