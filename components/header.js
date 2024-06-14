@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import {
   Dialog,
   DialogPanel,
@@ -28,6 +28,24 @@ import copy from "copy-to-clipboard";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
+
+const ClipboardButton = ({ copiedText }) => {
+  return (
+    <div className="relative size-6 transition-all">
+      <ClipboardDocumentCheckIcon
+        className={`absolute left-0 top-0 size-5 text-green-400 transition-all duration-500 dark:text-green-300 sm:size-6`}
+        strokeDasharray={50}
+        strokeDashoffset={copiedText ? 0 : -50}
+      />
+      <ClipboardDocumentIcon
+        className="absolute left-0 top-0 size-5 transition-all duration-500 sm:size-6"
+        strokeDasharray={50}
+        strokeDashoffset={copiedText ? -50 : 0}
+      />
+    </div>
+  );
+};
+
 const Header = ({ setIsDarkMode, isDarkMode }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -39,6 +57,13 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
     setCopiedText(true);
   };
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (copiedText) setCopiedText(false);
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, [copiedText]);
   return (
     <header className="fixed inset-x-0 top-0 z-20 bg-white/80 py-2 backdrop-blur-lg dark:bg-[#15202b]/80">
       <div className="mx-auto flex items-center justify-between p-4 xl:container sm:px-12">
@@ -97,16 +122,12 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
                       copyToClipboard();
                     }}
                   >
-                    <p className="font-semibold text-gray-950 dark:text-white">
+                    <p className="dark:text-white§ font-semibold text-gray-950">
                       Email
                     </p>
                     <p className="flex items-center gap-5 text-gray-950/50 dark:text-white/50">
                       Copy my email address
-                      {copiedText ? (
-                        <ClipboardDocumentCheckIcon className="size-6 text-green-400 dark:text-green-300" />
-                      ) : (
-                        <ClipboardDocumentIcon className="size-6" />
-                      )}
+                      <ClipboardButton copiedText={copiedText} />
                     </p>
                   </button>
                 </div>
@@ -202,11 +223,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
                       </p>
                       <p className="flex items-end gap-5 text-gray-950/50 dark:text-white/50">
                         Copy my email address
-                        {copiedText ? (
-                          <ClipboardDocumentCheckIcon className="size-5 text-green-400 dark:text-green-300" />
-                        ) : (
-                          <ClipboardDocumentIcon className="size-6" />
-                        )}
+                        <ClipboardButton copiedText={copiedText} />
                       </p>
                     </button>
                   </DisclosurePanel>
