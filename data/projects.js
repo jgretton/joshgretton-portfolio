@@ -4,8 +4,11 @@ import SheepDesktop from "@/public/Images/sheepbridge-web.png";
 import SheepMobile from "@/public/Images/sheepbridge-mobile.png";
 import BluButtonDesktop from "@/public/Images/blubutton-web.png";
 import BluButtonMobile from "@/public/Images/blubutton-mobile.png";
-import VolleyDesktop from "@/public/Images/volley-web.png";
-import VolleyMobile from "@/public/Images/volley-mobile.png";
+
+import VolleyDesktop from "@/public/volleyscore-desktop.png";
+import VolleyMobile from "@/public/volleyscore-mobile.png";
+// import VolleyDesktop from "@/public/Images/volley-web.png";
+// import VolleyMobile from "@/public/Images/volley-mobile.png";
 
 export const clientWork = [
   {
@@ -38,8 +41,8 @@ export const personalWork = [
     small_description:
       "A simple solution to scoring your friendly volleyball games.",
     tags: ["NextJS", "TailwindCSS"],
-    image: VolleyMobile,
-    mobileImage: VolleyDesktop,
+    image: VolleyDesktop,
+    mobileImage: VolleyMobile,
     image_alt: "Screenshots of the Volleyscore website",
     live_href: "https://www.volleyscore.co.uk/",
     more_detail: true,
