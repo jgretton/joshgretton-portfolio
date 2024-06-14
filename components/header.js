@@ -35,6 +35,7 @@ const ClipboardButton = ({ copiedText }) => {
       <ClipboardDocumentCheckIcon
         className={`absolute left-0 top-0 size-5 text-green-400 transition-all duration-500 dark:text-green-300 sm:size-6`}
         strokeDasharray={50}
+        visibility={copiedText}
         strokeDashoffset={copiedText ? 0 : -50}
       />
       <ClipboardDocumentIcon
