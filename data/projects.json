@@ -4,7 +4,7 @@
     "slug": "Volleyscore",
     "small_description": "A simple solution to scoring your friendly volleyball games.",
     "tags": ["NextJS", "TailwindCSS", "Zustand"],
-    "image": "/Images/projects/volleyscore/Volleyscore-v2.png",
+    "image": "/Images/projects/volleyscore/Volleyscore-v2.jpg",
     "image_alt": "screenshot of volleyscore web app",
     "live_href": "https://www.volleyscore.co.uk/",
     "github_href": "",

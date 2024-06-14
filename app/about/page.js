@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PhotoOfMe from "@/public/Images/about/photo-of-me.png";
+import PhotoOfMe from "@/public/Images/about/photo-of-me.jpg";
 import Hero from "@/components/hero";
 import Markdown from "react-markdown";
 import { aboutMeText } from "@/data/about";

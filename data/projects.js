@@ -1,14 +1,12 @@
-import WonkyDestop from "@/public/Images/wonky-web.png";
-import WonkyMobile from "@/public/Images/wonky-mobile.png";
-import SheepDesktop from "@/public/Images/sheepbridge-web.png";
-import SheepMobile from "@/public/Images/sheepbridge-mobile.png";
-import BluButtonDesktop from "@/public/Images/blubutton-web.png";
-import BluButtonMobile from "@/public/Images/blubutton-mobile.png";
+import WonkyDestop from "@/public/Images/wonky-web.jpg";
+import WonkyMobile from "@/public/Images/wonky-mobile.jpg";
+import SheepDesktop from "@/public/Images/sheepbridge-web.jpg";
+import SheepMobile from "@/public/Images/sheepbridge-mobile.jpg";
+import BluButtonDesktop from "@/public/Images/blubutton-web.jpg";
+import BluButtonMobile from "@/public/Images/blubutton-mobile.jpg";
 
-import VolleyDesktop from "@/public/volleyscore-desktop.png";
-import VolleyMobile from "@/public/volleyscore-mobile.png";
-// import VolleyDesktop from "@/public/Images/volley-web.png";
-// import VolleyMobile from "@/public/Images/volley-mobile.png";
+import VolleyDesktop from "@/public/Images/volleyscore-desktop.jpg";
+import VolleyMobile from "@/public/Images/volleyscore-mobile.jpg";
 
 export const clientWork = [
   {
