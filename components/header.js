@@ -31,16 +31,24 @@ function classNames(...classes) {
 
 const ClipboardButton = ({ copiedText }) => {
   return (
-    <div className="relative size-6 transition-all">
+    <div className="relative size-5 transition-all sm:size-6">
       <ClipboardDocumentCheckIcon
         className={`${copiedText ? "visible" : "invisible"} absolute left-0 top-0 size-5 text-green-400 transition-all duration-500 dark:text-green-300 sm:size-6`}
-        strokeDasharray={50}
-        strokeDashoffset={copiedText ? 0 : -50}
+        // strokeDasharray={50}
+        // strokeDashoffset={copiedText ? 0 : -50}
+        style={{
+          strokeDasharray: 50,
+          strokeDashoffset: copiedText ? 0 : -50,
+        }}
       />
       <ClipboardDocumentIcon
         className="absolute left-0 top-0 size-5 transition-all duration-500 sm:size-6"
-        strokeDasharray={50}
-        strokeDashoffset={copiedText ? -50 : 0}
+        // strokeDasharray={50}
+        // strokeDashoffset={copiedText ? -50 : 0}
+        style={{
+          strokeDasharray: 50,
+          strokeDashoffset: copiedText ? -50 : 0,
+        }}
       />
     </div>
   );
