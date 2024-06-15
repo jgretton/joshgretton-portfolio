@@ -13,6 +13,7 @@ export const clientWork = [
     title: "Sheepbridge Business Centre",
     slug: "sheepbridge",
     small_description: "A Business centre ",
+    built_with: ["Next.js", "Tailwind CSS", "Figma"],
     image: SheepDesktop,
     mobileImage: SheepMobile,
     image_alt: "Screenshots of the sheepbridge website",
@@ -22,6 +23,7 @@ export const clientWork = [
   {
     title: "The Wonky Labrador",
     slug: "wonkylabrador",
+    built_with: ["Next.js", "Tailwind CSS", "Figma"],
     small_description: "A micro pub based in Sheffield, UK",
     image: WonkyDestop,
     mobileImage: WonkyMobile,
@@ -36,9 +38,10 @@ export const personalWork = [
   {
     title: "Volley Score",
     slug: "Volleyscore",
+    built_with: ["Next.js", "Tailwind CSS", "Figma", "Zustand"],
     small_description:
       "A simple solution to scoring your friendly volleyball games.",
-    tags: ["NextJS", "TailwindCSS"],
+    tags: ["Next.JS", "TailwindCSS"],
     image: VolleyDesktop,
     mobileImage: VolleyMobile,
     image_alt: "Screenshots of the Volleyscore website",
@@ -48,6 +51,7 @@ export const personalWork = [
   {
     title: "Blubutton Digital",
     slug: "blubuttondigital",
+    built_with: ["Next.js", "Tailwind CSS", "Figma"],
     small_description:
       "A digital agency I run as a side business. All the work complete is that of my own.",
     image: BluButtonDesktop,

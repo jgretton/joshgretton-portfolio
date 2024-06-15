@@ -43,6 +43,7 @@ export default function Home() {
                   slug,
                   small_description,
                   more_detail,
+                  built_with,
                 } = item;
                 return (
                   <article key={index} className="relative h-full w-full">
@@ -58,6 +59,7 @@ export default function Home() {
                       small_description={small_description}
                       personal
                       more_detail={more_detail}
+                      built_with={built_with}
                     />
                   </article>
                 );
@@ -83,6 +85,7 @@ export default function Home() {
                   slug,
                   small_description,
                   more_detail,
+                  built_with,
                 } = item;
                 return (
                   <article key={index} className="relative mb-10 grid w-full">
@@ -97,6 +100,7 @@ export default function Home() {
                       slug={slug}
                       small_description={small_description}
                       more_detail={more_detail}
+                      built_with={built_with}
                     />
                   </article>
                 );

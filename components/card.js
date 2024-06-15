@@ -15,9 +15,9 @@ const Card = ({
   slug,
   small_description,
   more_detail,
+  built_with,
 }) => {
   return (
-    // <div className="flex h-full w-full flex-col justify-between gap-5">
     <div className="grid h-full w-full grid-flow-row gap-5">
       <div className="flex flex-col gap-2">
         <h3 className="text-2xl font-light tracking-wide transition-colors sm:text-3xl">
@@ -26,6 +26,16 @@ const Card = ({
         <p className="text-sm font-light tracking-wider dark:text-gray-300">
           {small_description}
         </p>
+        <div className="text-sm font-light tracking-wider dark:text-gray-300">
+          <span className="font-semibold">Built using:</span>
+          <div className="ml-1 inline-flex divide-x divide-gray-400">
+            {built_with.map((item, index) => (
+              <p className="px-2 first:pl-0" key={index}>
+                {item}
+              </p>
+            ))}
+          </div>
+        </div>
         <div className="mt-3 grid place-items-start gap-2">
           <Link
             href={live_href}
