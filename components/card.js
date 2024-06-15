@@ -26,16 +26,24 @@ const Card = ({
         <p className="text-sm font-light tracking-wider dark:text-gray-300">
           {small_description}
         </p>
-        <div className="inline-flex flex-wrap text-sm font-light tracking-wider dark:text-gray-300">
-          <span className="font-semibold">Built using:</span>
-          <ul className="ml-1 inline-flex flex-1 flex-wrap gap-y-2 divide-x divide-gray-400">
+        <p className="inline-flex w-full flex-wrap gap-2 text-balance text-sm font-light tracking-wider dark:text-gray-300">
+          <span className="font-semibold"> Built using:</span>
+          {built_with.map((item, index) => (
+            <span
+              className="border-r border-gray-400 pr-2 last:border-none last:pr-0"
+              key={index}
+            >
+              {item}
+            </span>
+          ))}
+        </p>
+        {/* <ul className="ml-1 inline-flex flex-1 flex-wrap gap-y-2 divide-x divide-gray-400">
             {built_with.map((item, index) => (
               <li className="px-2 first:pl-0" key={index}>
                 {item}
               </li>
             ))}
-          </ul>
-        </div>
+          </ul> */}
         <div className="mt-3 grid place-items-start gap-2">
           <Link
             href={live_href}
