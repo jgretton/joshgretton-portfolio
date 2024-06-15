@@ -26,15 +26,15 @@ const Card = ({
         <p className="text-sm font-light tracking-wider dark:text-gray-300">
           {small_description}
         </p>
-        <div className="text-sm font-light tracking-wider dark:text-gray-300">
+        <div className="inline-flex flex-wrap text-sm font-light tracking-wider dark:text-gray-300">
           <span className="font-semibold">Built using:</span>
-          <div className="ml-1 inline-flex divide-x divide-gray-400">
+          <ul className="ml-1 inline-flex flex-1 flex-wrap gap-y-2 divide-x divide-gray-400">
             {built_with.map((item, index) => (
-              <p className="px-2 first:pl-0" key={index}>
+              <li className="px-2 first:pl-0" key={index}>
                 {item}
-              </p>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
         <div className="mt-3 grid place-items-start gap-2">
           <Link
