@@ -27,7 +27,7 @@ const Card = ({
           {small_description}
         </p>
         <p className="inline-flex w-full flex-wrap gap-2 text-balance text-sm font-light tracking-wider dark:text-gray-300">
-          <span className="font-semibold"> Built using:</span>
+          <span className="font-normal"> Built using:</span>
           {built_with.map((item, index) => (
             <span
               className="border-r border-gray-400 pr-2 last:border-none last:pr-0"
