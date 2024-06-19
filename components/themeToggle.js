@@ -18,7 +18,10 @@ const ThemeToggle = () => {
 
   return (
     <Popover className="relative flex items-center">
-      <PopoverButton className="group inline-flex items-center gap-1 rounded-md px-4 py-2 transition-all hover:bg-slate-200 data-[active]:bg-slate-200 dark:hover:bg-slate-700 dark:data-[active]:bg-slate-700">
+      <PopoverButton
+        aria-label="Toggle theme"
+        className="group inline-flex items-center gap-1 rounded-md px-4 py-2 transition-all hover:bg-slate-200 data-[active]:bg-slate-200 dark:hover:bg-slate-700 dark:data-[active]:bg-slate-700"
+      >
         {theme === "dark" ? (
           <MoonIcon className="size-5" aria-hidden="true" />
         ) : (
@@ -50,6 +53,7 @@ const ThemeToggle = () => {
                     setTheme("light");
                     close();
                   }}
+                  aria-label="Set light mode"
                 >
                   <SunIcon
                     className="h-6 w-6 text-gray-600 group-hover:text-slate-800 dark:text-gray-200"
@@ -64,6 +68,7 @@ const ThemeToggle = () => {
                     setTheme("dark");
                     close();
                   }}
+                  aria-label="Set dark mode"
                 >
                   <MoonIcon
                     className="h-6 w-6 text-gray-600 group-hover:text-slate-800 dark:text-gray-200"

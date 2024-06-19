@@ -16,10 +16,12 @@ const AboutPage = () => {
   return (
     <>
       <Hero>
-        Hi! - My name is <span className="text-blue-300">Josh</span>. <br />
-        I&apos;m a <span className="text-blue-300">Developer </span> based
-        <br />
-        in the UK.
+        <h1 className="max-w-xl">
+          Hi! - My name is <span className="text-blue-300">Josh</span>. <br />
+          I&apos;m a <span className="text-blue-300">Developer </span> based
+          <br />
+          in the UK.
+        </h1>
       </Hero>
 
       <div className="bg-white pb-10 dark:bg-dark">
