@@ -37,7 +37,7 @@ const AboutPage = () => {
                 />
               </div>
               <article className="relative mt-5 h-auto w-full lg:w-2/3">
-                <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-headings:font-light prose-h2:text-2xl prose-strong:font-normal">
+                <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-headings:font-light prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal hover:prose-a:dark:text-blue-500">
                   {aboutMeText.markdown}
                 </Markdown>
               </article>

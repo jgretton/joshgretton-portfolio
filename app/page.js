@@ -14,9 +14,9 @@ export default function Home() {
   return (
     <>
       <Hero>
-        <h1 className="max-w-xl">
-          Hi! - My name is <span className="text-blue-300">Josh</span>. I&apos;m
-          a <span className="text-blue-300">Developer </span> based in the UK.
+        <h1 className="max-w-xl text-balance">
+          Hi! - My name is <span className="text-blue-500">Josh</span>. I&apos;m
+          a <span className="text-blue-500">Developer </span> based in the UK.
         </h1>
       </Hero>
 
@@ -24,7 +24,7 @@ export default function Home() {
       <div className="relative bg-white dark:bg-[#15202b]">
         <section className="px-2 opacity-100 transition-opacity duration-300 xl:container sm:px-10 xl:mx-auto">
           <div className="relative z-10 w-full px-2 pb-20">
-            <h2 className="font-light uppercase tracking-wide text-gray-500 sm:text-xl">
+            <h2 className="font-light uppercase tracking-wide text-gray-500 dark:text-gray-400 sm:text-xl">
               Personal Projects
             </h2>
             <div
@@ -66,7 +66,7 @@ export default function Home() {
               })}
             </div>
 
-            <h2 className="mt-20 font-light uppercase tracking-wide text-gray-500 sm:text-xl">
+            <h2 className="mt-20 font-light uppercase tracking-wide text-gray-500 dark:text-gray-400 sm:text-xl">
               Client Work
             </h2>
             <div

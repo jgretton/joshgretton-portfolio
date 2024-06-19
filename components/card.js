@@ -48,7 +48,7 @@ const Card = ({
           <Link
             href={live_href}
             target="_blank"
-            className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white/80"
+            className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/80 dark:hover:text-blue-500"
           >
             View site
             <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -56,7 +56,7 @@ const Card = ({
           {more_detail && (
             <Link
               href={{ pathname: `/projects/${slug}` }}
-              className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white/80"
+              className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/80 dark:hover:text-blue-500"
             >
               View project details
               <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
