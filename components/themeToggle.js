@@ -4,7 +4,7 @@ import {
   MoonIcon,
   SunIcon,
 } from "@heroicons/react/24/outline";
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import {
   Popover,
   PopoverButton,
@@ -15,6 +15,16 @@ import { useTheme } from "next-themes";
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null; // or a placeholder
+  }
+  console.log(theme);
 
   return (
     <Popover className="relative flex items-center">
@@ -22,10 +32,10 @@ const ThemeToggle = () => {
         aria-label="Toggle theme"
         className="group inline-flex items-center gap-1 rounded-md px-4 py-2 transition-all hover:bg-slate-200 data-[active]:bg-slate-200 dark:hover:bg-slate-700 dark:data-[active]:bg-slate-700"
       >
-        {theme === "dark" ? (
-          <MoonIcon className="size-5" aria-hidden="true" />
-        ) : (
+        {theme === "light" ? (
           <SunIcon className="size-5" aria-hidden="true" />
+        ) : (
+          <MoonIcon className="size-5" aria-hidden="true" />
         )}
         <ChevronDownIcon
           className="size-3 transition-transform group-data-[open]:rotate-180"
