@@ -82,7 +82,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
           className="text-2xl decoration-2 hover:underline sm:text-4xl"
           aria-label="home page"
         >
-          JG <span className="text-blue-300"> / </span>
+          JG <span className="text-blue-500"> / </span>
         </Link>
         <nav className="hidden sm:flex sm:gap-10">
           <Link
@@ -179,7 +179,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
               onClick={() => setIsMobileMenuOpen(false)}
               aria-label="home page"
             >
-              JG <span className="text-blue-300"> / </span>
+              JG <span className="text-blue-500"> / </span>
             </Link>
 
             <button
