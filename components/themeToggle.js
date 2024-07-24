@@ -24,7 +24,6 @@ const ThemeToggle = () => {
   if (!mounted) {
     return null; // or a placeholder
   }
-  console.log(theme);
 
   return (
     <Popover className="relative flex items-center">
