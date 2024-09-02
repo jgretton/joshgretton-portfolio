@@ -24,9 +24,9 @@ const AboutPage = () => {
         </h1>
       </Hero>
 
-      <div className="bg-white pb-10 dark:bg-dark">
-        <section className="relative mx-auto h-full w-full bg-white px-4 xl:container dark:bg-[#15202b] sm:px-12">
-          <div className="z-10 mb-32 w-full bg-white dark:bg-[#15202b]">
+      <div className="bg-gray-50 pb-10 dark:bg-dark">
+        <section className="relative mx-auto h-full w-full bg-gray-50 px-4 xl:container dark:bg-[#15202b] sm:px-12">
+          <div className="z-10 mb-32 w-full bg-gray-50 dark:bg-[#15202b]">
             <div className="flex flex-col gap-14 md:flex-row">
               <div className="w-6/6 top-28 self-center sm:h-1/2 md:sticky md:self-auto lg:h-full lg:w-1/3">
                 <Image

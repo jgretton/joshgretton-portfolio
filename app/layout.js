@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} relative mx-auto bg-white text-gray-900 dark:bg-[#15202b] dark:text-gray-100`}
+        className={`${inter.className} relative mx-auto bg-gray-50 text-gray-900 dark:bg-[#15202b] dark:text-gray-100`}
       >
         <ThemeProvider attribute="class">
           <div>

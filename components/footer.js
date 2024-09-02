@@ -10,7 +10,7 @@ const Footer = () => {
 
   return (
     <footer
-      className={`${pathname.startsWith("/projects") || pathname === "/about" ? "bg-white" : "bg-white"} dark:bg-dark`}
+      className={`${pathname.startsWith("/projects") || pathname === "/about" ? "bg-gray-50" : "bg-white"} dark:bg-dark`}
     >
       <div className="px-6 xl:container xl:mx-auto">
         <div className="flex flex-row justify-between border-t border-gray-400 py-5 sm:mt-0 sm:px-0">

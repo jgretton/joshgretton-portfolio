@@ -24,6 +24,8 @@ const TopOfPage = () => {
       <button
         className={`h-8 w-8 rounded bg-slate-700/40 text-gray-950 dark:bg-slate-200/40`}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        role="button"
+        value="Scroll to top of page"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -39,6 +41,7 @@ const TopOfPage = () => {
             d="M5 15l7-7 7 7"
           />
         </svg>
+        <p className="hidden">Scroll to top of page</p>
       </button>
     </div>
   );

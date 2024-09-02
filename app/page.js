@@ -2,6 +2,11 @@ import Hero from "@/components/hero";
 import { clientWork, personalWork } from "@/data/projects";
 import Card from "@/components/card";
 
+import BluButtonDesktop from "@/public/Images/blubutton-web.jpg";
+import BluButtonMobile from "@/public/Images/blubutton-mobile.jpg";
+import CurrentlyWorkingCard from "@/components/CurrentlyWorkingCard";
+import Card_2 from "@/components/card_2";
+
 export const metadata = {
   title: "Josh Gretton",
   description:
@@ -21,15 +26,26 @@ export default function Home() {
       </Hero>
 
       {/* projects */}
-      <div className="relative bg-white dark:bg-[#15202b]">
+      <div className="relative bg-gray-50 dark:bg-[#15202b]">
         <section className="px-2 opacity-100 transition-opacity duration-300 xl:container sm:px-10 xl:mx-auto">
           <div className="relative z-10 w-full px-2 pb-20">
-            <h2 className="font-light uppercase tracking-wide text-gray-500 dark:text-gray-400 sm:text-xl">
+            <h2 className="text-2xl font-normal tracking-wide text-gray-900 dark:text-gray-200">
+              Currently Building
+            </h2>
+            <div
+              id="currentlyWorkingOn"
+              className="mt-10 flex w-full scroll-m-44 flex-col gap-5 md:flex-row"
+            >
+              <CurrentlyWorkingCard />
+            </div>
+          </div>
+          <div className="relative z-10 w-full px-2 pb-20">
+            <h2 className="text-2xl font-normal tracking-wide text-gray-900 dark:text-gray-200">
               Personal Projects
             </h2>
             <div
               id="personalProjects"
-              className="mt-10 grid w-full scroll-m-44 grid-cols-1 place-items-center gap-20 lg:grid-cols-2 lg:place-items-start"
+              className="mt-10 flex w-full scroll-m-44 flex-col gap-5 md:flex-row"
             >
               {personalWork.map((item, index) => {
                 const {
@@ -46,8 +62,8 @@ export default function Home() {
                   built_with,
                 } = item;
                 return (
-                  <article key={index} className="relative h-full w-full">
-                    <Card
+                  <article key={index} className="h-auto">
+                    <Card_2
                       title={title}
                       tags={tags}
                       live_href={live_href}
@@ -66,12 +82,12 @@ export default function Home() {
               })}
             </div>
 
-            <h2 className="mt-20 font-light uppercase tracking-wide text-gray-500 dark:text-gray-400 sm:text-xl">
+            <h2 className="mt-20 text-2xl font-normal tracking-wide text-gray-900 dark:text-gray-200">
               Client Work
             </h2>
             <div
               id="clientWork"
-              className="mt-10 grid w-full scroll-m-44 grid-cols-1 place-items-center gap-20 lg:grid-cols-2 lg:place-items-start"
+              className="mt-10 flex w-full scroll-m-44 flex-col gap-5 md:flex-row"
             >
               {clientWork.map((item, index) => {
                 const {
@@ -88,8 +104,8 @@ export default function Home() {
                   built_with,
                 } = item;
                 return (
-                  <article key={index} className="relative mb-10 grid w-full">
-                    <Card
+                  <article key={index} className="h-auto">
+                    <Card_2
                       title={title}
                       tags={tags}
                       live_href={live_href}

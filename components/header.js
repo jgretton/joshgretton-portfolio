@@ -75,7 +75,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
     return () => clearTimeout(timeout);
   }, [copiedText]);
   return (
-    <header className="fixed inset-x-0 top-0 z-20 bg-white/80 py-2 backdrop-blur-lg dark:bg-[#15202b]/80">
+    <header className="fixed inset-x-0 top-0 z-20 bg-gray-50/80 py-2 backdrop-blur-lg dark:bg-[#15202b]/80">
       <div className="mx-auto flex items-center justify-between p-4 xl:container sm:px-12">
         <Link
           href="/"
@@ -133,7 +133,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
                       copyToClipboard();
                     }}
                   >
-                    <p className="dark:text-white§ font-semibold text-gray-950">
+                    <p className="font-semibold text-gray-950 dark:text-white">
                       Email
                     </p>
                     <div className="flex items-center gap-5 text-gray-950/50 dark:text-white/50">

@@ -5,7 +5,7 @@ import React from "react";
 const Hero = ({ children, back }) => {
   return (
     <section
-      className={`relative z-0 mx-auto mt-20 flex h-[60dvh] items-center bg-white px-4 pt-12 xl:container dark:bg-[#15202b] sm:px-12`}
+      className={`relative z-0 mx-auto mt-20 flex h-[60dvh] items-center bg-gray-50 px-4 pt-12 xl:container dark:bg-[#15202b] sm:px-12`}
     >
       {back && (
         <Link

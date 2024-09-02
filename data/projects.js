@@ -8,6 +8,8 @@ import BluButtonMobile from "@/public/Images/blubutton-mobile.jpg";
 import VolleyDesktop from "@/public/Images/volleyscore-desktop.jpg";
 import VolleyMobile from "@/public/Images/volleyscore-mobile.jpg";
 
+import VolleyDrill from "@/public/Images/Volleyball_court.jpg";
+
 export const clientWork = [
   {
     title: "Sheepbridge Business Centre",
@@ -37,7 +39,7 @@ export const clientWork = [
 export const personalWork = [
   {
     title: "Volley Score",
-    slug: "Volleyscore",
+    slug: "volleyscore",
     built_with: ["Next.js", "Tailwind CSS", "Figma", "Zustand"],
     small_description:
       "A simple solution to scoring your friendly volleyball games.",
@@ -61,3 +63,13 @@ export const personalWork = [
     more_detail: false,
   },
 ];
+
+export const currentlyWorkingOn = {
+  title: "Volley Drills",
+  slug: "volleydrills",
+  image: VolleyDrill,
+  image_alt: "a top down view of volleyball court",
+  built_with: ["Laravel", "ReactJS", "Inertia", "TailwindCSS"],
+  small_description:
+    "Volley Drills is a web application tailored for volleyball coaches to manage and organise training drills. ",
+};

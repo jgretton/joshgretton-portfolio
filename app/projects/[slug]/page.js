@@ -56,8 +56,8 @@ const Page = ({ params }) => {
       <Hero back>
         <h1>{title}</h1>
       </Hero>
-      <div className="z-20 bg-white pb-10 dark:bg-dark">
-        <section className="relative mx-auto h-full w-full bg-white px-4 xl:container dark:bg-[#15202b] sm:px-12">
+      <div className="z-20 bg-gray-50 pb-10 dark:bg-dark">
+        <section className="relative mx-auto h-full w-full bg-gray-50 px-4 xl:container dark:bg-[#15202b] sm:px-12">
           <div className="sm:h-134 group relative h-80 w-full overflow-hidden">
             <Image
               src={image}
@@ -80,17 +80,20 @@ const Page = ({ params }) => {
                   </li>
                 ))}
               </ul>
-              <Link
-                href={live_href}
-                target="_blank"
-                className="sm:text-md group mb-3 mt-5 inline-flex items-center gap-2 self-start text-base leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
-              >
-                See the live project
-                <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Link>
+
+              {live_href && (
+                <Link
+                  href={live_href}
+                  target="_blank"
+                  className="sm:text-md group mb-3 mt-5 inline-flex items-center gap-2 self-start text-base leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
+                >
+                  See the live project
+                  <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </Link>
+              )}
             </aside>
             <article className="mt-20 grid flex-1">
-              <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-headings:font-light prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl hover:prose-a:dark:text-blue-500 prose-img:dark:border-slate-700">
+              <Markdown className="prose-headings:f prose min-w-full font-light tracking-wide dark:prose-invert prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl hover:prose-a:dark:text-blue-500 prose-img:dark:border-slate-700">
                 {markdown}
               </Markdown>
             </article>
