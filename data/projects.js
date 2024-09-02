@@ -8,7 +8,7 @@ import BluButtonMobile from "@/public/Images/blubutton-mobile.jpg";
 import VolleyDesktop from "@/public/Images/volleyscore-desktop.jpg";
 import VolleyMobile from "@/public/Images/volleyscore-mobile.jpg";
 
-import VolleyDrill from "@/public/Images/Volleyball_court.jpg";
+import VolleyDrill from "@/public/Images/volleyball-court.jpg";
 
 export const clientWork = [
   {
