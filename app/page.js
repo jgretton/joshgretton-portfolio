@@ -45,7 +45,7 @@ export default function Home() {
             </h2>
             <div
               id="personalProjects"
-              className="mt-10 flex w-full scroll-m-44 flex-col gap-5 md:flex-row"
+              className="mt-10 flex w-full scroll-m-44 flex-col gap-10 md:flex-row md:gap-5"
             >
               {personalWork.map((item, index) => {
                 const {
@@ -87,7 +87,7 @@ export default function Home() {
             </h2>
             <div
               id="clientWork"
-              className="mt-10 flex w-full scroll-m-44 flex-col gap-5 md:flex-row"
+              className="mt-10 flex w-full scroll-m-44 flex-col gap-10 md:flex-row md:gap-5"
             >
               {clientWork.map((item, index) => {
                 const {
