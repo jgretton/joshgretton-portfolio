@@ -18,7 +18,7 @@ const Card_2 = ({
   built_with,
 }) => {
   return (
-    <div className="_bg-white _shadow-sm h-full rounded-xl md:max-w-lg md:pr-4">
+    <div className="_bg-white _shadow-sm h-full w-full flex-shrink rounded-xl md:max-w-lg md:pr-4">
       <div className="">
         <Image
           src={image}
