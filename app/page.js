@@ -87,7 +87,7 @@ export default function Home() {
             </h2>
             <div
               id="clientWork"
-              className="mt-10 grid w-full scroll-m-44 grid-cols-1 gap-10 sm:grid-cols-2 md:gap-5 lg:grid-cols-3"
+              className="mt-10 grid w-full scroll-m-44 grid-cols-1 gap-10 sm:grid-cols-2 md:gap-x-5 md:gap-y-16 lg:grid-cols-3"
               //   className="mt-10 flex w-full scroll-m-44 flex-col flex-wrap gap-10 md:flex-row md:gap-5"
             >
               {clientWork.map((item, index) => {
