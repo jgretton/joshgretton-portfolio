@@ -1,7 +1,9 @@
 import WonkyDestop from "@/public/Images/wonky-web.jpg";
 import WonkyMobile from "@/public/Images/wonky-mobile.jpg";
+
 import SheepDesktop from "@/public/Images/sheepbridge-web.jpg";
 import SheepMobile from "@/public/Images/sheepbridge-mobile.jpg";
+
 import BluButtonDesktop from "@/public/Images/blubutton-web.jpg";
 import BluButtonMobile from "@/public/Images/blubutton-mobile.jpg";
 
@@ -10,7 +12,22 @@ import VolleyMobile from "@/public/Images/volleyscore-mobile.jpg";
 
 import VolleyDrill from "@/public/Images/volleyball-court.jpg";
 
+import BitesDesktop from "@/public/Images/SHOTS-desktop.png";
+import BitesMobile from "@/public/Images/SHOTS-mobile.png";
+
 export const clientWork = [
+  {
+    title: "Bites ltd",
+    slug: "bites",
+    built_with: ["Next.js", "Tailwind CSS", "Figma", "Zustand", "Wix headless"],
+    small_description: "A sandwich delivery business based in Lincoln, UK.",
+    image: BitesDesktop,
+    mobileImage: BitesMobile,
+    image_alt: "Screenshots of the bites ltd website",
+    live_href: "https://www.bitesltd.com",
+    github_href: "",
+    more_detail: false,
+  },
   {
     title: "Sheepbridge Business Centre",
     slug: "sheepbridge",
