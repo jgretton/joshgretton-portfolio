@@ -80,7 +80,6 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
         <Link
           href="/"
           className="text-2xl decoration-2 hover:underline sm:text-4xl"
-          aria-label="home page"
         >
           JG <span className="text-blue-500"> / </span>
         </Link>
