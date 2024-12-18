@@ -5,11 +5,35 @@ import Markdown from "react-markdown";
 import { aboutMeText } from "@/data/about";
 
 export const metadata = {
-  title: "About || Josh Gretton",
+  title: "About Me",
   description:
-    "Portfolio of a Uk based, self-taught front-end developer specialising in Nextjs and TailwindCss.",
+    "Learn more about Josh Gretton, a passionate web designer and JavaScript developer with expertise in Next.js and Tailwind CSS.",
   keywords:
-    "Josh Gretton, front end web developer, web development portfolio, HTML, CSS, JavaScript, React, responsive design, UK developer, NextJs, tailwindcss, self-taught developer",
+    "About Josh Gretton, Web Developer, JavaScript Developer, Next.js Expert, Tailwind CSS Designer",
+  openGraph: {
+    title: "About Me | Josh Gretton",
+    description:
+      "Learn more about Josh Gretton, a passionate web designer and JavaScript developer with expertise in Next.js and Tailwind CSS.",
+    url: "https://www.joshgretton.co.uk/about",
+    siteName: "Josh Gretton Portfolio",
+    images: [
+      {
+        url: "/og-image.svg", // Replace with an actual image URL for this page
+        width: 1200,
+        height: 630,
+        alt: "Josh Gretton About Me Banner",
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Me | Josh Gretton",
+    description:
+      "Learn more about Josh Gretton, a passionate web designer and JavaScript developer with expertise in Next.js and Tailwind CSS.",
+    images: ["/og-image.svg"], // Replace with an actual image URL for this page
+  },
 };
 
 const AboutPage = () => {

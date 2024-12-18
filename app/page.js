@@ -7,17 +7,25 @@ import BluButtonMobile from "@/public/Images/blubutton-mobile.jpg";
 import CurrentlyWorkingCard from "@/components/CurrentlyWorkingCard";
 import Card_2 from "@/components/card_2";
 
-export const metadata = {
-  title: "Josh Gretton",
-  description:
-    "Portfolio of a Uk based, self-taught front-end developer specialising in Nextjs and TailwindCss.",
-  keywords:
-    "Josh Gretton, front end web developer, web development portfolio, HTML, CSS, JavaScript, React, responsive design, UK developer, NextJs, tailwindcss, self-taught developer",
-};
-
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Josh Gretton",
+            url: "https://www.joshgretton.co.uk",
+            jobTitle: "Web Developer & Designer",
+            worksFor: {
+              "@type": "Organization",
+              name: "Self-Employed",
+            },
+          }),
+        }}
+      />
       <Hero>
         <h1 className="max-w-xl text-balance">
           Hi! - My name is <span className="text-blue-500">Josh</span>. I&apos;m

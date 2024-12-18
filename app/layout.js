@@ -10,6 +10,55 @@ const inter = Lato({
   weight: ["100", "300", "400", "700"],
 });
 
+// export const metadata = {
+//   title: { default: "Josh Gretton", template: "%s - Josh Gretton" },
+//   description:
+//     "Portfolio of a Uk based, self-taught front-end developer specialising in Nextjs and TailwindCss.",
+//   keywords:
+//     "Josh Gretton, front end web developer, web development portfolio, HTML, CSS, JavaScript, React, responsive design, UK developer, NextJs, tailwindcss, self-taught developer",
+// };
+export const metadata = {
+  title: {
+    default: "Josh Gretton ",
+    template: "%s | Josh Gretton",
+  },
+  description:
+    "Discover the portfolio of Josh Gretton, a web designer and JavaScript developer specialising in Next.js and Tailwind CSS.",
+  keywords: [
+    "Josh Gretton",
+    "Web Developer",
+    "Portfolio",
+    "Next.js",
+    "Tailwind CSS",
+    "JavaScript Developer",
+  ],
+  openGraph: {
+    title: "Josh Gretton",
+    description:
+      "Discover the portfolio of Josh Gretton, a web designer and JavaScript developer specialising in Next.js and Tailwind CSS.",
+    url: "https://www.joshgretton.co.uk",
+    siteName: "Josh Gretton Portfolio",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "Josh Gretton Portfolio Banner",
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Josh Gretton",
+    description:
+      "Discover the portfolio of Josh Gretton, a web designer and JavaScript developer specialising in Next.js and Tailwind CSS.",
+    images: ["/og-image.svg"],
+  },
+  metadataBase: new URL("https://www.joshgretton.co.uk"),
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
