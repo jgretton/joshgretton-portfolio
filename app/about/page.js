@@ -16,6 +16,9 @@ export const metadata = {
       "Learn more about Josh Gretton, a passionate web designer and JavaScript developer with expertise in Next.js and Tailwind CSS.",
     url: "https://www.joshgretton.co.uk/about",
     siteName: "Josh Gretton Portfolio",
+    alternates: {
+      canonical: "https://www.joshgretton.co.uk/about",
+    },
     images: [
       {
         url: "/og-image.svg", // Replace with an actual image URL for this page

@@ -32,6 +32,9 @@ export const metadata = {
     "Tailwind CSS",
     "JavaScript Developer",
   ],
+  alternates: {
+    canonical: "https://www.joshgretton.co.uk",
+  },
   openGraph: {
     title: "Josh Gretton",
     description:
