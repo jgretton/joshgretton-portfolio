@@ -19,7 +19,8 @@ import { notFound } from "next/navigation";
 //     "Josh Gretton, front end web developer, web development portfolio, HTML, CSS, JavaScript, React, responsive design, UK developer, NextJs, tailwindcss, self-taught developer",
 // };
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata(props, parent) {
+  const params = await props.params;
   // read route params
   const slug = params.slug;
 
@@ -41,7 +42,8 @@ const getProjectsData = (personal) => {
   return JSON.parse(jsonData);
 };
 
-const Page = ({ params }) => {
+const Page = async props => {
+  const params = await props.params;
   const { slug } = params;
   const projects = getProjectsData();
   const project = projects.find((p) => p.slug === slug);
