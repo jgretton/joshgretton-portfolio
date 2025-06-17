@@ -1,10 +1,7 @@
 import React from "react";
 import { currentlyWorkingOn } from "@/data/projects";
 import Link from "next/link";
-import {
-  ArrowRightIcon,
-  ArrowTopRightOnSquareIcon,
-} from "@heroicons/react/24/outline";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 const CurrentlyWorkingCard = () => {

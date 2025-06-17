@@ -1,19 +1,15 @@
 import Hero from "@/components/hero";
-import { clientWork, personalWork } from "@/data/projects";
-import Card from "@/components/card";
 
-import BluButtonDesktop from "@/public/Images/blubutton-web.jpg";
-import BluButtonMobile from "@/public/Images/blubutton-mobile.jpg";
 import CurrentlyWorkingCard from "@/components/CurrentlyWorkingCard";
-import Card_2 from "@/components/card_2";
+import ProjectCard from "@/components/projectCard";
 import { getAllProjects } from "@/lib/content";
 
 export default function Home() {
   const projects = getAllProjects();
 
   const currentlyBuilding = projects.filter((p) => p.status === "building");
-
-  console.log(currentlyBuilding);
+  const clientProjects = projects.filter((p) => p.status === "client");
+  const personalProjects = projects.filter((p) => p.status === "personal");
 
   return (
     <>
@@ -51,7 +47,12 @@ export default function Home() {
               id="currentlyWorkingOn"
               className="mt-10 flex w-full scroll-m-44 flex-col gap-5 md:flex-row"
             >
-              <CurrentlyWorkingCard />
+              {/* <CurrentlyWorkingCard /> */}
+              {currentlyBuilding.map((project, index) => (
+                <article key={index} className="h-auto">
+                  <ProjectCard project={project} />
+                </article>
+              ))}
             </div>
           </div>
           <div className="relative z-10 w-full px-2 pb-20">
@@ -62,39 +63,11 @@ export default function Home() {
               id="personalProjects"
               className="mt-10 flex w-full scroll-m-44 flex-col gap-10 md:flex-row md:gap-5"
             >
-              {personalWork.map((item, index) => {
-                const {
-                  title,
-                  tags,
-                  live_href,
-                  github_href,
-                  image,
-                  image_alt,
-                  mobileImage,
-                  slug,
-                  small_description,
-                  more_detail,
-                  built_with,
-                } = item;
-                return (
-                  <article key={index} className="h-auto">
-                    <Card_2
-                      title={title}
-                      tags={tags}
-                      live_href={live_href}
-                      github_href={github_href}
-                      image={image}
-                      image_alt={image_alt}
-                      mobileImage={mobileImage}
-                      slug={slug}
-                      small_description={small_description}
-                      personal
-                      more_detail={more_detail}
-                      built_with={built_with}
-                    />
-                  </article>
-                );
-              })}
+              {personalProjects.map((project, index) => (
+                <article key={index} className="h-auto">
+                  <ProjectCard project={project} />
+                </article>
+              ))}
             </div>
 
             <h2 className="mt-20 text-2xl font-normal tracking-wide text-gray-900 dark:text-gray-200">
@@ -103,37 +76,11 @@ export default function Home() {
             <div
               id="clientWork"
               className="mt-10 grid w-full scroll-m-44 grid-cols-1 gap-10 sm:grid-cols-2 md:gap-x-5 md:gap-y-16 lg:grid-cols-3"
-              //   className="mt-10 flex w-full scroll-m-44 flex-col flex-wrap gap-10 md:flex-row md:gap-5"
             >
-              {clientWork.map((item, index) => {
-                const {
-                  title,
-                  tags,
-                  live_href,
-                  github_href,
-                  image,
-                  image_alt,
-                  mobileImage,
-                  slug,
-                  small_description,
-                  more_detail,
-                  built_with,
-                } = item;
+              {clientProjects.map((project, index) => {
                 return (
                   <article key={index} className="h-auto">
-                    <Card_2
-                      title={title}
-                      tags={tags}
-                      live_href={live_href}
-                      github_href={github_href}
-                      image={image}
-                      image_alt={image_alt}
-                      mobileImage={mobileImage}
-                      slug={slug}
-                      small_description={small_description}
-                      more_detail={more_detail}
-                      built_with={built_with}
-                    />
+                    <ProjectCard project={project} />
                   </article>
                 );
               })}

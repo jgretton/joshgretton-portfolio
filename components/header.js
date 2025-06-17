@@ -90,12 +90,6 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
           >
             About
           </Link>
-          <Link
-            href="/articles"
-            className={`${pathname === "/about" && "underline"} rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700`}
-          >
-            articles
-          </Link>
           <Popover className={"group"}>
             <PopoverButton
               className={
