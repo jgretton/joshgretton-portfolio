@@ -1,6 +1,4 @@
 import Hero from "@/components/hero";
-
-import CurrentlyWorkingCard from "@/components/CurrentlyWorkingCard";
 import ProjectCard from "@/components/projectCard";
 import { getAllProjects } from "@/lib/content";
 
