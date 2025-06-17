@@ -6,8 +6,15 @@ import BluButtonDesktop from "@/public/Images/blubutton-web.jpg";
 import BluButtonMobile from "@/public/Images/blubutton-mobile.jpg";
 import CurrentlyWorkingCard from "@/components/CurrentlyWorkingCard";
 import Card_2 from "@/components/card_2";
+import { getAllProjects } from "@/lib/content";
 
 export default function Home() {
+  const projects = getAllProjects();
+
+  const currentlyBuilding = projects.filter((p) => p.status === "building");
+
+  console.log(currentlyBuilding);
+
   return (
     <>
       <script
