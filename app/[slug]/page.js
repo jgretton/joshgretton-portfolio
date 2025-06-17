@@ -25,7 +25,7 @@ export async function generateMetadata(props, parent) {
   const slug = params.slug;
 
   return {
-    title: `${slug} || Josh Gretton`,
+    title: `${slug} | Josh Gretton`,
     description:
       "Volleyscore is a simple scoreboard app designed to track volleyball matches. I developed it to give referees, scorekeepers, and players a user-friendly scoring solution for both official and recreational games.",
     keywords:
@@ -42,7 +42,7 @@ const getProjectsData = (personal) => {
   return JSON.parse(jsonData);
 };
 
-const Page = async props => {
+const Page = async (props) => {
   const params = await props.params;
   const { slug } = params;
   const projects = getProjectsData();

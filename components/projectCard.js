@@ -62,7 +62,7 @@ const ProjectCard = ({ project }) => {
       <div className="mt-3 grid place-items-start gap-2">
         {projectDetails && (
           <Link
-            href={{ pathname: `/projects/${slug}` }}
+            href={{ pathname: `/${slug}` }}
             className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/80 dark:hover:text-blue-500"
           >
             View project details
