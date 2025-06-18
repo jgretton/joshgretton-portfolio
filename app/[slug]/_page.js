@@ -10,7 +10,14 @@ import Hero from "@/components/hero";
 import Markdown from "react-markdown";
 import TopOfPage from "@/components/topOfPage";
 import { notFound } from "next/navigation";
-import { getProjectBySlug } from "@/lib/content";
+
+// export const metadata = {
+//   title: "Volleyscore || Josh Gretton",
+//   description:
+//     "Portfolio of a Uk based, self-taught front-end developer specialising in Nextjs and TailwindCss.",
+//   keywords:
+//     "Josh Gretton, front end web developer, web development portfolio, HTML, CSS, JavaScript, React, responsive design, UK developer, NextJs, tailwindcss, self-taught developer",
+// };
 
 export async function generateMetadata(props, parent) {
   const params = await props.params;
@@ -38,20 +45,13 @@ const getProjectsData = (personal) => {
 const Page = async (props) => {
   const params = await props.params;
   const { slug } = params;
-
-  const project = getProjectBySlug(slug);
+  const projects = getProjectsData();
+  const project = projects.find((p) => p.slug === slug);
   if (!project) {
     return notFound();
   }
-  const {
-    title,
-    technologies,
-    coverImage,
-    liveUrl,
-    content,
-    client,
-    image_alt,
-  } = project;
+  const { title, tags, image, live_href, image_alt, markdown, markdown_path } =
+    project;
 
   return (
     <>
@@ -62,7 +62,7 @@ const Page = async (props) => {
         <section className="relative mx-auto h-full w-full bg-gray-50 px-4 xl:container dark:bg-[#15202b] sm:px-12">
           <div className="sm:h-134 group relative h-80 w-full overflow-hidden">
             <Image
-              src={coverImage}
+              src={image}
               alt={image_alt}
               className="h-full w-full rounded-t-lg object-cover object-top"
               priority
@@ -73,21 +73,19 @@ const Page = async (props) => {
             <aside className="top-32 mt-20 h-fit w-full md:sticky md:w-1/4">
               <p className="text-base font-medium">Project Name</p>
               <p className="mb-5 ml-2 text-sm font-light">{title}</p>
-              <p className="text-base font-medium">Client</p>
-              <p className="mb-5 ml-2 text-sm font-light">{client}</p>
 
               <p className="text-base font-medium">Technologies used</p>
               <ul className="ml-2">
-                {technologies.map((tag, index) => (
+                {tags.map((tag, index) => (
                   <li className="text-sm font-light" key={index}>
                     {tag}
                   </li>
                 ))}
               </ul>
 
-              {liveUrl && (
+              {live_href && (
                 <Link
-                  href={liveUrl}
+                  href={live_href}
                   target="_blank"
                   className="sm:text-md group mb-3 mt-5 inline-flex items-center gap-2 self-start text-base leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
                 >
@@ -98,7 +96,7 @@ const Page = async (props) => {
             </aside>
             <article className="mt-20 grid flex-1">
               <Markdown className="prose-headings:f prose min-w-full font-light tracking-wide dark:prose-invert prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl hover:prose-a:dark:text-blue-500 prose-img:dark:border-slate-700">
-                {content}
+                {markdown}
               </Markdown>
             </article>
           </div>

@@ -2,7 +2,8 @@ import Image from "next/image";
 import PhotoOfMe from "@/public/Images/about/photo-of-me.jpg";
 import Hero from "@/components/hero";
 import Markdown from "react-markdown";
-import { aboutMeText } from "@/data/about";
+import { getPageBySlug } from "@/lib/content";
+import { notFound } from "next/navigation";
 
 export const metadata = {
   title: "About Me",
@@ -40,6 +41,11 @@ export const metadata = {
 };
 
 const AboutPage = () => {
+  const aboutPage = getPageBySlug("about");
+  if (!aboutPage) {
+    return notFound();
+  }
+  const { title, content } = aboutPage;
   return (
     <>
       <Hero>
@@ -65,7 +71,7 @@ const AboutPage = () => {
               </div>
               <article className="relative mt-5 h-auto w-full lg:w-2/3">
                 <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-headings:font-light prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal hover:prose-a:dark:text-blue-500">
-                  {aboutMeText.markdown}
+                  {content}
                 </Markdown>
               </article>
             </div>
