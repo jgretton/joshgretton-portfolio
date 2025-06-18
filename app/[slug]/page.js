@@ -11,6 +11,7 @@ import Markdown from "react-markdown";
 import TopOfPage from "@/components/topOfPage";
 import { notFound } from "next/navigation";
 import { getProjectBySlug } from "@/lib/content";
+import RealtedProjects from "@/components/realtedProjects";
 
 
 
@@ -56,7 +57,7 @@ const project = getProjectBySlug(slug);
       <Hero back>
         <h1>{title}</h1>
       </Hero>
-      <div className="z-20 bg-gray-50 pb-10 dark:bg-dark">
+      <div className="z-20 bg-gray-50 pb-10 dark:bg-dark relative">
         <section className="relative mx-auto h-full w-full bg-gray-50 px-4 xl:container dark:bg-dark sm:px-12">
           <div className="sm:h-134 group relative h-80 w-full overflow-hidden">
             <Image
@@ -100,8 +101,13 @@ const project = getProjectBySlug(slug);
               </Markdown>
             </article>
           </div>
-          <TopOfPage />
         </section>
+        <section className="relative mx-auto h-full w-full bg-gray-50 px-4 xl:container dark:bg-dark sm:px-12 pt-20">
+
+            <RealtedProjects slug={slug}/>
+        </section>
+
+          <TopOfPage />
       </div>
     </>
   );

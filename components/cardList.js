@@ -3,22 +3,18 @@ import ProjectCard from "./projectCard";
 
 const CardList = ({ projects, heading }) => {
   return (
-    <>
+    <div className="w-full">
       <h2 className="text-2xl font-normal tracking-wide text-gray-900 dark:text-gray-200">
         {heading}
       </h2>
-      <div
-        id="personalProjects"
-        className="mt-10 flex w-full scroll-m-44 flex-col gap-10 md:flex-row md:gap-5"
-        // className="mt-10 grid grid-cols-[repeat(auto-fit,minmax(300px,min(400px,1fr)))] gap-10 md:gap-5"
-      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-x-10 mt-10 md:gap-y-20 lg:gap-y-32">
         {projects.map((project, index) => (
-          <article key={index} className="h-auto">
+          <article key={index} className="h-auto ">
             <ProjectCard project={project} />
           </article>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

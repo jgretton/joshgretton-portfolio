@@ -19,10 +19,10 @@ const TopOfPage = () => {
       aria-hidden="true"
       className={`${
         showScroll ? "opacity-100" : "hidden opacity-0"
-      } duration-400 sticky bottom-10 right-3 z-40 text-right transition-opacity`}
+      } duration-400 fixed bottom-10 right-3 z-40 text-right transition-opacity size-fit `}
     >
       <button
-        className={`h-8 w-8 rounded-sm bg-slate-700/40 text-gray-950 dark:bg-slate-200/40`}
+        className={`h-8 w-8 cursor-pointer rounded-sm bg-slate-700/40 text-gray-950 dark:bg-slate-200/40 `}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         role="button"
         value="Scroll to top of page"
