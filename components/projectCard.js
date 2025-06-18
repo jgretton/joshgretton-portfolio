@@ -19,7 +19,7 @@ const ProjectCard = ({ project }) => {
   } = project;
 
   return (
-    <div className="_bg-white _shadow-sm h-full w-full shrink rounded-xl md:pr-4 ">
+    <div className="_bg-white _shadow-sm h-full w-full shrink rounded-xl md:pr-4 max-w-xl">
       <div className="">
         <Image
           width={600}
@@ -75,16 +75,6 @@ const ProjectCard = ({ project }) => {
             <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>
         )}
-
-        {/* {more_detail && (
-          <Link
-            href={{ pathname: `/projects/${slug}` }}
-            className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/80 dark:hover:text-blue-500"
-          >
-            View project details
-            <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
-          </Link>
-        )} */}
       </div>
     </div>
   );
@@ -92,9 +82,6 @@ const ProjectCard = ({ project }) => {
 const ProjectCardMinimal = ({project}) => {
     const {
     title,
-    smallDescription,
-    technologies,
-    liveUrl,
     coverImage,
     mobileImage,
     slug,
@@ -102,7 +89,7 @@ const ProjectCardMinimal = ({project}) => {
   } = project;
 
   return (
-    <div className="h-full w-full shrink rounded-xl md:pr-4 ">
+    <div className="h-full w-full shrink rounded-xl md:pr-4">
       <div className="">
         <Image
           width={600}
