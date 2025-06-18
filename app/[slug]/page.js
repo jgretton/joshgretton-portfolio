@@ -12,13 +12,18 @@ import TopOfPage from "@/components/topOfPage";
 import { notFound } from "next/navigation";
 import { getProjectBySlug } from "@/lib/content";
 
+
+
 export async function generateMetadata(props, parent) {
-  const params = await props.params;
-  // read route params
-  const slug = params.slug;
+    const params = await props.params;
+    // read route params
+    const slug = params.slug;
+    
+    const project = getProjectBySlug(slug);
+  const {title} = project;
 
   return {
-    title: `${slug} | Josh Gretton`,
+    title: `${title} | Josh Gretton`,
     description:
       "Volleyscore is a simple scoreboard app designed to track volleyball matches. I developed it to give referees, scorekeepers, and players a user-friendly scoring solution for both official and recreational games.",
     keywords:
@@ -26,20 +31,13 @@ export async function generateMetadata(props, parent) {
   };
 }
 
-const getProjectsData = (personal) => {
-  let filePath;
-  if (personal)
-    filePath = path.join(process.cwd(), "data", "personalWork.json");
-  else filePath = path.join(process.cwd(), "data", "projects.json");
-  const jsonData = readFileSync(filePath, "utf-8");
-  return JSON.parse(jsonData);
-};
-
 const Page = async (props) => {
   const params = await props.params;
   const { slug } = params;
 
-  const project = getProjectBySlug(slug);
+const project = getProjectBySlug(slug);
+
+
   if (!project) {
     return notFound();
   }
