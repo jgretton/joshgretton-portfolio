@@ -1,3 +1,4 @@
+import CardList from "@/components/cardList";
 import Hero from "@/components/hero";
 import ProjectCard from "@/components/projectCard";
 import { getAllProjects } from "@/lib/content";
@@ -54,21 +55,16 @@ export default function Home() {
             </div>
           </div>
           <div className="relative z-10 w-full px-2 pb-20">
-            <h2 className="text-2xl font-normal tracking-wide text-gray-900 dark:text-gray-200">
-              Personal Projects
-            </h2>
-            <div
-              id="personalProjects"
-              className="mt-10 flex w-full scroll-m-44 flex-col gap-10 md:flex-row md:gap-5"
-            >
-              {personalProjects.map((project, index) => (
-                <article key={index} className="h-auto">
-                  <ProjectCard project={project} />
-                </article>
-              ))}
+            <CardList
+              projects={personalProjects}
+              heading={"Personal Projects"}
+            />
+
+            <div className="mt-20">
+              <CardList projects={clientProjects} heading={"Client Work"} />
             </div>
 
-            <h2 className="mt-20 text-2xl font-normal tracking-wide text-gray-900 dark:text-gray-200">
+            {/* <h2 className="mt-20 text-2xl font-normal tracking-wide text-gray-900 dark:text-gray-200">
               Client Work
             </h2>
             <div
@@ -82,7 +78,7 @@ export default function Home() {
                   </article>
                 );
               })}
-            </div>
+            </div> */}
           </div>
         </section>
       </div>

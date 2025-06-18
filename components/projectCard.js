@@ -53,7 +53,7 @@ const ProjectCard = ({ project }) => {
             </span>
           ))}
         </p>
-        <p className="mt-4 text-sm font-light tracking-wider dark:text-white/75">
+        <p className="mt-4 text-sm font-light tracking-wide text-gray-500 dark:text-white/75">
           {smallDescription}
         </p>
       </div>
