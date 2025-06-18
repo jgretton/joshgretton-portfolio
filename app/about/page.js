@@ -1,7 +1,7 @@
 import Image from "next/image";
 import PhotoOfMe from "@/public/Images/about/photo-of-me.jpg";
 import Hero from "@/components/hero";
-import Markdown from "react-markdown";
+import { MDXRemote } from "next-mdx-remote/rsc";
 import { getPageBySlug } from "@/lib/content";
 import { notFound } from "next/navigation";
 
@@ -70,9 +70,9 @@ const AboutPage = () => {
                 />
               </div>
               <article className="relative mt-5 h-auto w-full lg:w-2/3">
-                <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-headings:font-light prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal hover:prose-a:dark:text-blue-500">
-                  {content}
-                </Markdown>
+                <div className="prose min-w-full font-light tracking-wide dark:prose-invert prose-headings:font-light prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal hover:prose-a:dark:text-blue-500">
+                    <MDXRemote source={content}/>
+                </div>
               </article>
             </div>
           </div>

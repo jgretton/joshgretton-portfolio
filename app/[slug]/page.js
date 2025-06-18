@@ -4,11 +4,14 @@ import React from "react";
 import Link from "next/link";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import Hero from "@/components/hero";
-import Markdown from "react-markdown";
+// import Markdown from "react-markdown";
 import TopOfPage from "@/components/topOfPage";
 import { notFound } from "next/navigation";
 import { getProjectBySlug } from "@/lib/content";
 import RealtedProjects from "@/components/realtedProjects";
+
+import { MDXRemote } from 'next-mdx-remote/rsc'
+
 
 
 
@@ -93,9 +96,10 @@ const project = getProjectBySlug(slug);
               )}
             </aside>
             <article className="mt-20 grid flex-1">
-              <Markdown className="prose-headings:f prose min-w-full font-light tracking-wide dark:prose-invert prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl hover:prose-a:dark:text-blue-500 prose-img:dark:border-slate-700">
-                {content}
-              </Markdown>
+                <div className="prose-headings:f prose min-w-full font-light tracking-wide dark:prose-invert prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl hover:prose-a:dark:text-blue-500 prose-img:dark:border-slate-700">
+
+              <MDXRemote  source={content} />
+                </div>
             </article>
           </div>
         </section>
