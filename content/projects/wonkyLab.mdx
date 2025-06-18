@@ -14,12 +14,52 @@ coverImage: "/Images/wonky-web.jpg"
 mobileImage: "/Images/wonky-mobile.jpg"
 ---
 
-# Project content will go here
+## Project Overview
 
-This is where you'll write your case study content using markdown.
+**Goal:** Build a modern website for a Sheffield micropub, evolving from a simple site to a full e-commerce platform
+
+**Timeline:** 4 weeks initial build + 3 weeks additional features
+
+**Client:** The Wonky Labrador (via Blubutton Digital)
+
+## Key Features
+
+- Responsive website showcasing the micropub's character and offerings
+- Headless Shopify integration for merchandise and gift vouchers
+- Eventbrite API connection displaying upcoming events
+- Custom booking form for table reservations
+- Product variations handling (sizes, quantities)
 
 ## The Challenge
 
-## The Solution
+The Wonky Labrador initially wanted something straightforward - just a basic website with the usual pages you'd expect for a local business. Nothing fancy, just about, contact, opening hours, and I was manually adding their events as they came up.
 
-## Results
+However, as their business grew, so did their ambitions. When they came back wanting to add an online shop for merchandise like branded hats and shirts, plus gift vouchers and beer packages, I had an interesting decision to make. I could have rebuilt everything using Shopify's standard themes, but that would have meant starting from scratch and losing all the custom design work we'd already done.
+
+Instead, I recommended integrating Shopify headlessly with their existing Next.js site. This way, we kept their unique look and feel whilst adding proper e-commerce functionality. It was definitely the right call.
+
+The Eventbrite integration was another game-changer. Manually updating events every time they had a quiz night or meet-the-brewer evening was becoming a pain point. Now their events automatically appear on the site with all the details, and users get directed to Eventbrite for bookings - much cleaner for everyone involved.
+
+## Technical Implementation
+
+- **Frontend:** Next.js, Tailwind CSS
+- **E-commerce:** Headless Shopify integration
+- **APIs:** Eventbrite API for event management
+- **Deployment:** Vercel
+
+## What I Learned
+
+The trickiest bit was definitely getting my head around Shopify's checkout flow, particularly when it came to product variations and quantities. I initially made a classic mistake where updating quantities would just add duplicate products rather than properly managing the variants. It was one of those moments where you realise you don't understand the data structure as well as you thought you did.
+
+Working with the Vercel boilerplate was also a learning experience. It was built in TypeScript, so I had to interpret it back to vanilla JavaScript and make quite a few modifications to suit the project's needs.
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+  <div className="text-center">
+    <img src="/Images/wonky-web.jpg" alt="Homepage" className="w-full rounded-lg" />
+    <p className="text-sm text-gray-600 mt-2">Homepage design</p>
+  </div>
+  <div className="text-center">
+    <img src="/Images/wonky-web.jpg" alt="Shop page" className="w-full rounded-lg" />
+    <p className="text-sm text-gray-600 mt-2">Integrated shop</p>
+  </div>
+</div>
