@@ -36,7 +36,7 @@ export default function Home() {
       </Hero>
 
       {/* projects */}
-      <div className="relative bg-gray-50 dark:bg-[#15202b]">
+      <div className="relative bg-gray-50 dark:bg-dark">
         <section className="px-2 opacity-100 transition-opacity duration-300 xl:container sm:px-10 xl:mx-auto">
           <div className="relative z-10 w-full px-2 pb-20">
             <h2 className="text-2xl font-normal tracking-wide text-gray-900 dark:text-gray-200">

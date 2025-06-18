@@ -59,7 +59,7 @@ const Page = async (props) => {
         <h1>{title}</h1>
       </Hero>
       <div className="z-20 bg-gray-50 pb-10 dark:bg-dark">
-        <section className="relative mx-auto h-full w-full bg-gray-50 px-4 xl:container dark:bg-[#15202b] sm:px-12">
+        <section className="relative mx-auto h-full w-full bg-gray-50 px-4 xl:container dark:bg-dark sm:px-12">
           <div className="sm:h-134 group relative h-80 w-full overflow-hidden">
             <Image
               src={coverImage}

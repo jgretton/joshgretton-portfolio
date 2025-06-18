@@ -75,7 +75,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
     return () => clearTimeout(timeout);
   }, [copiedText]);
   return (
-    <header className="fixed inset-x-0 top-0 z-20 bg-gray-50/80 py-2 backdrop-blur-lg dark:bg-[#15202b]/80">
+    <header className="fixed inset-x-0 top-0 z-20 bg-gray-50/80 py-2 backdrop-blur-lg dark:bg-dark/80">
       <div className="mx-auto flex items-center justify-between p-4 xl:container sm:px-12">
         <Link
           href="/"
@@ -93,11 +93,11 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
           <Popover className={"group"}>
             <PopoverButton
               className={
-                "flex items-center gap-3 rounded-md px-4 py-2 transition-all hover:bg-slate-200 data-[active]:bg-slate-200 dark:hover:bg-slate-700 dark:data-[active]:bg-slate-700 dark:data-[active]:text-white"
+                "flex items-center gap-3 rounded-md px-4 py-2 transition-all hover:bg-slate-200 data-active:bg-slate-200 dark:hover:bg-slate-700 dark:data-active:bg-slate-700 dark:data-active:text-white"
               }
             >
               Contact Me
-              <ChevronDownIcon className="size-4 transition-transform group-data-[open]:rotate-180" />
+              <ChevronDownIcon className="size-4 transition-transform group-data-open:rotate-180" />
             </PopoverButton>
             <Transition
               enter="transition ease-out duration-200"
@@ -206,7 +206,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
                 <Disclosure as="div" className="-mx-3" defaultOpen={false}>
                   <DisclosureButton className="group flex min-w-full items-center justify-between rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700">
                     Contact
-                    <ChevronDownIcon className="size-5 transition-transform group-data-[open]:rotate-180" />
+                    <ChevronDownIcon className="size-5 transition-transform group-data-open:rotate-180" />
                   </DisclosureButton>
                   <DisclosurePanel className="mx-3 mt-2 origin-top text-sm/5 text-black/50 transition">
                     <Link

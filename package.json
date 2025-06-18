@@ -21,12 +21,13 @@
     "react-markdown": "^9.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.10",
     "@tailwindcss/typography": "^0.5.13",
     "eslint": "^8",
     "eslint-config-next": "15.3.3",
     "postcss": "^8",
     "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.6.1",
-    "tailwindcss": "^3.4.1"
+    "prettier-plugin-tailwindcss": "^0.6.12",
+    "tailwindcss": "^4.1.10"
   }
 }
