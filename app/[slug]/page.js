@@ -34,11 +34,8 @@ export async function generateMetadata(props, parent) {
 const Page = async (props) => {
   const params = await props.params;
   const { slug } = params;
-    console.log(slug, "this is the slug");
     
     const project = getProjectBySlug(slug);
-    console.log('project', project)
-
 
   if (!project) {
     return notFound();
