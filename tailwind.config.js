@@ -20,6 +20,6 @@ module.exports = {
     },
   },
 
-  plugins: [require("@tailwindcss/typography"), "prettier-plugin-tailwindcss"],
+  //   plugins: [require("@tailwindcss/typography"), "prettier-plugin-tailwindcss"],
   darkMode: "class",
 };
