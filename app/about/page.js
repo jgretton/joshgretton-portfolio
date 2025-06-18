@@ -1,8 +1,9 @@
 import Image from "next/image";
 import PhotoOfMe from "@/public/Images/about/photo-of-me.jpg";
 import Hero from "@/components/hero";
-import Markdown from "react-markdown";
-import { aboutMeText } from "@/data/about";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { getPageBySlug } from "@/lib/content";
+import { notFound } from "next/navigation";
 
 export const metadata = {
   title: "About Me",
@@ -40,6 +41,11 @@ export const metadata = {
 };
 
 const AboutPage = () => {
+  const aboutPage = getPageBySlug("about");
+  if (!aboutPage) {
+    return notFound();
+  }
+  const { title, content } = aboutPage;
   return (
     <>
       <Hero>
@@ -52,8 +58,8 @@ const AboutPage = () => {
       </Hero>
 
       <div className="bg-gray-50 pb-10 dark:bg-dark">
-        <section className="relative mx-auto h-full w-full bg-gray-50 px-4 xl:container dark:bg-[#15202b] sm:px-12">
-          <div className="z-10 mb-32 w-full bg-gray-50 dark:bg-[#15202b]">
+        <section className="relative mx-auto h-full w-full bg-gray-50 px-4 xl:container dark:bg-dark sm:px-12">
+          <div className="z-10 mb-32 w-full bg-gray-50 dark:bg-dark">
             <div className="flex flex-col gap-14 md:flex-row">
               <div className="w-6/6 top-28 self-center sm:h-1/2 md:sticky md:self-auto lg:h-full lg:w-1/3">
                 <Image
@@ -64,9 +70,9 @@ const AboutPage = () => {
                 />
               </div>
               <article className="relative mt-5 h-auto w-full lg:w-2/3">
-                <Markdown className="prose min-w-full font-light tracking-wide dark:prose-invert prose-headings:font-light prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal hover:prose-a:dark:text-blue-500">
-                  {aboutMeText.markdown}
-                </Markdown>
+                <div className="prose min-w-full font-light tracking-wide dark:prose-invert prose-headings:font-light prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal hover:prose-a:dark:text-blue-500">
+                    <MDXRemote source={content}/>
+                </div>
               </article>
             </div>
           </div>
