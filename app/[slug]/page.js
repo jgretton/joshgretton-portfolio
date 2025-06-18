@@ -1,9 +1,6 @@
 import Image from "next/image";
 import React from "react";
 
-import { readFileSync } from "fs";
-import path from "path";
-
 import Link from "next/link";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import Hero from "@/components/hero";
@@ -58,7 +55,7 @@ const project = getProjectBySlug(slug);
         <h1>{title}</h1>
       </Hero>
       <div className="z-20 bg-gray-50 pb-10 dark:bg-dark relative">
-        <section className="relative mx-auto h-full w-full bg-gray-50 px-4 xl:container dark:bg-dark sm:px-12">
+        <section className="relative mx-auto h-full w-full bg-gray-50 px-4 xl:container dark:bg-dark sm:px-12 py-20">
           <div className="sm:h-134 group relative h-80 w-full overflow-hidden">
             <Image
               src={coverImage}
@@ -69,7 +66,7 @@ const project = getProjectBySlug(slug);
             />
           </div>
           <div className="relative flex flex-col gap-x-5 md:flex-row">
-            <aside className="top-32 mt-20 h-fit w-full md:sticky md:w-1/4">
+            <aside className="top-10 mt-20 h-fit w-full md:sticky md:w-1/4">
               <p className="text-base font-medium">Project Name</p>
               <p className="mb-5 ml-2 text-sm font-light">{title}</p>
               <p className="text-base font-medium">Client</p>
