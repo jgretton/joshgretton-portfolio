@@ -19,7 +19,6 @@ export async function generateMetadata(props, parent) {
     const params = await props.params;
     // read route params
     const slug = params.slug;
-    
     const project = getProjectBySlug(slug);
   const {title} = project;
 
@@ -35,8 +34,10 @@ export async function generateMetadata(props, parent) {
 const Page = async (props) => {
   const params = await props.params;
   const { slug } = params;
-
-const project = getProjectBySlug(slug);
+    console.log(slug, "this is the slug");
+    
+    const project = getProjectBySlug(slug);
+    console.log('project', project)
 
 
   if (!project) {
