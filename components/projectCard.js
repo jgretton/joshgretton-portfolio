@@ -11,13 +11,11 @@ const ProjectCard = ({ project }) => {
     title,
     smallDescription,
     technologies,
-    client,
     liveUrl,
     coverImage,
     mobileImage,
     slug,
     image_alt,
-    projectDetails,
   } = project;
 
   return (
@@ -44,7 +42,7 @@ const ProjectCard = ({ project }) => {
         <h3 className="text-xl font-normal tracking-wide transition-colors sm:text-xl">
           {title}
         </h3>
-        <p className="mt-2 inline-flex w-full flex-wrap gap-2 text-balance text-sm font-light tracking-wider dark:text-gray-300">
+        <p className="mt-2 inline-flex w-full flex-wrap gap-2 text-balance text-sm font-light tracking-wider dark:text-white/90">
           <span className="font-normal"> Built using:</span>
           {technologies.map((item, index) => (
             <span
@@ -55,14 +53,14 @@ const ProjectCard = ({ project }) => {
             </span>
           ))}
         </p>
-        <p className="mt-4 text-sm font-light tracking-wider dark:text-gray-300">
+        <p className="mt-4 text-sm font-light tracking-wider dark:text-white/75">
           {smallDescription}
         </p>
       </div>
-      <div className="mt-3 grid place-items-start gap-2">
+      <div className="mt-4 grid place-items-start gap-2">
         <Link
           href={{ pathname: `/${slug}` }}
-          className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/80 dark:hover:text-blue-500"
+          className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/90 dark:hover:text-blue-500"
         >
           View project details
           <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -71,7 +69,7 @@ const ProjectCard = ({ project }) => {
           <Link
             href={liveUrl}
             target="_blank"
-            className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/80 dark:hover:text-blue-500"
+            className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/90 dark:hover:text-blue-500"
           >
             View site
             <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
