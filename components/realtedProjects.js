@@ -3,7 +3,7 @@ import CardList from './cardList'
 import { getAllProjects, getRelatedProjects } from '@/lib/content';
 import ProjectCard from './projectCard';
 
-const RealtedProjects = (slug) => {
+const RealtedProjects = ({slug}) => {
     const projects = getRelatedProjects(slug);
     
   return (
