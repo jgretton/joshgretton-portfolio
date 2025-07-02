@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import React, { useState, Fragment, useEffect } from "react";
 import {
   Dialog,
@@ -24,6 +23,7 @@ import {
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./themeToggle";
 import copy from "copy-to-clipboard";
+import { HoverPrefetchLink } from "./HoverPrefetchLink";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -33,7 +33,7 @@ const ClipboardButton = ({ copiedText }) => {
   return (
     <div className="relative size-5 transition-all sm:size-6">
       <ClipboardDocumentCheckIcon
-        className={`${copiedText ? "opacity-100" : "opacity-0"} absolute left-0 top-0 size-5 text-green-400 transition-all duration-500 dark:text-green-300 sm:size-6`}
+        className={`${copiedText ? "opacity-100" : "opacity-0"} absolute left-0 top-0 size-5 text-green-400 transition-all duration-500 sm:size-6 dark:text-green-300`}
         // strokeDasharray={50}
         // strokeDashoffset={copiedText ? 0 : -50}
         aria-hidden="true"
@@ -75,29 +75,29 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
     return () => clearTimeout(timeout);
   }, [copiedText]);
   return (
-    <header className="fixed inset-x-0 top-0 z-20 bg-gray-50/80 py-2 backdrop-blur-lg dark:bg-dark/80">
+    <header className="dark:bg-dark/80 fixed inset-x-0 top-0 z-20 bg-gray-50/80 py-2 backdrop-blur-lg">
       <div className="mx-auto flex items-center justify-between p-4 xl:container sm:px-12">
-        <Link
+        <HoverPrefetchLink
           href="/"
           className="text-2xl decoration-2 hover:underline sm:text-4xl"
         >
           JG <span className="text-blue-500"> / </span>
-        </Link>
+        </HoverPrefetchLink>
         <nav className="hidden sm:flex sm:gap-10">
-          <Link
+          <HoverPrefetchLink
             href="/about"
             className={`${pathname === "/about" && "underline"} rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700`}
           >
             About
-          </Link>
+          </HoverPrefetchLink>
           <Popover className={"group"}>
             <PopoverButton
               className={
-                "flex items-center gap-3 rounded-md px-4 py-2 transition-all hover:bg-slate-200 data-active:bg-slate-200 dark:hover:bg-slate-700 dark:data-active:bg-slate-700 dark:data-active:text-white"
+                "data-active:bg-slate-200 dark:data-active:bg-slate-700 dark:data-active:text-white flex items-center gap-3 rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700"
               }
             >
               Contact Me
-              <ChevronDownIcon className="size-4 transition-transform group-data-open:rotate-180" />
+              <ChevronDownIcon className="group-data-open:rotate-180 size-4 transition-transform" />
             </PopoverButton>
             <Transition
               enter="transition ease-out duration-200"
@@ -112,7 +112,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
                 className="z-50 flex flex-col divide-y divide-white/5 rounded-xl bg-white text-sm/6 shadow-lg ring-1 ring-gray-900/5 [--anchor-gap:0.5rem] dark:bg-slate-700"
               >
                 <div className="p-3">
-                  <Link
+                  <HoverPrefetchLink
                     className="group/github block rounded-lg px-3 py-2 transition hover:bg-black/5"
                     href="https://github.com/jgretton"
                     target="_blank"
@@ -124,7 +124,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
                       Go to my page{" "}
                       <ArrowTopRightOnSquareIcon className="size-5 transition-transform group-hover/github:-translate-y-0.5 group-hover/github:translate-x-0.5" />
                     </p>
-                  </Link>
+                  </HoverPrefetchLink>
                   <button
                     className="block w-full rounded-lg px-3 py-2 text-start transition hover:bg-black/5"
                     type="button"
@@ -170,16 +170,16 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
         onClose={setIsMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 py-6 dark:bg-dark sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="dark:bg-dark fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="my-0.5 flex items-center justify-between">
-            <Link
+            <HoverPrefetchLink
               href="/"
               className="text-2xl sm:text-4xl"
               onClick={() => setIsMobileMenuOpen(false)}
               aria-label="home page"
             >
               JG <span className="text-blue-500"> / </span>
-            </Link>
+            </HoverPrefetchLink>
 
             <button
               type="button"
@@ -195,21 +195,21 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
           </div>
           <div className="mt-6 flow-root">
             <div className="space-y-2 py-6">
-              <Link
+              <HoverPrefetchLink
                 href={"/about"}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="-mx-3 block rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700"
               >
                 About
-              </Link>
+              </HoverPrefetchLink>
               <div className="min-w-full">
                 <Disclosure as="div" className="-mx-3" defaultOpen={false}>
                   <DisclosureButton className="group flex min-w-full items-center justify-between rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700">
                     Contact
-                    <ChevronDownIcon className="size-5 transition-transform group-data-open:rotate-180" />
+                    <ChevronDownIcon className="group-data-open:rotate-180 size-5 transition-transform" />
                   </DisclosureButton>
                   <DisclosurePanel className="mx-3 mt-2 origin-top text-sm/5 text-black/50 transition">
-                    <Link
+                    <HoverPrefetchLink
                       className="group/github block rounded-lg px-3 py-2 transition hover:bg-black/5"
                       href="https://github.com/jgretton"
                       target="_blank"
@@ -221,7 +221,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
                         Go to my page{" "}
                         <ArrowTopRightOnSquareIcon className="size-5 transition-transform group-hover/github:-translate-y-0.5 group-hover/github:translate-x-0.5" />
                       </p>
-                    </Link>
+                    </HoverPrefetchLink>
                     <button
                       className="block w-full rounded-lg px-3 py-2 text-start transition hover:bg-black/5"
                       type="button"
@@ -240,20 +240,20 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
                   </DisclosurePanel>
                 </Disclosure>
               </div>
-              <Link
+              <HoverPrefetchLink
                 href={"/#personalProjects"}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="-mx-3 block rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700"
               >
                 Personal Projects
-              </Link>
-              <Link
+              </HoverPrefetchLink>
+              <HoverPrefetchLink
                 href={"/#clientWork"}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="-mx-3 block rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700"
               >
                 Client Work
-              </Link>
+              </HoverPrefetchLink>
             </div>
           </div>
         </DialogPanel>
