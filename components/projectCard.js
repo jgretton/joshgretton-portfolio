@@ -19,7 +19,7 @@ const ProjectCard = ({ project }) => {
   } = project;
 
   return (
-    <div className="_bg-white _shadow-sm h-full w-full shrink rounded-xl md:pr-4 max-w-xl">
+    <div className="h-full w-full max-w-xl shrink rounded-xl md:pr-4">
       <div className="">
         <Image
           width={600}
@@ -79,52 +79,48 @@ const ProjectCard = ({ project }) => {
     </div>
   );
 };
-const ProjectCardMinimal = ({project}) => {
-    const {
-    title,
-    coverImage,
-    mobileImage,
-    slug,
-    image_alt,
-  } = project;
+const ProjectCardMinimal = ({ project }) => {
+  const { title, coverImage, mobileImage, slug, image_alt } = project;
 
   return (
-    <div className="h-full w-full shrink rounded-xl md:pr-4">
-      <div className="">
-        <Image
-          width={600}
-          height={200}
-          src={coverImage}
-          alt={image_alt || "image alt"}
-          className={`${mobileImage && "hidden md:block"} h-full w-full rounded-lg object-cover object-top`}
-        />
-        {mobileImage && (
+    <Link href={{ pathname: `/${slug}` }} className="group">
+      <div className="h-full w-full shrink rounded-xl md:pr-4">
+        <div className="">
           <Image
             width={600}
             height={200}
-            src={mobileImage}
+            src={coverImage}
             alt={image_alt || "image alt"}
-            className="h-full w-full rounded-lg object-cover object-top md:hidden"
+            className={`${mobileImage && "hidden md:block"} h-full w-full rounded-lg object-cover object-top`}
           />
-        )}
+          {mobileImage && (
+            <Image
+              width={600}
+              height={200}
+              src={mobileImage}
+              alt={image_alt || "image alt"}
+              className="h-full w-full rounded-lg object-cover object-top md:hidden"
+            />
+          )}
+        </div>
+        <div className="mt-4">
+          <h3 className="text-xl font-normal tracking-wide transition-colors sm:text-xl">
+            {title}
+          </h3>
+        </div>
+        <div className="mt-4 grid place-items-start gap-2">
+          <Link
+            href={{ pathname: `/${slug}` }}
+            className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors group-hover:text-blue-500 group-hover:underline dark:text-white/90 dark:group-hover:text-blue-500"
+          >
+            View project details
+            <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </div>
       </div>
-      <div className="mt-4">
-        <h3 className="text-xl font-normal tracking-wide transition-colors sm:text-xl">
-          {title}
-        </h3>
-      </div>
-      <div className="mt-4 grid place-items-start gap-2">
-        <Link
-          href={{ pathname: `/${slug}` }}
-          className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/90 dark:hover:text-blue-500"
-        >
-          View project details
-          <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
-        </Link>
-      </div>
-    </div>
+    </Link>
   );
-}
+};
 
 ProjectCard.Minimal = ProjectCardMinimal;
 
