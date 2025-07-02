@@ -5,6 +5,7 @@ import {
   ArrowRightIcon,
   ArrowTopRightOnSquareIcon,
 } from "@heroicons/react/24/outline";
+import { HoverPrefetchLink } from "./HoverPrefetchLink";
 
 const ProjectCard = ({ project }) => {
   const {
@@ -58,22 +59,22 @@ const ProjectCard = ({ project }) => {
         </p>
       </div>
       <div className="mt-4 grid place-items-start gap-2">
-        <Link
+        <HoverPrefetchLink
           href={{ pathname: `/${slug}` }}
           className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/90 dark:hover:text-blue-500"
         >
           View project details
           <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
-        </Link>
+        </HoverPrefetchLink>
         {liveUrl && (
-          <Link
+          <HoverPrefetchLink
             href={liveUrl}
             target="_blank"
             className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/90 dark:hover:text-blue-500"
           >
             View site
             <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </Link>
+          </HoverPrefetchLink>
         )}
       </div>
     </div>
@@ -83,7 +84,7 @@ const ProjectCardMinimal = ({ project }) => {
   const { title, coverImage, mobileImage, slug, image_alt } = project;
 
   return (
-    <Link href={{ pathname: `/${slug}` }} className="group">
+    <HoverPrefetchLink href={{ pathname: `/${slug}` }} className="group">
       <div className="h-full w-full shrink rounded-xl md:pr-4">
         <div className="">
           <Image
@@ -118,7 +119,7 @@ const ProjectCardMinimal = ({ project }) => {
           </Link>
         </div>
       </div>
-    </Link>
+    </HoverPrefetchLink>
   );
 };
 
