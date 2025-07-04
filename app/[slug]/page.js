@@ -10,17 +10,14 @@ import { notFound } from "next/navigation";
 import { getProjectBySlug } from "@/lib/content";
 import RealtedProjects from "@/components/realtedProjects";
 
-import { MDXRemote } from 'next-mdx-remote/rsc'
-
-
-
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 export async function generateMetadata(props, parent) {
-    const params = await props.params;
-    // read route params
-    const slug = params.slug;
-    const project = getProjectBySlug(slug);
-  const {title} = project;
+  const params = await props.params;
+  // read route params
+  const slug = params.slug;
+  const project = getProjectBySlug(slug);
+  const { title } = project;
 
   return {
     title: `${title} | Josh Gretton`,
@@ -34,8 +31,8 @@ export async function generateMetadata(props, parent) {
 const Page = async (props) => {
   const params = await props.params;
   const { slug } = params;
-    
-    const project = getProjectBySlug(slug);
+
+  const project = getProjectBySlug(slug);
 
   if (!project) {
     return notFound();
@@ -48,6 +45,7 @@ const Page = async (props) => {
     content,
     client,
     image_alt,
+    githubUrl,
   } = project;
 
   return (
@@ -55,8 +53,8 @@ const Page = async (props) => {
       <Hero back>
         <h1>{title}</h1>
       </Hero>
-      <div className="z-20 bg-gray-50 pb-10 dark:bg-dark relative">
-        <section className="relative mx-auto h-full w-full bg-gray-50 px-4 xl:container dark:bg-dark sm:px-12 py-20">
+      <div className="dark:bg-dark relative z-20 bg-gray-50 pb-10">
+        <section className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 py-20 xl:container sm:px-12">
           <div className="sm:h-134 group relative h-80 w-full overflow-hidden">
             <Image
               src={coverImage}
@@ -92,21 +90,29 @@ const Page = async (props) => {
                   <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Link>
               )}
+              {githubUrl && (
+                <Link
+                  href={githubUrl}
+                  target="_blank"
+                  className="sm:text-md group mt-5 inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/90 dark:hover:text-blue-500"
+                >
+                  View Github Respository
+                  <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </Link>
+              )}
             </aside>
             <article className="mt-20 grid flex-1">
-                <div className="prose-headings:f prose min-w-full font-light tracking-wide dark:prose-invert prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl hover:prose-a:dark:text-blue-500 prose-img:dark:border-slate-700">
-
-              <MDXRemote  source={content} />
-                </div>
+              <div className="prose-headings:f prose dark:prose-invert prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl hover:prose-a:dark:text-blue-500 prose-img:dark:border-slate-700 min-w-full font-light tracking-wide">
+                <MDXRemote source={content} />
+              </div>
             </article>
           </div>
         </section>
-        <section className="relative mx-auto h-full w-full bg-gray-50 px-4 xl:container dark:bg-dark sm:px-12 pt-20">
-
-            <RealtedProjects slug={slug}/>
+        <section className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 pt-20 xl:container sm:px-12">
+          <RealtedProjects slug={slug} />
         </section>
 
-          <TopOfPage />
+        <TopOfPage />
       </div>
     </>
   );

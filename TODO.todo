@@ -1,5 +1,8 @@
 todo:
     ✔ i could add a more projects list at the bottom of each indivudal project page? @done(25-06-18 15:53)
     ✔ Update to tailwind v4 @done(25-06-18 15:53)
-    ☐ add currently bulding to markdown search
+    ✔ add currently bulding to markdown search @done(25-07-04 08:04)
+    
+    ✔ Add draft boolean to markdown files @done(25-07-04 10:40)
+    ✔ Update VolleyDrills to volleyStats @done(25-07-04 10:40)
     ☐ add project notes for each one.

@@ -6,9 +6,15 @@ import { getAllProjects } from "@/lib/content";
 export default function Home() {
   const projects = getAllProjects();
 
-  const currentlyBuilding = projects.filter((p) => p.status === "building");
-  const clientProjects = projects.filter((p) => p.status === "client");
-  const personalProjects = projects.filter((p) => p.status === "personal");
+  const currentlyBuilding = projects.filter(
+    (p) => p.status === "building" && p.draft !== true,
+  );
+  const clientProjects = projects.filter(
+    (p) => p.status === "client" && p.draft !== true,
+  );
+  const personalProjects = projects.filter(
+    (p) => p.status === "personal" && p.draft !== true,
+  );
 
   return (
     <>
@@ -36,7 +42,7 @@ export default function Home() {
       </Hero>
 
       {/* projects */}
-      <div className="relative bg-gray-50 dark:bg-dark">
+      <div className="dark:bg-dark relative bg-gray-50">
         <section className="px-2 opacity-100 transition-opacity duration-300 xl:container sm:px-10 xl:mx-auto">
           <div className="relative z-10 w-full px-2 pb-20">
             <h2 className="text-2xl font-normal tracking-wide text-gray-900 dark:text-gray-200">

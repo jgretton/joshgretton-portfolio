@@ -17,6 +17,7 @@ const ProjectCard = ({ project }) => {
     mobileImage,
     slug,
     image_alt,
+    githubUrl,
   } = project;
 
   return (
@@ -76,6 +77,16 @@ const ProjectCard = ({ project }) => {
             <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </HoverPrefetchLink>
         )}
+        {githubUrl && (
+          <Link
+            href={githubUrl}
+            target="_blank"
+            className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/90 dark:hover:text-blue-500"
+          >
+            View Github Respository
+            <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </Link>
+        )}
       </div>
     </div>
   );
@@ -110,13 +121,10 @@ const ProjectCardMinimal = ({ project }) => {
           </h3>
         </div>
         <div className="mt-4 grid place-items-start gap-2">
-          <Link
-            href={{ pathname: `/${slug}` }}
-            className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors group-hover:text-blue-500 group-hover:underline dark:text-white/90 dark:group-hover:text-blue-500"
-          >
+          <p className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors group-hover:text-blue-500 group-hover:underline dark:text-white/90 dark:group-hover:text-blue-500">
             View project details
             <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
-          </Link>
+          </p>
         </div>
       </div>
     </HoverPrefetchLink>
