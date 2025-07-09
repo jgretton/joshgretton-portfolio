@@ -11,6 +11,7 @@ liveUrl: "https://www.volleyscore.co.uk/"
 githubUrl: ""
 coverImage: "/Images/volleyscore-desktop.jpg"
 mobileImage: "/Images/volleyscore-mobile.jpg"
+image_alt: "Volleyscore volleyball scoreboard app interface showing match score and controls"
 
 # SEO Metadata
 seo:
@@ -64,7 +65,7 @@ seo:
     audience: "Volleyball Referees, Coaches, and Players"
 
   robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-  author: "Your Name"
+  author: "Josh Gretton"
   lang: "en-GB"
 ---
 
@@ -80,12 +81,12 @@ Designing the user interface of the app provided many challenges. After looking 
 - **User-friendly**: it needed to be intuitive; anyone looking at the screen needed to understand how it works.
 - **Aesthetic**: a smart and elegant design
 
-![Original Design](Images/projects/volleyscore/Volleyscore-v1.jpg)
+![Original Design of VolleyScore](Images/projects/volleyscore/Volleyscore-v1.jpg)
 _My original design._
 
 I was very happy with the first iteration of the Volleyscore design. It provided a great base for the app and achieved the design outline above. However, there was definitely room for improvement to make it more aesthetically pleasing and also to provide an easier understanding of the match at a quick glance. The few areas of note were the size of the current score, the buttons at the top, and the history of the match.
 
-![Design v2](Images/projects/volleyscore/Volleyscore-v2.jpg)
+![Version 2 of the VolleyScore design(Images/projects/volleyscore/Volleyscore-v2.jpg)
 _Design v2_
 
 As you can see above, the text size of the current score was increased. A nice solution I found was to set a minimum value of the text and the maximum was based on the screen's viewport width. `text-[min(25vw,20rem)]`. Now when the site is viewed on a larger screen, the text size will stay relative. Deciding how to alter the design of the history section was tough. It needed to stay simple but allow the user to have an understanding of what has happened with the match/current set. The design of the whole site felt as though it was already split vertically and all the relevant information for each team is located on their side. With this in mind, I decided that displaying the match history vertically and splitting it made the most sense. Along with this, I removed the background of each history element as visually this was a distraction due to it leading the user’s focus away from the score and generally cluttering the screen (especially when viewed on a mobile browser). Finally, I tidied up the buttons at the top of the screen; now they take up less space and make for easier overall readability.
