@@ -11,6 +11,7 @@ I'm a self-taught front-end developer based in the UK with a passion for creatin
 ## Tech Stack
 
 - **Framework:** Next.js
+- **Language:** TypeScript
 - **Styling:** Tailwind CSS
 - **Content:** MDX for project case studies
 - **Deployment:** Vercel
