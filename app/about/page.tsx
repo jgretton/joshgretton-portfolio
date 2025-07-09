@@ -4,50 +4,79 @@ import Hero from "@/components/Hero";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getPageBySlug } from "@/lib/content";
 import { notFound } from "next/navigation";
+import { generateJsonLd } from "@/lib/generateJsonld";
 
-export const metadata = {
-  title: "About Me",
-  description:
-    "Learn more about Josh Gretton, a passionate web developer with expertise in Next.js and Tailwind CSS.",
-  keywords:
-    "About Josh Gretton, Web Developer, JavaScript Developer, Next.js Expert, Tailwind CSS Designer",
-  openGraph: {
-    title: "About Me | Josh Gretton",
-    description:
-      "Learn more about Josh Gretton, a passionate web developer with expertise in Next.js and Tailwind CSS.",
-    url: "https://www.joshgretton.co.uk/about",
-    siteName: "Josh Gretton Portfolio",
-    alternates: {
-      canonical: "https://www.joshgretton.co.uk/about",
+export async function generateMetadata() {
+  const page = getPageBySlug("about");
+
+  if (!page) {
+    return {
+      title: "Josh Gretton",
+      description: "The requested page could not be found.",
+    };
+  }
+
+  const { seo } = page;
+
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords.join(", "),
+    authors: [{ name: seo.author }],
+    creator: seo.author,
+    robots: seo.robots,
+
+    // Open Graph
+    openGraph: {
+      title: seo.openGraph.title,
+      description: seo.openGraph.description,
+      type: seo.openGraph.type,
+      url: seo.openGraph.url,
+      images: [
+        {
+          url: seo.openGraph.image,
+          alt: seo.openGraph.imageAlt,
+        },
+      ],
+      siteName: "Josh Gretton Portfolio",
     },
-    images: [
-      {
-        url: "/og-image.svg", // Replace with an actual image URL for this page
-        width: 1200,
-        height: 630,
-        alt: "Josh Gretton About Me Banner",
-      },
-    ],
-    locale: "en_GB",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About Me | Josh Gretton",
-    description:
-      "Learn more about Josh Gretton, a passionate web designer and JavaScript developer with expertise in Next.js and Tailwind CSS.",
-    images: ["/og-image.svg"], // Replace with an actual image URL for this page
-  },
-};
 
+    // Twitter
+    twitter: {
+      card: seo.twitter.card,
+      title: seo.twitter.title,
+      description: seo.twitter.description,
+      images: [seo.twitter.image],
+    },
+
+    // Canonical URL
+    alternates: {
+      canonical: seo.canonical,
+    },
+
+    // Additional metadata
+    other: {
+      "application-name": "Josh Gretton Portfolio",
+    },
+  };
+}
 const AboutPage = () => {
   const aboutPage = getPageBySlug("about");
   if (!aboutPage) {
     return notFound();
   }
-  const { title, content } = aboutPage;
+  const { content, seo } = aboutPage;
+
+  const jsonLd = generateJsonLd(seo);
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
+      />
+
       <Hero>
         <h1 className="max-w-xl">
           Hi! - My name is <span className="text-blue-300">Josh</span>. <br />
