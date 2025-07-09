@@ -56,3 +56,46 @@ export interface Project {
     lang: string;
   };
 }
+
+export interface OpenGraphData {
+  title: string;
+  description: string;
+  type: string;
+  image: string;
+  imageAlt: string;
+  url: string;
+}
+
+export interface TwitterData {
+  card: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+}
+
+export interface SchemaData {
+  type: string;
+  name: string;
+  description: string;
+  url: string;
+  applicationCategory: string;
+  operatingSystem: string;
+  datePublished: string;
+  screenshot: string;
+  features: string[];
+  audience: string;
+}
+
+export interface SEOData {
+  title: string;
+  description: string;
+  keywords: string[];
+  canonical: string;
+  openGraph: OpenGraphData;
+  twitter: TwitterData;
+  schema: SchemaData;
+  robots: string;
+  author: string;
+  lang: string;
+}

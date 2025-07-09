@@ -9,6 +9,7 @@ import { getProjectBySlug } from "@/lib/content";
 import RealtedProjects from "@/components/RelatedProducts";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Project } from "@/types";
+import { generateJsonLd } from "@/lib/generateJsonld";
 
 export async function generateMetadata(props: any) {
   const params = await props.params;
@@ -90,31 +91,7 @@ const Page = async (props: any) => {
   } = project;
 
   // Generate JSON-LD structured data
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": seo.schema.type,
-    name: seo.schema.name,
-    description: seo.schema.description,
-    url: seo.schema.url,
-    applicationCategory: seo.schema.applicationCategory,
-    operatingSystem: seo.schema.operatingSystem,
-    datePublished: seo.schema.datePublished,
-    screenshot: seo.schema.screenshot,
-    featureList: seo.schema.features,
-    audience: {
-      "@type": "Audience",
-      audienceType: seo.schema.audience,
-    },
-    creator: {
-      "@type": "Person",
-      name: seo.author,
-    },
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "GBP",
-    },
-  };
+  const jsonLd = generateJsonLd(seo);
 
   return (
     <>
