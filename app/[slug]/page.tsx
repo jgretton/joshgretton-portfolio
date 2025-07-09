@@ -1,42 +1,82 @@
 import Image from "next/image";
 import React from "react";
-
 import Link from "next/link";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
-import Hero from "@/components/hero";
-// import Markdown from "react-markdown";
-import TopOfPage from "@/components/topOfPage";
+import Hero from "@/components/Hero";
+import TopOfPage from "@/components/TopOfPage";
 import { notFound } from "next/navigation";
 import { getProjectBySlug } from "@/lib/content";
-import RealtedProjects from "@/components/realtedProjects";
-
+import RealtedProjects from "@/components/RelatedProducts";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { Project } from "@/types";
 
-export async function generateMetadata(props, parent) {
+export async function generateMetadata(props: any) {
   const params = await props.params;
-  // read route params
   const slug = params.slug;
-  const project = getProjectBySlug(slug);
-  const { title } = project;
+  const project: Project = getProjectBySlug(slug);
+
+  if (!project) {
+    return {
+      title: "Project Not Found | Josh Gretton",
+      description: "The requested project could not be found.",
+    };
+  }
+
+  const { seo } = project;
 
   return {
-    title: `${title} | Josh Gretton`,
-    description:
-      "Volleyscore is a simple scoreboard app designed to track volleyball matches. I developed it to give referees, scorekeepers, and players a user-friendly scoring solution for both official and recreational games.",
-    keywords:
-      "Josh Gretton, front end web developer, web development portfolio, HTML, CSS, JavaScript, React, responsive design, UK developer, NextJs, tailwindcss, self-taught developer",
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords.join(", "),
+    authors: [{ name: seo.author }],
+    creator: seo.author,
+    robots: seo.robots,
+
+    // Open Graph
+    openGraph: {
+      title: seo.openGraph.title,
+      description: seo.openGraph.description,
+      type: seo.openGraph.type,
+      url: seo.openGraph.url,
+      images: [
+        {
+          url: seo.openGraph.image,
+          alt: seo.openGraph.imageAlt,
+        },
+      ],
+      siteName: "Josh Gretton Portfolio",
+    },
+
+    // Twitter
+    twitter: {
+      card: seo.twitter.card,
+      title: seo.twitter.title,
+      description: seo.twitter.description,
+      images: [seo.twitter.image],
+    },
+
+    // Canonical URL
+    alternates: {
+      canonical: seo.canonical,
+    },
+
+    // Additional metadata
+    other: {
+      "application-name": "Josh Gretton Portfolio",
+    },
   };
 }
 
-const Page = async (props) => {
+const Page = async (props: any) => {
   const params = await props.params;
   const { slug } = params;
 
-  const project = getProjectBySlug(slug);
+  const project: Project = getProjectBySlug(slug);
 
   if (!project) {
     return notFound();
   }
+
   const {
     title,
     technologies,
@@ -46,10 +86,46 @@ const Page = async (props) => {
     client,
     image_alt,
     githubUrl,
+    seo,
   } = project;
+
+  // Generate JSON-LD structured data
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": seo.schema.type,
+    name: seo.schema.name,
+    description: seo.schema.description,
+    url: seo.schema.url,
+    applicationCategory: seo.schema.applicationCategory,
+    operatingSystem: seo.schema.operatingSystem,
+    datePublished: seo.schema.datePublished,
+    screenshot: seo.schema.screenshot,
+    featureList: seo.schema.features,
+    audience: {
+      "@type": "Audience",
+      audienceType: seo.schema.audience,
+    },
+    creator: {
+      "@type": "Person",
+      name: seo.author,
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "GBP",
+    },
+  };
 
   return (
     <>
+      {/* Add JSON-LD structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
+      />
+
       <Hero back>
         <h1>{title}</h1>
       </Hero>
@@ -96,7 +172,7 @@ const Page = async (props) => {
                   target="_blank"
                   className="sm:text-md group mt-5 inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/90 dark:hover:text-blue-500"
                 >
-                  View Github Respository
+                  View Github Repository
                   <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Link>
               )}

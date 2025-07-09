@@ -1,10 +1,11 @@
-import CardList from "@/components/cardList";
-import Hero from "@/components/hero";
-import ProjectCard from "@/components/projectCard";
+import CardList from "@/components/CardList";
+import Hero from "@/components/Hero";
+import ProjectCard from "@/components/ProjectCard";
 import { getAllProjects } from "@/lib/content";
+import { Project } from "@/types";
 
 export default function Home() {
-  const projects = getAllProjects();
+  const projects: Project[] = getAllProjects();
 
   const currentlyBuilding = projects.filter(
     (p) => p.status === "building" && p.draft !== true,

@@ -11,11 +11,11 @@ import {
   PopoverPanel,
   Transition,
 } from "@headlessui/react";
-import { useTheme } from "next-themes";
+import { useTheme, UseThemeProps } from "next-themes";
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
     setMounted(true);
@@ -29,7 +29,7 @@ const ThemeToggle = () => {
     <Popover className="relative flex items-center">
       <PopoverButton
         aria-label="Toggle theme"
-        className="group inline-flex items-center gap-1 rounded-md px-4 py-2 transition-all hover:bg-slate-200 data-active:bg-slate-200 dark:hover:bg-slate-700 dark:data-active:bg-slate-700"
+        className="data-active:bg-slate-200 dark:data-active:bg-slate-700 group inline-flex items-center gap-1 rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700"
       >
         {theme === "light" ? (
           <SunIcon className="size-5" aria-hidden="true" />
@@ -37,7 +37,7 @@ const ThemeToggle = () => {
           <MoonIcon className="size-5" aria-hidden="true" />
         )}
         <ChevronDownIcon
-          className="size-3 transition-transform group-data-open:rotate-180"
+          className="group-data-open:rotate-180 size-3 transition-transform"
           aria-hidden="true"
         />
       </PopoverButton>
@@ -57,7 +57,7 @@ const ThemeToggle = () => {
               <div className="group relative rounded-lg">
                 <button
                   type="button"
-                  className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 dark:bg-dark dark:group-hover:bg-slate-400"
+                  className="dark:bg-dark flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 dark:group-hover:bg-slate-400"
                   onClick={() => {
                     setTheme("light");
                     close();
@@ -72,7 +72,7 @@ const ThemeToggle = () => {
               </div>
               <div className="group relative mt-4 rounded-lg">
                 <button
-                  className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 dark:bg-dark dark:group-hover:bg-slate-400"
+                  className="dark:bg-dark flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 dark:group-hover:bg-slate-400"
                   onClick={() => {
                     setTheme("dark");
                     close();
