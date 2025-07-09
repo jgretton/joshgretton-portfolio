@@ -21,21 +21,15 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
-import ThemeToggle from "./themeToggle";
+import ThemeToggle from "./ThemeToggle";
 import copy from "copy-to-clipboard";
 import { HoverPrefetchLink } from "./HoverPrefetchLink";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 const ClipboardButton = ({ copiedText }) => {
   return (
     <div className="relative size-5 transition-all sm:size-6">
       <ClipboardDocumentCheckIcon
         className={`${copiedText ? "opacity-100" : "opacity-0"} absolute left-0 top-0 size-5 text-green-400 transition-all duration-500 sm:size-6 dark:text-green-300`}
-        // strokeDasharray={50}
-        // strokeDashoffset={copiedText ? 0 : -50}
         aria-hidden="true"
         style={{
           strokeDasharray: 50,
@@ -44,8 +38,6 @@ const ClipboardButton = ({ copiedText }) => {
       />
       <ClipboardDocumentIcon
         className={`${copiedText ? "opacity-0" : "opacity-100"} absolute left-0 top-0 size-5 transition-all duration-500 sm:size-6`}
-        // strokeDasharray={50}
-        // strokeDashoffset={copiedText ? -50 : 0}
         aria-hidden="true"
         style={{
           strokeDasharray: 50,
@@ -56,7 +48,7 @@ const ClipboardButton = ({ copiedText }) => {
   );
 };
 
-const Header = ({ setIsDarkMode, isDarkMode }) => {
+const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const [copiedText, setCopiedText] = useState(false);
@@ -144,7 +136,7 @@ const Header = ({ setIsDarkMode, isDarkMode }) => {
               </PopoverPanel>
             </Transition>
           </Popover>
-          <ThemeToggle setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />
+          <ThemeToggle />
         </nav>
         <div className="flex sm:hidden">
           <div className="mr-3 max-w-fit">

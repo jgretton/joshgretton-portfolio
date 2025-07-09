@@ -2,10 +2,16 @@ import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import React from "react";
 
-const Hero = ({ children, back }) => {
+const Hero = ({
+  children,
+  back,
+}: {
+  children: React.ReactNode;
+  back?: boolean;
+}) => {
   return (
     <section
-      className={`relative z-0 mx-auto mt-20 flex h-[60dvh] items-center bg-gray-50 px-4 pt-12 xl:container dark:bg-dark sm:px-12`}
+      className={`dark:bg-dark relative z-0 mx-auto mt-20 flex h-[60dvh] items-center bg-gray-50 px-4 pt-12 xl:container sm:px-12`}
     >
       {back && (
         <Link

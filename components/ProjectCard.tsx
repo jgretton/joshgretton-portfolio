@@ -5,9 +5,10 @@ import {
   ArrowRightIcon,
   ArrowTopRightOnSquareIcon,
 } from "@heroicons/react/24/outline";
+import { Project } from "@/types";
 import { HoverPrefetchLink } from "./HoverPrefetchLink";
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project }: { project: Project }) => {
   const {
     title,
     smallDescription,
@@ -61,7 +62,7 @@ const ProjectCard = ({ project }) => {
       </div>
       <div className="mt-4 grid place-items-start gap-2">
         <HoverPrefetchLink
-          href={{ pathname: `/${slug}` }}
+          href={`/${slug}`}
           className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/90 dark:hover:text-blue-500"
         >
           View project details
@@ -91,11 +92,11 @@ const ProjectCard = ({ project }) => {
     </div>
   );
 };
-const ProjectCardMinimal = ({ project }) => {
+const ProjectCardMinimal = ({ project }: { project: Project }) => {
   const { title, coverImage, mobileImage, slug, image_alt } = project;
 
   return (
-    <HoverPrefetchLink href={{ pathname: `/${slug}` }} className="group">
+    <HoverPrefetchLink href={`/${slug}`} className="group">
       <div className="h-full w-full shrink rounded-xl md:pr-4">
         <div className="">
           <Image
