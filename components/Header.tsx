@@ -85,7 +85,7 @@ const Header = () => {
           <Popover className={"group"}>
             <PopoverButton
               className={
-                "data-active:bg-slate-200 dark:data-active:bg-slate-700 dark:data-active:text-white flex items-center gap-3 rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700"
+                "data-active:bg-slate-200 dark:data-active:bg-slate-700 dark:data-active:text-white flex cursor-pointer items-center gap-3 rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700"
               }
             >
               Contact Me
@@ -118,7 +118,7 @@ const Header = () => {
                     </p>
                   </HoverPrefetchLink>
                   <button
-                    className="block w-full rounded-lg px-3 py-2 text-start transition hover:bg-black/5"
+                    className="block w-full cursor-pointer rounded-lg px-3 py-2 text-start transition hover:bg-black/5"
                     type="button"
                     onClick={() => {
                       copyToClipboard();

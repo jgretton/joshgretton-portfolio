@@ -29,7 +29,7 @@ const ThemeToggle = () => {
     <Popover className="relative flex items-center">
       <PopoverButton
         aria-label="Toggle theme"
-        className="data-active:bg-slate-200 dark:data-active:bg-slate-700 group inline-flex items-center gap-1 rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700"
+        className="data-active:bg-slate-200 dark:data-active:bg-slate-700 group inline-flex cursor-pointer items-center gap-1 rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700"
       >
         {theme === "light" ? (
           <SunIcon className="size-5" aria-hidden="true" />
@@ -57,7 +57,7 @@ const ThemeToggle = () => {
               <div className="group relative rounded-lg">
                 <button
                   type="button"
-                  className="dark:bg-dark flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 dark:group-hover:bg-slate-400"
+                  className="dark:bg-dark flex h-11 w-11 flex-none cursor-pointer items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 dark:group-hover:bg-slate-400"
                   onClick={() => {
                     setTheme("light");
                     close();
@@ -72,7 +72,7 @@ const ThemeToggle = () => {
               </div>
               <div className="group relative mt-4 rounded-lg">
                 <button
-                  className="dark:bg-dark flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 dark:group-hover:bg-slate-400"
+                  className="dark:bg-dark flex h-11 w-11 flex-none cursor-pointer items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 dark:group-hover:bg-slate-400"
                   onClick={() => {
                     setTheme("dark");
                     close();
