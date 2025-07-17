@@ -132,27 +132,28 @@ const Page = async (props: any) => {
                   </li>
                 ))}
               </ul>
-
-              {liveUrl && (
-                <Link
-                  href={liveUrl}
-                  target="_blank"
-                  className="sm:text-md group mb-3 mt-5 inline-flex items-center gap-2 self-start text-base leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
-                >
-                  See the live project
-                  <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </Link>
-              )}
-              {githubUrl && (
-                <Link
-                  href={githubUrl}
-                  target="_blank"
-                  className="sm:text-md group mt-5 inline-flex items-center gap-2 self-start text-sm font-medium leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/90 dark:hover:text-blue-500"
-                >
-                  View Github Repository
-                  <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </Link>
-              )}
+              <div className="mt-5 flex flex-col gap-3">
+                {liveUrl && (
+                  <Link
+                    href={liveUrl}
+                    target="_blank"
+                    className="sm:text-md group inline-flex items-center gap-2 self-start text-base leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
+                  >
+                    See the live project
+                    <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </Link>
+                )}
+                {githubUrl && (
+                  <Link
+                    href={githubUrl}
+                    target="_blank"
+                    className="sm:text-md group inline-flex items-center gap-2 self-start text-base leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
+                  >
+                    View Github Repository
+                    <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </Link>
+                )}
+              </div>
             </aside>
             <article className="mt-20 grid flex-1">
               <div className="prose-headings:f prose dark:prose-invert prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl hover:prose-a:dark:text-blue-500 prose-img:dark:border-slate-700 min-w-full font-light tracking-wide">
