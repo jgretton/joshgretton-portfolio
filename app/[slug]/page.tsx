@@ -82,6 +82,7 @@ const Page = async (props: any) => {
     title,
     technologies,
     coverImage,
+    headerImage,
     liveUrl,
     content,
     client,
@@ -110,7 +111,7 @@ const Page = async (props: any) => {
         <section className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 py-20 xl:container sm:px-12">
           <div className="sm:h-134 group relative h-80 w-full overflow-hidden">
             <Image
-              src={coverImage}
+              src={headerImage ?? coverImage}
               alt={image_alt}
               className="h-full w-full rounded-t-lg object-cover object-top"
               priority

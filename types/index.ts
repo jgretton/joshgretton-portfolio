@@ -14,6 +14,7 @@ export interface Project {
   status: "building" | "client" | "personal";
   liveUrl: string;
   githubUrl: string;
+  headerImage?: string;
   coverImage: string;
   mobileImage: string;
   draft: boolean;
