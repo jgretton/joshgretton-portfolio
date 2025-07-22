@@ -5,7 +5,7 @@ import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import Hero from "@/components/Hero";
 import TopOfPage from "@/components/TopOfPage";
 import { notFound } from "next/navigation";
-import { getProjectBySlug } from "@/lib/content";
+import { getAllProjects, getProjectBySlug } from "@/lib/content";
 import RealtedProjects from "@/components/RelatedProducts";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Project } from "@/types";
@@ -69,9 +69,28 @@ export async function generateMetadata(props: any) {
   };
 }
 
+export async function generateStaticParams() {
+  try {
+    const projects = getAllProjects();
+
+    // Ensure projects exist and have valid slugs
+    if (!projects || projects.length === 0) {
+      console.warn("No projects found for static generation");
+      return [];
+    }
+
+    return projects
+      .filter((project) => project.slug) // Filter out any projects without slugs
+      .map((project) => ({
+        slug: project.slug,
+      }));
+  } catch (error) {
+    console.error("Error generating static params:", error);
+    return []; // Return empty array to prevent build failure
+  }
+}
 const Page = async (props: any) => {
-  const params = await props.params;
-  const { slug } = params;
+  const { slug } = await props.params;
 
   const project: Project = getProjectBySlug(slug);
 
