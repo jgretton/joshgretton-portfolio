@@ -24,6 +24,7 @@ import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 import copy from "copy-to-clipboard";
 import { HoverPrefetchLink } from "./HoverPrefetchLink";
+import { motion } from "motion/react";
 
 const ClipboardButton = ({ copiedText }) => {
   return (
@@ -67,7 +68,15 @@ const Header = () => {
     return () => clearTimeout(timeout);
   }, [copiedText]);
   return (
-    <header className="dark:bg-dark/80 fixed inset-x-0 top-0 z-20 bg-gray-50/80 py-2 backdrop-blur-lg">
+    <motion.header
+      className="dark:bg-dark/80 fixed inset-x-0 top-0 z-50 bg-gray-50/80 py-2 backdrop-blur-lg"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.8,
+        ease: "easeOut",
+      }}
+    >
       <div className="mx-auto flex items-center justify-between p-4 xl:container sm:px-12">
         <HoverPrefetchLink
           href="/"
@@ -250,7 +259,7 @@ const Header = () => {
           </div>
         </DialogPanel>
       </Dialog>
-    </header>
+    </motion.header>
   );
 };
 

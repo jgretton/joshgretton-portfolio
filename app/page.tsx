@@ -1,3 +1,4 @@
+import AnimatedSection from "@/components/AnimatedSection";
 import CardList from "@/components/CardList";
 import Hero from "@/components/Hero";
 import ProjectCard from "@/components/ProjectCard";
@@ -44,7 +45,7 @@ export default function Home() {
 
       {/* projects */}
       <div className="dark:bg-dark relative bg-gray-50">
-        <section className="px-2 opacity-100 transition-opacity duration-300 xl:container sm:px-10 xl:mx-auto">
+        <AnimatedSection className="px-2 opacity-100 transition-opacity duration-300 xl:container sm:px-10 xl:mx-auto">
           <div className="relative z-10 w-full px-2 pb-20">
             <h2 className="text-2xl font-normal tracking-wide text-gray-900 dark:text-gray-200">
               Currently Building
@@ -87,7 +88,7 @@ export default function Home() {
               })}
             </div> */}
           </div>
-        </section>
+        </AnimatedSection>
       </div>
     </>
   );
