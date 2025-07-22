@@ -10,6 +10,7 @@ import RealtedProjects from "@/components/RelatedProducts";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Project } from "@/types";
 import { generateJsonLd } from "@/lib/generateJsonld";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export async function generateMetadata(props: any) {
   const params = await props.params;
@@ -108,7 +109,7 @@ const Page = async (props: any) => {
         <h1>{title}</h1>
       </Hero>
       <div className="dark:bg-dark relative z-20 bg-gray-50 pb-10">
-        <section className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 py-20 xl:container sm:px-12">
+        <AnimatedSection className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 py-20 xl:container sm:px-12">
           <div className="sm:h-134 group relative h-80 w-full overflow-hidden">
             <Image
               src={headerImage ?? coverImage}
@@ -162,7 +163,7 @@ const Page = async (props: any) => {
               </div>
             </article>
           </div>
-        </section>
+        </AnimatedSection>
         <section className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 pt-20 xl:container sm:px-12">
           <RealtedProjects slug={slug} />
         </section>
