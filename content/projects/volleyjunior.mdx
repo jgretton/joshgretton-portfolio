@@ -1,0 +1,122 @@
+---
+title: "VolleyJunior"
+slug: "volleyjunior"
+smallDescription: "VolleyJunior is a player development platform for volleyball clubs, helping coaches track junior player progression through skill ranks and manage assessments."
+technologies: ["Laravel", "React", "TypeScript", "Inertia", "PostgreSQL"]
+completedDate: ""
+client: "Volleyball Club"
+projectType: "Web Application"
+status: "building"
+liveUrl: ""
+githubUrl: ""
+coverImage: "/Images/volleyball-court.jpg"
+mobileImage: ""
+draft: false
+
+# SEO Metadata
+seo:
+  title: "VolleyJunior - Player Development Platform for Volleyball Clubs"
+  description: "A full-stack web application built with Laravel and React to help volleyball clubs manage junior player development, track progression through skill ranks, and coordinate coach assessments."
+  keywords:
+    - "volleyball player development"
+    - "volleyball coaching app"
+    - "junior volleyball tracker"
+    - "volleyball progress tracking"
+    - "Laravel React application"
+    - "volleyball club management"
+    - "sports player assessment"
+    - "Laravel Inertia React"
+    - "volleyball skill progression"
+    - "coach assessment tool"
+    - "volleyball rank system"
+    - "player development platform"
+  canonical: "https://www.joshgretton.co.uk/projects/volleyjunior"
+
+  openGraph:
+    title: "VolleyJunior - Player Development Platform for Volleyball Clubs"
+    description: "Full-stack Laravel and React application for volleyball clubs to manage junior player development, track skill progression through ranks, and coordinate coach assessments."
+    type: "website"
+    image: "/Images/volleyball-court.jpg"
+    imageAlt: "VolleyJunior volleyball player development platform built with Laravel and React"
+    url: "https://www.joshgretton.co.uk/projects/volleyjunior"
+
+  twitter:
+    card: "summary_large_image"
+    title: "VolleyJunior - Player Development Platform for Volleyball Clubs"
+    description: "Full-stack Laravel and React application for volleyball clubs to manage junior player development, track skill progression through ranks, and coordinate coach assessments."
+    image: "/Images/volleyball-court.jpg"
+    imageAlt: "VolleyJunior volleyball player development platform built with Laravel and React"
+
+  schema:
+    type: "SoftwareApplication"
+    name: "VolleyJunior"
+    description: "A player development platform for volleyball clubs built with Laravel and React. Features rank-based progression tracking, bulk coach assessments, admin approval workflows, and club-wide analytics."
+    url: "https://www.joshgretton.co.uk/projects/volleyjunior"
+    applicationCategory: "Sports Player Development"
+    operatingSystem: "Web Browser"
+    datePublished: "2025"
+    screenshot: "/Images/volleyball-court.jpg"
+    features:
+      - "Rank-Based Progression System"
+      - "Bulk Coach Assessment Submission"
+      - "Admin Approval Workflow"
+      - "Role-Based Access Control"
+      - "Club-Wide Analytics Dashboard"
+      - "Player Progress Visualisation"
+      - "Invitation-Only Registration"
+      - "Automatic Rank Completion Certificates"
+      - "Guardian Email Support for Juniors"
+      - "Laravel Backend Architecture"
+      - "React Frontend with Inertia.js"
+      - "PostgreSQL Database"
+    audience: "Volleyball Coaches, Club Administrators, Junior Players"
+
+  robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+  author: "Josh Gretton"
+  lang: "en-GB"
+---
+
+# Building a Player Development Platform for My Volleyball Club
+
+Volleyball is a constant in my life. I've been playing at my club for 5 years now, and for the last 3 of those I've been coaching and refereeing too. So when the head coach of our junior programme started talking about building a development tracking system for the juniors, my ears pricked up.
+
+I've been wanting to learn Laravel for a while, but the projects I've been passionate about never really called for it. This one did. The right project at the right time.
+
+## Why Not Just Use Workbooks?
+
+The head coach's original plan was fairly straightforward - physical workbooks for each player, with a master spreadsheet that the coaches could reference. Players progress through ranks by achieving specific criteria across skill categories, so the workbooks would let them see where they're at and what they need to work on next.
+
+On paper (literally), it makes sense. In practice though, it falls apart pretty quickly.
+
+Every session, someone has to manually update both the player's workbook and the master copy. If a team coach wants to check which juniors are ready for selection, they have to ring the head coach, who then digs through a spreadsheet. With 40+ players across multiple skill areas, there's no easy way to spot that most of the group is struggling with serving at Silver level. And workbooks get lost - and with them, a player's entire progress record.
+
+The head coach's real goal wasn't just tracking individual players. It was data-driven coaching and better team selection. That needs aggregated data, instant access for multiple coaches, and the ability to spot trends. A spreadsheet wasn't going to cut it.
+
+## What I'm Building
+
+A web platform that replaces the entire workbook system. Players log in and see a visual representation of their progress - what they've achieved, what's next, and where they sit overall. Coaches can assess players during sessions and submit updates in bulk. The head coach approves everything, manages the programme, and gets access to club-wide analytics.
+
+The progression system works through four ranks - Bronze, Silver, Gold and Platinum - across skill categories like Hitting, Movement, Serving and Blocking. Each category has specific criteria that coaches assess against. Once approved, the player's progress updates immediately. Everyone sees the same data, all the time. One source of truth.
+
+## What It Actually Does
+
+Rather than listing every feature, here's what it looks like in practice:
+
+- A team coach can log in and check which juniors are at what level in specific skills, without having to call anyone
+- After a blocking session with 15 players, the development coach can mark the same criteria for multiple players at once and submit it all for approval in one go
+- The head coach can see that only 30% of players have completed Silver serving criteria and plan a targeted session around it
+- When a player completes all the criteria for a rank, they get a downloadable certificate automatically
+
+Different users see different things. Players only see their own progress. Coaches see all players. Observers get a read-only view. Admins get the full picture.
+
+## The Tech Side
+
+The project is built with Laravel, React, TypeScript and PostgreSQL. The data relationships are genuinely complex - users, ranks, categories, criteria, player progress, sessions - and Laravel handles that really well. The built-in tools for things like email, authentication and validation have saved me a huge amount of time.
+
+I'm building it phase by phase, completing each one fully before moving on. The entire user management system is done - invitation-only signup, role-based access, email integration, admin dashboards, guardian email support for junior players. I'm currently working on the foundation tables for ranks, categories and criteria.
+
+## What's Next
+
+The MVP target is a working system with user management, the assessment workflow and progress tracking. The most interesting challenge coming up is the approval workflow - coaches stage updates, admins review and approve in batches, and the system needs to detect when a player has earned enough criteria to rank up. Plenty to get stuck into.
+
+I'll be writing more about the build as it progresses. This is a learning project and a production application at the same time, and I want to document both sides of that.
