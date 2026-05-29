@@ -1,7 +1,7 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import { Project } from "@/types";
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
 
 const contentDirectory = path.join(process.cwd(), "content");
 
@@ -97,5 +97,5 @@ export const getRelatedProjects = (slug: string): Project[] => {
   const projects: Project[] = getAllProjects();
   return projects
     .filter((project: Project) => project.slug !== slug)
-    .slice(0, 3);
+    .slice(0, 2);
 };

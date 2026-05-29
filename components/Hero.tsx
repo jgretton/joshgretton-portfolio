@@ -1,14 +1,15 @@
 "use client";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
-import React from "react";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 const Hero = ({
-  children,
+  heading,
+  subHeading,
   back,
 }: {
-  children: React.ReactNode;
+  heading:string;
+  subHeading?:string;
   back?: boolean;
 }) => {
   return (
@@ -21,12 +22,12 @@ const Hero = ({
         opacity: { type: "tween", ease: "easeOut", delay: 0.1 },
         translateX: { type: "spring", damping: 25, stiffness: 120 },
       }}
-      className={`dark:bg-dark relative z-0 mx-auto mt-20 flex h-[60dvh] items-center bg-gray-50 px-4 pt-12 xl:container sm:px-12`}
+      className={`dark:bg-dark relative z-0 mx-auto mt-20 flex h-[50dvh] items-center bg-gray-50 px-4 pt-12 max-w-5xl sm:px-12`}
     >
       {back && (
         <Link
           href={"/"}
-          className="group fixed top-36 inline-flex items-center gap-2"
+          className="group fixed top-10 inline-flex items-center gap-2"
         >
           <ArrowLeftIcon
             className="size-5 text-gray-800 transition-transform group-hover:-translate-x-1 dark:text-white"
@@ -35,9 +36,10 @@ const Hero = ({
           back
         </Link>
       )}
-      <span className="fixed text-[min(7vw,1.85rem)] font-light leading-relaxed tracking-widest sm:text-4xl sm:leading-relaxed md:text-5xl md:leading-relaxed">
-        {children}
-      </span>
+      <div className="fixed ">
+                <h1 className=" font-light tracking-wide text-5xl leading-relaxed md:text-7xl md:leading-relaxed">{heading}</h1>
+        {subHeading && <p className="text-base font-light dark:text-stone-300 text-stone-500 tracking-wider">{subHeading}</p>}
+      </div>
     </motion.section>
   );
 };

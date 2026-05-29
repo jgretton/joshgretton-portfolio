@@ -1,13 +1,13 @@
-import { Lato } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ThemeProvider } from "next-themes";
+import Header from "@/components/Header";
 import { Analytics } from "@vercel/analytics/react";
+import { ThemeProvider } from "next-themes";
+import { Figtree } from "next/font/google";
+import "./globals.css";
 
-const inter = Lato({
+const Lato = Figtree({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "700"],
+  weight: ["300", "400", "500","700"],
 });
 
 export const metadata = {
@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} dark:bg-dark relative mx-auto bg-gray-50 text-gray-900 dark:text-gray-100`}
+        className={`${Lato.className} dark:bg-dark relative mx-auto bg-gray-50 text-gray-900 dark:text-gray-100`}
       >
         <ThemeProvider attribute="class">
           <div>

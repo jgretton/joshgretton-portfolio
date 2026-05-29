@@ -2,6 +2,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import CardList from "@/components/CardList";
 import Hero from "@/components/Hero";
 import ProjectCard from "@/components/ProjectCard";
+import { SectionHeading } from "@/components/SectionHeading";
 import { getAllProjects } from "@/lib/content";
 import { Project } from "@/types";
 
@@ -36,20 +37,14 @@ export default function Home() {
           }),
         }}
       />
-      <Hero>
-        <h1 className="max-w-xl text-balance">
-          Hi! - My name is <span className="text-blue-500">Josh</span>. I&apos;m
-          a <span className="text-blue-500">Developer </span> based in the UK.
-        </h1>
-      </Hero>
+      <Hero heading="Joshua Gretton" subHeading="Developer based in the UK" />
 
       {/* projects */}
       <div className="dark:bg-dark relative bg-gray-50">
-        <AnimatedSection className="px-2 opacity-100 transition-opacity duration-300 xl:container sm:px-10 xl:mx-auto">
+        <AnimatedSection className="px-2 opacity-100 transition-opacity duration-300 max-w-5xl sm:px-10 mx-auto">
+
           <div className="relative z-10 w-full px-2 pb-20">
-            <h2 className="text-2xl font-normal tracking-wide text-gray-900 dark:text-gray-200">
-              Currently Building
-            </h2>
+<SectionHeading heading="Currently Building" />
             <div
               id="currentlyWorkingOn"
               className="mt-10 flex w-full scroll-m-44 flex-col gap-5 md:flex-row"

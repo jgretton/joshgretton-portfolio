@@ -1,30 +1,30 @@
 "use client";
 
-import React, { useState, Fragment, useEffect } from "react";
 import {
-  Dialog,
-  DialogPanel,
-  Popover,
-  PopoverButton,
-  PopoverPanel,
-  Transition,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
+    Dialog,
+    DialogPanel,
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+    Popover,
+    PopoverButton,
+    PopoverPanel,
+    Transition,
 } from "@headlessui/react";
 import {
-  ArrowTopRightOnSquareIcon,
-  Bars3Icon,
-  ChevronDownIcon,
-  ClipboardDocumentCheckIcon,
-  ClipboardDocumentIcon,
-  XMarkIcon,
+    ArrowTopRightOnSquareIcon,
+    Bars3Icon,
+    ChevronDownIcon,
+    ClipboardDocumentCheckIcon,
+    ClipboardDocumentIcon,
+    XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { usePathname } from "next/navigation";
-import ThemeToggle from "./ThemeToggle";
 import copy from "copy-to-clipboard";
-import { HoverPrefetchLink } from "./HoverPrefetchLink";
 import { motion } from "motion/react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { HoverPrefetchLink } from "./HoverPrefetchLink";
+import ThemeToggle from "./ThemeToggle";
 
 const ClipboardButton = ({ copiedText }) => {
   return (
@@ -77,10 +77,10 @@ const Header = () => {
         ease: "easeOut",
       }}
     >
-      <div className="mx-auto flex items-center justify-between p-4 xl:container sm:px-12">
+      <div className="mx-auto flex items-center justify-between px-4 py-2 max-w-5xl sm:px-12">
         <HoverPrefetchLink
           href="/"
-          className="text-2xl decoration-2 hover:underline sm:text-4xl"
+          className="text-xl decoration-2 hover:underline sm:text-2xl"
         >
           JG <span className="text-blue-500"> / </span>
         </HoverPrefetchLink>

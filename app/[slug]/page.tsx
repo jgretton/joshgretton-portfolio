@@ -1,16 +1,15 @@
-import Image from "next/image";
-import React from "react";
-import Link from "next/link";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
-import Hero from "@/components/Hero";
-import TopOfPage from "@/components/TopOfPage";
-import { notFound } from "next/navigation";
-import { getAllProjects, getProjectBySlug } from "@/lib/content";
-import RealtedProjects from "@/components/RelatedProducts";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { Project } from "@/types";
-import { generateJsonLd } from "@/lib/generateJsonld";
 import AnimatedSection from "@/components/AnimatedSection";
+import Hero from "@/components/Hero";
+import RealtedProjects from "@/components/RelatedProducts";
+import TopOfPage from "@/components/TopOfPage";
+import { getAllProjects, getProjectBySlug } from "@/lib/content";
+import { generateJsonLd } from "@/lib/generateJsonld";
+import { Project } from "@/types";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(props: any) {
   const params = await props.params;
@@ -124,11 +123,9 @@ const Page = async (props: any) => {
         }}
       />
 
-      <Hero back>
-        <h1>{title}</h1>
-      </Hero>
+      <Hero back heading={title} />
       <div className="dark:bg-dark relative z-20 bg-gray-50 pb-10">
-        <AnimatedSection className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 py-20 xl:container sm:px-12">
+        <AnimatedSection className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 pb-20 max-w-5xl sm:px-12">
           <div className="sm:h-134 group relative h-80 w-full overflow-hidden">
             <Image
               src={headerImage ?? coverImage}
@@ -139,9 +136,7 @@ const Page = async (props: any) => {
             />
           </div>
           <div className="relative flex flex-col gap-x-5 md:flex-row">
-            <aside className="top-10 mt-20 h-fit w-full md:sticky md:w-1/4">
-              <p className="text-base font-medium">Project Name</p>
-              <p className="mb-5 ml-2 text-sm font-light">{title}</p>
+            <aside className="top-20 mt-20 h-fit w-full md:sticky md:w-1/4">
               <p className="text-base font-medium">Client</p>
               <p className="mb-5 ml-2 text-sm font-light">{client}</p>
 
@@ -158,7 +153,7 @@ const Page = async (props: any) => {
                   <Link
                     href={liveUrl}
                     target="_blank"
-                    className="sm:text-md group inline-flex items-center gap-2 self-start text-base leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
+                    className=" group inline-flex items-center gap-2 self-start text-sm text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
                   >
                     See the live project
                     <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -168,7 +163,7 @@ const Page = async (props: any) => {
                   <Link
                     href={githubUrl}
                     target="_blank"
-                    className="sm:text-md group inline-flex items-center gap-2 self-start text-base leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
+                    className=" group inline-flex items-center gap-2 self-start text-sm text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
                   >
                     View Github Repository
                     <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -177,13 +172,13 @@ const Page = async (props: any) => {
               </div>
             </aside>
             <article className="mt-20 grid flex-1">
-              <div className="prose-headings:f prose dark:prose-invert prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl hover:prose-a:dark:text-blue-500 prose-img:dark:border-slate-700 min-w-full font-light tracking-wide">
+              <div className="prose dark:prose-invert prose-headings:font-medium prose-h2:text-2xl prose-a:hover:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl prose-a:dark:hover:text-blue-500 prose-img:dark:border-slate-700 min-w-full font-light">
                 <MDXRemote source={content} />
               </div>
             </article>
           </div>
         </AnimatedSection>
-        <section className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 pt-20 xl:container sm:px-12">
+        <section className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 pt-20 max-w-5xl sm:px-12">
           <RealtedProjects slug={slug} />
         </section>
 
