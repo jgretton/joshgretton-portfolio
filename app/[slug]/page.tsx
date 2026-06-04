@@ -1,191 +1,191 @@
-import AnimatedSection from "@/components/AnimatedSection";
-import Hero from "@/components/Hero";
-import RealtedProjects from "@/components/RelatedProducts";
-import TopOfPage from "@/components/TopOfPage";
-import { getAllProjects, getProjectBySlug } from "@/lib/content";
-import { generateJsonLd } from "@/lib/generateJsonld";
-import { Project } from "@/types";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
+import AnimatedSection from '@/components/AnimatedSection';
+import Hero from '@/components/Hero';
+import RealtedProjects from '@/components/RelatedProducts';
+import TopOfPage from '@/components/TopOfPage';
+import { getAllProjects, getProjectBySlug } from '@/lib/content';
+import { generateJsonLd } from '@/lib/generateJsonld';
+import { Project } from '@/types';
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata(props: any) {
-  const params = await props.params;
-  const slug = params.slug;
-  const project: Project = getProjectBySlug(slug);
+	const params = await props.params;
+	const slug = params.slug;
+	const project: Project = getProjectBySlug(slug);
 
-  if (!project) {
-    return {
-      title: "Project Not Found | Josh Gretton",
-      description: "The requested project could not be found.",
-    };
-  }
+	if (!project) {
+		return {
+			title: 'Project Not Found | Josh Gretton',
+			description: 'The requested project could not be found.',
+		};
+	}
 
-  const { seo } = project;
+	const { seo } = project;
 
-  return {
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords.join(", "),
-    authors: [{ name: seo.author }],
-    creator: seo.author,
-    robots: seo.robots,
+	return {
+		title: seo.title,
+		description: seo.description,
+		keywords: seo.keywords.join(', '),
+		authors: [{ name: seo.author }],
+		creator: seo.author,
+		robots: seo.robots,
 
-    // Open Graph
-    openGraph: {
-      title: seo.openGraph.title,
-      description: seo.openGraph.description,
-      type: seo.openGraph.type,
-      url: seo.openGraph.url,
-      images: [
-        {
-          url: seo.openGraph.image,
-          alt: seo.openGraph.imageAlt,
-        },
-      ],
-      siteName: "Josh Gretton Portfolio",
-    },
+		// Open Graph
+		openGraph: {
+			title: seo.openGraph.title,
+			description: seo.openGraph.description,
+			type: seo.openGraph.type,
+			url: seo.openGraph.url,
+			images: [
+				{
+					url: seo.openGraph.image,
+					alt: seo.openGraph.imageAlt,
+				},
+			],
+			siteName: 'Josh Gretton Portfolio',
+		},
 
-    // Twitter
-    twitter: {
-      card: seo.twitter.card,
-      title: seo.twitter.title,
-      description: seo.twitter.description,
-      images: [seo.twitter.image],
-    },
+		// Twitter
+		twitter: {
+			card: seo.twitter.card,
+			title: seo.twitter.title,
+			description: seo.twitter.description,
+			images: [seo.twitter.image],
+		},
 
-    // Canonical URL
-    alternates: {
-      canonical: seo.canonical,
-    },
+		// Canonical URL
+		alternates: {
+			canonical: seo.canonical,
+		},
 
-    // Additional metadata
-    other: {
-      "application-name": "Josh Gretton Portfolio",
-    },
-  };
+		// Additional metadata
+		other: {
+			'application-name': 'Josh Gretton Portfolio',
+		},
+	};
 }
 
 export async function generateStaticParams() {
-  try {
-    const projects = getAllProjects();
+	try {
+		const projects = getAllProjects();
 
-    // Ensure projects exist and have valid slugs
-    if (!projects || projects.length === 0) {
-      console.warn("No projects found for static generation");
-      return [];
-    }
+		// Ensure projects exist and have valid slugs
+		if (!projects || projects.length === 0) {
+			console.warn('No projects found for static generation');
+			return [];
+		}
 
-    return projects
-      .filter((project) => project.slug) // Filter out any projects without slugs
-      .map((project) => ({
-        slug: project.slug,
-      }));
-  } catch (error) {
-    console.error("Error generating static params:", error);
-    return []; // Return empty array to prevent build failure
-  }
+		return projects
+			.filter((project) => project.slug) // Filter out any projects without slugs
+			.map((project) => ({
+				slug: project.slug,
+			}));
+	} catch (error) {
+		console.error('Error generating static params:', error);
+		return []; // Return empty array to prevent build failure
+	}
 }
 const Page = async (props: any) => {
-  const { slug } = await props.params;
+	const { slug } = await props.params;
 
-  const project: Project = getProjectBySlug(slug);
+	const project: Project = getProjectBySlug(slug);
 
-  if (!project) {
-    return notFound();
-  }
+	if (!project) {
+		return notFound();
+	}
 
-  const {
-    title,
-    technologies,
-    coverImage,
-    headerImage,
-    liveUrl,
-    content,
-    client,
-    image_alt,
-    githubUrl,
-    seo,
-  } = project;
+	const {
+		title,
+		technologies,
+		coverImage,
+		headerImage,
+		liveUrl,
+		content,
+		client,
+		image_alt,
+		githubUrl,
+		seo,
+	} = project;
 
-  // Generate JSON-LD structured data
-  const jsonLd = generateJsonLd(seo);
+	// Generate JSON-LD structured data
+	const jsonLd = generateJsonLd(seo);
 
-  return (
-    <>
-      {/* Add JSON-LD structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd),
-        }}
-      />
+	return (
+		<>
+			{/* Add JSON-LD structured data */}
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify(jsonLd),
+				}}
+			/>
 
-      <Hero back heading={title} />
-      <div className="dark:bg-dark relative z-20 bg-gray-50 pb-10">
-        <AnimatedSection className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 pb-20 max-w-5xl sm:px-12">
-          <div className="sm:h-134 group relative h-80 w-full overflow-hidden">
-            <Image
-              src={headerImage ?? coverImage}
-              alt={image_alt}
-              className="h-full w-full rounded-t-lg object-cover object-top"
-              priority
-              fill
-            />
-          </div>
-          <div className="relative flex flex-col gap-x-5 md:flex-row">
-            <aside className="top-20 mt-20 h-fit w-full md:sticky md:w-1/4">
-              <p className="text-base font-medium">Client</p>
-              <p className="mb-5 ml-2 text-sm font-light">{client}</p>
+			<Hero back heading={title} />
+			<div className="dark:bg-dark relative z-20 bg-gray-50 pb-10">
+				<AnimatedSection className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 pb-20 max-w-5xl sm:px-12">
+					<div className="sm:h-134 group relative h-80 w-full overflow-hidden">
+						<Image
+							src={headerImage ?? coverImage}
+							alt={image_alt}
+							className="h-full w-full rounded-t-lg object-cover object-top"
+							priority
+							fill
+						/>
+					</div>
+					<div className="relative flex flex-col gap-x-5 md:flex-row">
+						<aside className="top-20 mt-20 h-fit w-full md:sticky md:w-1/4">
+							<p className="text-base font-medium">Client</p>
+							<p className="mb-5 ml-2 text-sm font-light">{client}</p>
 
-              <p className="text-base font-medium">Technologies used</p>
-              <ul className="ml-2">
-                {technologies.map((tag, index) => (
-                  <li className="text-sm font-light" key={index}>
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-5 flex flex-col gap-3">
-                {liveUrl && (
-                  <Link
-                    href={liveUrl}
-                    target="_blank"
-                    className=" group inline-flex items-center gap-2 self-start text-sm text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
-                  >
-                    See the live project
-                    <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </Link>
-                )}
-                {githubUrl && (
-                  <Link
-                    href={githubUrl}
-                    target="_blank"
-                    className=" group inline-flex items-center gap-2 self-start text-sm text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
-                  >
-                    View Github Repository
-                    <ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </Link>
-                )}
-              </div>
-            </aside>
-            <article className="mt-20 grid flex-1">
-              <div className="prose dark:prose-invert prose-headings:font-medium prose-h2:text-2xl prose-a:hover:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl prose-a:dark:hover:text-blue-500 prose-img:dark:border-slate-700 min-w-full font-light">
-                <MDXRemote source={content} />
-              </div>
-            </article>
-          </div>
-        </AnimatedSection>
-        <section className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 pt-20 max-w-5xl sm:px-12">
-          <RealtedProjects slug={slug} />
-        </section>
+							<p className="text-base font-medium">Technologies used</p>
+							<ul className="ml-2">
+								{technologies.map((tag, index) => (
+									<li className="text-sm font-light" key={index}>
+										{tag}
+									</li>
+								))}
+							</ul>
+							<div className="mt-5 flex flex-col gap-3">
+								{liveUrl && (
+									<Link
+										href={liveUrl}
+										target="_blank"
+										className=" group inline-flex items-center gap-2 self-start text-sm text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
+									>
+										See the live project
+										<ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+									</Link>
+								)}
+								{githubUrl && (
+									<Link
+										href={githubUrl}
+										target="_blank"
+										className=" group inline-flex items-center gap-2 self-start text-sm text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
+									>
+										View Github Repository
+										<ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+									</Link>
+								)}
+							</div>
+						</aside>
+						<article className="mt-20 grid flex-1">
+							<div className="prose dark:prose-invert prose-headings:font-medium prose-h2:text-2xl prose-a:hover:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl prose-a:dark:hover:text-blue-500 prose-img:dark:border-slate-700 min-w-full font-light">
+								<MDXRemote source={content} />
+							</div>
+						</article>
+					</div>
+				</AnimatedSection>
+				<section className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 pt-20 max-w-5xl sm:px-12">
+					<RealtedProjects slug={slug} />
+				</section>
 
-        <TopOfPage />
-      </div>
-    </>
-  );
+				<TopOfPage />
+			</div>
+		</>
+	);
 };
 
 export default Page;

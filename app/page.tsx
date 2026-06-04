@@ -1,73 +1,72 @@
-import AnimatedSection from "@/components/AnimatedSection";
-import CardList from "@/components/CardList";
-import Hero from "@/components/Hero";
-import ProjectCard from "@/components/ProjectCard";
-import { SectionHeading } from "@/components/SectionHeading";
-import { getAllProjects } from "@/lib/content";
-import { Project } from "@/types";
+import AnimatedSection from '@/components/AnimatedSection';
+import CardList from '@/components/CardList';
+import Hero from '@/components/Hero';
+import ProjectCard from '@/components/ProjectCard';
+import { SectionHeading } from '@/components/SectionHeading';
+import { getAllProjects } from '@/lib/content';
+import { Project } from '@/types';
 
 export default function Home() {
-  const projects: Project[] = getAllProjects();
+	const projects: Project[] = getAllProjects();
 
-  const currentlyBuilding = projects.filter(
-    (p) => p.status === "building" && p.draft !== true,
-  );
-  const clientProjects = projects.filter(
-    (p) => p.status === "client" && p.draft !== true,
-  );
-  const personalProjects = projects.filter(
-    (p) => p.status === "personal" && p.draft !== true,
-  );
+	const currentlyBuilding = projects.filter(
+		(p) => p.status === 'building' && p.draft !== true
+	);
+	const clientProjects = projects.filter(
+		(p) => p.status === 'client' && p.draft !== true
+	);
+	const personalProjects = projects.filter(
+		(p) => p.status === 'personal' && p.draft !== true
+	);
 
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Josh Gretton",
-            url: "https://www.joshgretton.co.uk",
-            jobTitle: "Web Developer & Designer",
-            worksFor: {
-              "@type": "Organization",
-              name: "Self-Employed",
-            },
-          }),
-        }}
-      />
-      <Hero heading="Joshua Gretton" subHeading="Developer based in the UK" />
+	return (
+		<>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						'@context': 'https://schema.org',
+						'@type': 'Person',
+						name: 'Josh Gretton',
+						url: 'https://www.joshgretton.co.uk',
+						jobTitle: 'Web Developer & Designer',
+						worksFor: {
+							'@type': 'Organization',
+							name: 'Self-Employed',
+						},
+					}),
+				}}
+			/>
+			<Hero heading="Joshua Gretton" subHeading="Developer based in the UK" />
 
-      {/* projects */}
-      <div className="dark:bg-dark relative bg-gray-50">
-        <AnimatedSection className="px-2 opacity-100 transition-opacity duration-300 max-w-5xl sm:px-10 mx-auto">
+			{/* projects */}
+			<div className="dark:bg-dark relative bg-gray-50">
+				<AnimatedSection className="px-2 opacity-100 transition-opacity duration-300 max-w-5xl sm:px-10 mx-auto">
+					<div className="relative z-10 w-full px-2 pb-20">
+						<SectionHeading heading="Currently Building" />
+						<div
+							id="projects"
+							className="mt-10 flex w-full scroll-m-44 flex-col gap-5 md:flex-row"
+						>
+							{/* <CurrentlyWorkingCard /> */}
+							{currentlyBuilding.map((project, index) => (
+								<article key={index} className="h-auto">
+									<ProjectCard project={project} />
+								</article>
+							))}
+						</div>
+					</div>
+					<div className="relative z-10 w-full px-2 pb-20">
+						<CardList
+							projects={personalProjects}
+							heading={'Personal Projects'}
+						/>
 
-          <div className="relative z-10 w-full px-2 pb-20">
-<SectionHeading heading="Currently Building" />
-            <div
-              id="currentlyWorkingOn"
-              className="mt-10 flex w-full scroll-m-44 flex-col gap-5 md:flex-row"
-            >
-              {/* <CurrentlyWorkingCard /> */}
-              {currentlyBuilding.map((project, index) => (
-                <article key={index} className="h-auto">
-                  <ProjectCard project={project} />
-                </article>
-              ))}
-            </div>
-          </div>
-          <div className="relative z-10 w-full px-2 pb-20">
-            <CardList
-              projects={personalProjects}
-              heading={"Personal Projects"}
-            />
+						<div className="mt-20">
+							<CardList projects={clientProjects} heading={'Client Work'} />
+						</div>
 
-            <div className="mt-20">
-              <CardList projects={clientProjects} heading={"Client Work"} />
-            </div>
-
-            {/* <h2 className="mt-20 text-2xl font-normal tracking-wide text-gray-900 dark:text-gray-200">
+						{/* <h2 className="mt-20 text-2xl font-normal tracking-wide text-gray-900 dark:text-gray-200">
               Client Work
             </h2>
             <div
@@ -82,9 +81,9 @@ export default function Home() {
                 );
               })}
             </div> */}
-          </div>
-        </AnimatedSection>
-      </div>
-    </>
-  );
+					</div>
+				</AnimatedSection>
+			</div>
+		</>
+	);
 }
