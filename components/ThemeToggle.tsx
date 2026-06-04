@@ -14,7 +14,7 @@ import { useTheme } from 'next-themes';
 import { Fragment, useEffect, useState } from 'react';
 
 const ThemeToggle = () => {
-	const { theme, setTheme } = useTheme();
+	const { theme, resolvedTheme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState<boolean>(false);
 
 	useEffect(() => {
@@ -31,7 +31,7 @@ const ThemeToggle = () => {
 				aria-label="Toggle theme"
 				className="data-active:bg-slate-200 dark:data-active:bg-slate-700 group inline-flex cursor-pointer items-center gap-1 rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700"
 			>
-				{theme === 'light' ? (
+				{resolvedTheme === 'light' ? (
 					<SunIcon className="size-5" aria-hidden="true" />
 				) : (
 					<MoonIcon className="size-5" aria-hidden="true" />
