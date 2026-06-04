@@ -84,7 +84,7 @@ const Header = () => {
         >
           JG <span className="text-blue-500"> / </span>
         </HoverPrefetchLink>
-        <nav className="hidden sm:flex sm:gap-10">
+        <nav className="hidden sm:flex sm:gap-5">
           <HoverPrefetchLink
             href="/about"
             className={`${pathname === "/about" && "underline"} rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700`}
