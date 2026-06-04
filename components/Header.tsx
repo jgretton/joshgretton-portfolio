@@ -171,11 +171,11 @@ const Header = () => {
 				onClose={setIsMobileMenuOpen}
 			>
 				<div className="fixed inset-0 z-10" />
-				<DialogPanel className="dark:bg-dark fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-					<div className="my-0.5 flex items-center justify-between">
+				<DialogPanel className="dark:bg-dark fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+					<div className="my-1 flex items-center justify-between">
 						<HoverPrefetchLink
 							href="/"
-							className="text-2xl sm:text-4xl"
+							className="text-xl sm:text-2xl"
 							onClick={() => setIsMobileMenuOpen(false)}
 							aria-label="home page"
 						>
@@ -215,7 +215,7 @@ const Header = () => {
 											href="https://github.com/jgretton"
 											target="_blank"
 										>
-											<p className="font-semibold text-gray-950 dark:text-white">
+											<p className="font-medium text-gray-950 dark:text-white">
 												Github
 											</p>
 											<p className="flex gap-5 text-gray-950/50 dark:text-white/50">
@@ -230,7 +230,7 @@ const Header = () => {
 												copyToClipboard();
 											}}
 										>
-											<p className="font-semibold text-gray-950 dark:text-white">
+											<p className="font-medium text-gray-950 dark:text-white">
 												Email
 											</p>
 											<div className="flex items-end gap-5 text-gray-950/50 dark:text-white/50">
@@ -243,7 +243,6 @@ const Header = () => {
 							</div>
 							<HoverPrefetchLink
 								href={'/#projects'}
-								P
 								onClick={() => setIsMobileMenuOpen(false)}
 								className="-mx-3 block rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700"
 							>

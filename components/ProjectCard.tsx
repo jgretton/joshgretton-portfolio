@@ -24,16 +24,16 @@ const ProjectCard = ({ project }: { project: Project }) => {
 		<div className="flex h-full w-full shrink flex-col rounded-xl md:pr-4">
 			<div>
 				<Image
-					width={640}
-					height={360}
+					width={1280}
+					height={720}
 					src={coverImage}
 					alt={image_alt || 'image alt'}
 					className={`${mobileImage && 'hidden md:block'} w-full rounded-t-lg object-cover object-top aspect-video`}
 				/>
 				{mobileImage && (
 					<Image
-						width={640}
-						height={360}
+						width={1280}
+						height={720}
 						src={mobileImage}
 						alt={image_alt || 'image alt'}
 						className="w-full rounded-lg object-cover object-top aspect-video md:hidden"
@@ -93,8 +93,8 @@ const ProjectCardMinimal = ({ project }: { project: Project }) => {
 			<div className="h-full w-full shrink rounded-xl md:pr-4">
 				<div className="">
 					<Image
-						width={640}
-						height={360}
+						width={1280}
+						height={720}
 						src={coverImage}
 						alt={image_alt || 'image alt'}
 						className={`${mobileImage && 'hidden md:block'} w-full rounded-lg object-cover object-top aspect-video`}

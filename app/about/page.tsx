@@ -93,7 +93,7 @@ const AboutPage = () => {
 								/>
 							</div>
 							<article className="relative h-auto w-full lg:w-2/3">
-								<div className="prose dark:prose-invert prose-headings:font-medium prose-h2:text-2xl hover:prose-a:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl hover:prose-a:dark:text-blue-500 prose-img:dark:border-slate-700 min-w-full font-light">
+								<div className="prose dark:prose-invert prose-headings:font-medium prose-h2:text-2xl prose-a:hover:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl prose-a:dark:hover:text-blue-500 prose-img:dark:border-slate-700 min-w-full font-light">
 									<MDXRemote source={content} />
 								</div>
 							</article>
