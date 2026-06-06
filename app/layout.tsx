@@ -5,7 +5,7 @@ import { ThemeProvider } from 'next-themes';
 import { Figtree } from 'next/font/google';
 import './globals.css';
 
-const Lato = Figtree({
+const figtree = Figtree({
 	subsets: ['latin'],
 	weight: ['300', '400', '500', '700'],
 });
@@ -59,12 +59,18 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${Lato.className} dark:bg-dark relative mx-auto bg-gray-50 text-gray-900 dark:text-gray-100`}
+				className={`${figtree.className} dark:bg-dark relative mx-auto bg-gray-50 text-gray-900 dark:text-gray-100`}
 			>
 				<ThemeProvider attribute="class">
+					<a
+						href="#main-content"
+						className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-9999 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-gray-900 focus:shadow-lg"
+					>
+						Skip to content
+					</a>
 					<div>
 						<Header />
-						<main>{children}</main>
+						<main id="main-content">{children}</main>
 						<Footer />
 					</div>
 				</ThemeProvider>

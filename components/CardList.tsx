@@ -13,8 +13,8 @@ const CardList = ({
 		<div className="w-full">
 			<SectionHeading heading={heading} />
 			<div className="mt-10 grid grid-cols-1 md:gap-x-10 gap-y-20">
-				{projects.map((project, index) => (
-					<article key={index} className="h-auto">
+				{projects.map((project) => (
+					<article key={project.slug} className="h-auto">
 						<ProjectCard project={project} />
 					</article>
 				))}

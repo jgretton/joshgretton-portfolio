@@ -1,6 +1,6 @@
 'use client';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import Link from 'next/link';
 
 const Hero = ({
@@ -12,16 +12,22 @@ const Hero = ({
 	subHeading?: string;
 	back?: boolean;
 }) => {
+	const prefersReducedMotion = useReducedMotion();
+
 	return (
 		<motion.section
-			initial={{ opacity: 0, translateX: -100 }}
+			initial={{ opacity: 0, translateX: prefersReducedMotion ? 0 : -100 }}
 			animate={{ opacity: 1, translateX: 0 }}
 			style={{ willChange: 'transform, opacity' }}
-			transition={{
-				duration: 1.2,
-				opacity: { type: 'tween', ease: 'easeOut', delay: 0.1 },
-				translateX: { type: 'spring', damping: 25, stiffness: 120 },
-			}}
+			transition={
+				prefersReducedMotion
+					? { duration: 0.01 }
+					: {
+							duration: 1.2,
+							opacity: { type: 'tween', ease: 'easeOut', delay: 0.1 },
+							translateX: { type: 'spring', damping: 25, stiffness: 120 },
+						}
+			}
 			className={`dark:bg-dark relative z-0 mx-auto mt-20 flex h-[50dvh] items-center px-4 pt-12 max-w-5xl sm:px-12`}
 		>
 			{back && (
@@ -31,7 +37,7 @@ const Hero = ({
 				>
 					<ArrowLeftIcon
 						className="size-5 text-gray-800 transition-transform group-hover:-translate-x-1 dark:text-white"
-						aria-label="hidden"
+						aria-hidden="true"
 					/>
 					back
 				</Link>

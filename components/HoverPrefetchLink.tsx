@@ -23,6 +23,8 @@ export function HoverPrefetchLink({
 		router.prefetch(href as string);
 	};
 
+	const isExternal = target === '_blank';
+
 	return (
 		<Link
 			href={href}
@@ -30,6 +32,7 @@ export function HoverPrefetchLink({
 			onMouseEnter={handleMouseHover}
 			className={className}
 			target={target}
+			rel={isExternal ? 'noreferrer noopener' : undefined}
 			onClick={onClick}
 		>
 			{children}

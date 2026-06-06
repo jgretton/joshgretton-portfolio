@@ -49,8 +49,8 @@ export default function Home() {
 							className="mt-10 flex w-full scroll-m-44 flex-col gap-5 md:flex-row"
 						>
 							{/* <CurrentlyWorkingCard /> */}
-							{currentlyBuilding.map((project, index) => (
-								<article key={index} className="h-auto">
+							{currentlyBuilding.map((project) => (
+								<article key={project.slug} className="h-auto">
 									<ProjectCard project={project} />
 								</article>
 							))}
