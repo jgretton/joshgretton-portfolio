@@ -91,6 +91,12 @@ const Header = () => {
 					>
 						About
 					</HoverPrefetchLink>
+					<HoverPrefetchLink
+						href="/til"
+						className={`${pathname === "/til" && "underline"} rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700`}
+					>
+						Til
+					</HoverPrefetchLink>
 					<Popover className={"group"}>
 						<PopoverButton
 							className={
@@ -204,7 +210,7 @@ const Header = () => {
 								About
 							</HoverPrefetchLink>
 							<HoverPrefetchLink
-								href={'/til'}
+								href={"/til"}
 								onClick={() => setIsMobileMenuOpen(false)}
 								className="-mx-3 block rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700"
 							>
