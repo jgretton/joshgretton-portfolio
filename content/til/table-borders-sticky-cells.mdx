@@ -1,0 +1,25 @@
+---
+title: 'Table borders and sticky cells'
+date: '2026-05-28'
+tags:
+  - css
+slug: 'table-borders-sticky-cells'
+---
+
+Table borders use `border-collapse` by default, meaning adjacent cells share borders and the browser decides which cell "owns" them — not always the one you styled. A `border-l` on a sticky cell can get assigned to the neighbouring scrolling cell and scroll away with it. `box-shadow` is painted directly onto the element that declares it and is never shared with neighbours, so it always stays put.
+
+```css title="CSS"
+/* border-l won't stick — browser may assign it to the neighbour */
+.sticky-cell {
+  position: sticky;
+  left: 0;
+  border-left: 1px solid;
+}
+
+/* inset box-shadow always stays with the element */
+.sticky-cell {
+  position: sticky;
+  left: 0;
+  box-shadow: inset 1px 0 0 0 currentColor;
+}
+```

@@ -42,7 +42,7 @@ const Hero = ({
 					back
 				</Link>
 			)}
-			<div className="fixed ">
+			<div>
 				<h1 className=" font-light tracking-wide text-5xl leading-relaxed md:text-7xl md:leading-relaxed">
 					{heading}
 				</h1>

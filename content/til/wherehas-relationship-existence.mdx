@@ -1,0 +1,16 @@
+---
+title: "whereHas() for relationship existence"
+date: "2026-05-28"
+tags:
+  - php
+  - laravel
+slug: "wherehas-relationship-existence"
+---
+
+If you want to check that at least one related record exists with certain criteria, use `whereHas()`. I needed to find all players who had at least one attended tournament this season. Without it, you'd fetch all players and filter the collection in PHP. `whereHas()` keeps the constraint at the database level so only the records you actually want are returned.
+
+```php title="PHP"
+$players = Player::whereHas('playerScores', function ($query) use ($season) {
+    $query->where('attended', true);
+})->get();
+```
