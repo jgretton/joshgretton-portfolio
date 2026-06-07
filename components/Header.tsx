@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
 	Dialog,
@@ -10,7 +10,7 @@ import {
 	PopoverButton,
 	PopoverPanel,
 	Transition,
-} from '@headlessui/react';
+} from "@headlessui/react";
 import {
 	ArrowTopRightOnSquareIcon,
 	Bars3Icon,
@@ -18,19 +18,19 @@ import {
 	ClipboardDocumentCheckIcon,
 	ClipboardDocumentIcon,
 	XMarkIcon,
-} from '@heroicons/react/24/outline';
-import copy from 'copy-to-clipboard';
-import { motion } from 'motion/react';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { HoverPrefetchLink } from './HoverPrefetchLink';
-import ThemeToggle from './ThemeToggle';
+} from "@heroicons/react/24/outline";
+import copy from "copy-to-clipboard";
+import { motion } from "motion/react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { HoverPrefetchLink } from "./HoverPrefetchLink";
+import ThemeToggle from "./ThemeToggle";
 
 const ClipboardButton = ({ copiedText }) => {
 	return (
 		<div className="relative size-5 transition-all sm:size-6">
 			<ClipboardDocumentCheckIcon
-				className={`${copiedText ? 'opacity-100' : 'opacity-0'} absolute left-0 top-0 size-5 text-green-400 transition-all duration-500 sm:size-6 dark:text-green-300`}
+				className={`${copiedText ? "opacity-100" : "opacity-0"} absolute left-0 top-0 size-5 text-green-400 transition-all duration-500 sm:size-6 dark:text-green-300`}
 				aria-hidden="true"
 				style={{
 					strokeDasharray: 50,
@@ -38,7 +38,7 @@ const ClipboardButton = ({ copiedText }) => {
 				}}
 			/>
 			<ClipboardDocumentIcon
-				className={`${copiedText ? 'opacity-0' : 'opacity-100'} absolute left-0 top-0 size-5 transition-all duration-500 sm:size-6`}
+				className={`${copiedText ? "opacity-0" : "opacity-100"} absolute left-0 top-0 size-5 transition-all duration-500 sm:size-6`}
 				aria-hidden="true"
 				style={{
 					strokeDasharray: 50,
@@ -55,7 +55,7 @@ const Header = () => {
 	const [copiedText, setCopiedText] = useState(false);
 
 	const copyToClipboard = () => {
-		let copyText = 'jb.gretton@googlemail.com';
+		let copyText = "jb.gretton@googlemail.com";
 		copy(copyText);
 		setCopiedText(true);
 	};
@@ -74,7 +74,7 @@ const Header = () => {
 			animate={{ opacity: 1, y: 0 }}
 			transition={{
 				duration: 0.8,
-				ease: 'easeOut',
+				ease: "easeOut",
 			}}
 		>
 			<div className="mx-auto flex items-center justify-between px-4 py-2 max-w-5xl sm:px-12">
@@ -87,14 +87,14 @@ const Header = () => {
 				<nav className="hidden sm:flex sm:gap-5">
 					<HoverPrefetchLink
 						href="/about"
-						className={`${pathname === '/about' && 'underline'} rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700`}
+						className={`${pathname === "/about" && "underline"} rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700`}
 					>
 						About
 					</HoverPrefetchLink>
-					<Popover className={'group'}>
+					<Popover className={"group"}>
 						<PopoverButton
 							className={
-								'data-active:bg-slate-200 dark:data-active:bg-slate-700 dark:data-active:text-white flex cursor-pointer items-center gap-3 rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700'
+								"data-active:bg-slate-200 dark:data-active:bg-slate-700 dark:data-active:text-white flex cursor-pointer items-center gap-3 rounded-md px-4 py-2 transition-all hover:bg-slate-200 dark:hover:bg-slate-700"
 							}
 						>
 							Contact Me
@@ -118,11 +118,11 @@ const Header = () => {
 										href="https://github.com/jgretton"
 										target="_blank"
 									>
-										<p className="font-semibold text-gray-950 dark:text-white">
+										<p className="font-medium text-gray-950 dark:text-white">
 											Github
 										</p>
 										<p className="flex justify-between gap-2 text-gray-950/50 dark:text-white/50">
-											Go to my page{' '}
+											Go to my page{" "}
 											<ArrowTopRightOnSquareIcon className="size-5 transition-transform group-hover/github:-translate-y-0.5 group-hover/github:translate-x-0.5" />
 										</p>
 									</HoverPrefetchLink>
@@ -133,7 +133,7 @@ const Header = () => {
 											copyToClipboard();
 										}}
 									>
-										<p className="font-semibold text-gray-950 dark:text-white">
+										<p className="font-medium text-gray-950 dark:text-white">
 											Email
 										</p>
 										<div className="flex items-center gap-5 text-gray-950/50 dark:text-white/50">
@@ -197,7 +197,7 @@ const Header = () => {
 					<div className="mt-6 flow-root">
 						<div className="space-y-2 py-6">
 							<HoverPrefetchLink
-								href={'/about'}
+								href={"/about"}
 								onClick={() => setIsMobileMenuOpen(false)}
 								className="-mx-3 block rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700"
 							>
@@ -219,7 +219,7 @@ const Header = () => {
 												Github
 											</p>
 											<p className="flex gap-5 text-gray-950/50 dark:text-white/50">
-												Go to my page{' '}
+												Go to my page{" "}
 												<ArrowTopRightOnSquareIcon className="size-5 transition-transform group-hover/github:-translate-y-0.5 group-hover/github:translate-x-0.5" />
 											</p>
 										</HoverPrefetchLink>
@@ -242,7 +242,7 @@ const Header = () => {
 								</Disclosure>
 							</div>
 							<HoverPrefetchLink
-								href={'/#projects'}
+								href={"/#projects"}
 								onClick={() => setIsMobileMenuOpen(false)}
 								className="-mx-3 block rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700"
 							>
