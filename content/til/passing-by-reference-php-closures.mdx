@@ -1,0 +1,18 @@
+---
+title: 'Passing by reference in PHP closures'
+date: '2026-05-28'
+tags:
+  - php
+slug: 'passing-by-reference-php-closures'
+---
+
+By default, PHP passes variables into a closure via `use()` by value — any changes made inside the closure don't affect the original variable for the next iteration. If you need changes to persist across iterations, prefix the variable with `&` inside the `use()` call.
+
+```php title="PHP"
+$rank = 1;
+$previousScore = 0;
+
+$players->map(function ($player) use (&$rank, &$previousScore) {
+    // changes to $rank and $previousScore persist to the next iteration
+});
+```

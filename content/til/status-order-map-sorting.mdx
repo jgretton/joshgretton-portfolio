@@ -1,0 +1,19 @@
+---
+title: 'Using a status order map to sort projects'
+date: '2026-05-15'
+tags:
+  - typescript
+slug: 'status-order-map-sorting'
+---
+
+I wanted to order projects by status but they're stored in a flat array. This method assigns a numeric value to each status and sorts accordingly.
+
+```typescript title="TypeScript"
+const allProjects: Project[] = getAllProjects();
+
+const statusOrder: Record<string, number> = { building: 0, personal: 1, client: 2 };
+
+const projects = allProjects
+  .filter((project) => project.draft !== true)
+  .sort((a, b) => statusOrder[a.status] - statusOrder[b.status]);
+```

@@ -1,0 +1,20 @@
+---
+title: 'Using load() within the show method'
+date: '2026-05-12'
+tags:
+  - php
+  - laravel
+slug: 'using-load-in-show-method'
+---
+
+In the show method of my controller I was returning the full tournaments table as I used `with()` to get the teams and players.
+
+```php title="PHP"
+$fullTournament = $tournament->with(['teams.playerTeams'])->get();
+```
+
+Using `load()` is the same but works on an already retrieved model instance rather than starting a fresh query (which is what `with()` does).
+
+```php title="PHP"
+$fullTournament = $tournament->load(['teams.playerTeams']);
+```

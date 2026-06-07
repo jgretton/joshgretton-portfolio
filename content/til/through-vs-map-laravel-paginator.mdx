@@ -1,0 +1,28 @@
+---
+title: 'through() vs map() on Laravel Paginators'
+date: '2026-05-27'
+tags:
+  - php
+  - laravel
+slug: 'through-vs-map-laravel-paginator'
+---
+
+When transforming paginated results in Laravel, reach for `through()` instead of `map()`.
+
+Calling `map()` on a paginator converts it to a plain Collection, stripping all the pagination metadata — current page, total, next page URL, etc.
+
+```php title="map() - loses pagination metadata"
+$players = Player::paginate()->map(function ($player) use ($currentSeason) {
+    $player->current_season_total = $player->currentSeasonTotal($currentSeason);
+    return $player;
+});
+```
+
+`through()` does the same transformation but keeps the paginator intact, so anything that depends on that metadata — like Inertia's infinite scroll — keeps working.
+
+```php title="through() - pagination intact"
+$players = Player::paginate()->through(function ($player) use ($currentSeason) {
+    $player->current_season_total = $player->currentSeasonTotal($currentSeason);
+    return $player;
+});
+```

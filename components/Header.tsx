@@ -203,6 +203,13 @@ const Header = () => {
 							>
 								About
 							</HoverPrefetchLink>
+							<HoverPrefetchLink
+								href={'/til'}
+								onClick={() => setIsMobileMenuOpen(false)}
+								className="-mx-3 block rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700"
+							>
+								Til
+							</HoverPrefetchLink>
 							<div className="min-w-full">
 								<Disclosure as="div" className="-mx-3" defaultOpen={false}>
 									<DisclosureButton className="group flex min-w-full items-center justify-between rounded-lg px-3 py-2 text-lg leading-7 text-gray-900 hover:bg-slate-200 dark:text-gray-300 dark:hover:bg-slate-700">

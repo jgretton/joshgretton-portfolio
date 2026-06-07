@@ -1,0 +1,17 @@
+---
+title: 'Using route:list to check routing'
+date: '2026-05-13'
+tags:
+  - php
+  - laravel
+  - bash
+slug: 'artisan-route-list'
+---
+
+Found this out the hard way, trying to debug why I wasn't hitting a route (it didn't exist). This command shows all registered routes in the application.
+
+Adding `| grep round` to the end filters the list to routes that contain the word given. `|` is a pipe — a shell operator which takes the output of the command on the left and passes it as input to the command on the right.
+
+```bash title="Terminal"
+php artisan route:list | grep round
+```
