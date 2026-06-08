@@ -67,7 +67,7 @@
 	--rule: #242424;
 }
 
-* {
+html {
 	scrollbar-gutter: stable;
 }
 
