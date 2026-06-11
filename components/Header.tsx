@@ -82,7 +82,7 @@ const Header = () => {
 					href="/"
 					className="text-xl decoration-2 hover:underline sm:text-2xl"
 				>
-					JG <span className="text-blue-500"> / </span>
+					JG <span className="text-accent"> / </span>
 				</HoverPrefetchLink>
 				<nav className="hidden sm:flex sm:gap-5">
 					<HoverPrefetchLink
@@ -185,7 +185,7 @@ const Header = () => {
 							onClick={() => setIsMobileMenuOpen(false)}
 							aria-label="home page"
 						>
-							JG <span className="text-blue-500"> / </span>
+							JG <span className="text-accent"> / </span>
 						</HoverPrefetchLink>
 
 						<button

@@ -97,15 +97,15 @@ That instinct to just write the code first is strong. TDD fights it directly. By
 
 ## Challenges & Solutions
 
-**1. Real-world constraints changing the architecture**
+### Real-world constraints changing the architecture
 
 My original plan for the tournament scoring screen was to send a POST request every time a score was entered or a round added, keeping everything server-side. It seemed clean. Then I thought harder about who would actually be using this: a coach on their phone inside a sports hall. In the UK especially, sports halls are notorious for having very poor mobile signal and incredibly weak Wi-Fi. Sending multiple requests in that environment was a recipe for lost data. The solution was to batch everything into a single request at the point of submission, rather than persisting each change to the server as it happened. This also meant rethinking the test structure and the data shape going into the backend.
 
-**2. Structuring nested routes correctly**
+### Structuring nested routes correctly
 
 When it came to Rounds, I had to decide whether `/rounds` should be its own top-level route or nested under tournaments. A round can't exist outside of a tournament, so a top-level route never made sense. I went with `/tournaments/{tournament}/rounds` instead. This makes the relationship explicit in the URL and means the tournament ID is always available from the route without any additional lookups.
 
-**3. React component state and useContext**
+### React component state and useContext
 
 The tournament creation screen needed teams, players, and drag-and-drop, which meant a lot of shared state across several components. My first instinct was to pass everything down as props, but that quickly became unwieldy. This is what led me to `useContext`, creating a provider at the top level so any child component can access the data it needs without threading props through every layer.
 

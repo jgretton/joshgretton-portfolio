@@ -1,9 +1,9 @@
 import AnimatedSection from '@/components/AnimatedSection';
 import Hero from '@/components/Hero';
+import MdxContent from '@/components/MdxContent';
 import { getPageBySlug } from '@/lib/content';
 import { generateJsonLd } from '@/lib/generateJsonld';
 import PhotoOfMe from '@/public/Images/about/photo-of-me.jpg';
-import { MDXRemote } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
@@ -93,9 +93,7 @@ const AboutPage = () => {
 								/>
 							</div>
 							<article className="relative h-auto w-full lg:w-2/3">
-								<div className="prose dark:prose-invert prose-headings:font-medium prose-h2:text-2xl prose-a:hover:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl prose-a:dark:hover:text-blue-500 prose-img:dark:border-slate-700 min-w-full font-light">
-									<MDXRemote source={content} />
-								</div>
+								<MdxContent source={content} />
 							</article>
 						</div>
 					</div>
