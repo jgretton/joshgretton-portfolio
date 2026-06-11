@@ -28,7 +28,7 @@ const Hero = ({
 							translateX: { type: 'spring', damping: 25, stiffness: 120 },
 						}
 			}
-			className={`dark:bg-dark relative z-0 mx-auto mt-20 flex h-[50dvh] items-center px-4 pt-12 max-w-5xl sm:px-12`}
+			className={`dark:bg-dark relative z-0 mx-auto mt-20 flex h-[50svh] items-center px-4 pt-12 max-w-5xl sm:px-12`}
 		>
 			{back && (
 				<Link
