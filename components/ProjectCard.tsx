@@ -54,7 +54,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 			<div className="mt-4 flex items-center justify-between">
 				<HoverPrefetchLink
 					href={`/${slug}`}
-					className="group inline-flex items-center gap-2 text-sm font-light text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-blue-500 hover:underline dark:text-white/90 dark:hover:text-blue-500"
+					className="group inline-flex items-center gap-2 text-sm font-light text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-accent hover:underline dark:text-white/90 dark:hover:text-accent"
 				>
 					View project details
 					<ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -124,7 +124,7 @@ const ProjectCardMinimal = ({ project }: { project: Project }) => {
 					</h3>
 				</div>
 				<div className="mt-4 grid place-items-start gap-2">
-					<p className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-light leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors group-hover:text-blue-500 group-hover:underline dark:text-white/90 dark:group-hover:text-blue-500">
+					<p className="sm:text-md group inline-flex items-center gap-2 self-start text-sm font-light leading-6 tracking-wide text-gray-700 decoration-2 underline-offset-2 transition-colors group-hover:text-accent group-hover:underline dark:text-white/90 dark:group-hover:text-accent">
 						View project details
 						<ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
 					</p>

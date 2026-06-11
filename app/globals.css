@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
@@ -69,16 +69,17 @@
 
 html {
 	scrollbar-gutter: stable;
+	scroll-padding-top: 8rem;
 }
 
-code[data-theme*=' '],
-code[data-theme*=' '] span {
+code[data-theme*=" "],
+code[data-theme*=" "] span {
 	color: var(--shiki-light);
 	background-color: var(--shiki-light-bg);
 }
 
-.dark code[data-theme*=' '],
-.dark code[data-theme*=' '] span {
+.dark code[data-theme*=" "],
+.dark code[data-theme*=" "] span {
 	color: var(--shiki-dark);
 	background-color: var(--shiki-dark-bg);
 }

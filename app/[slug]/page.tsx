@@ -1,15 +1,17 @@
-import AnimatedSection from '@/components/AnimatedSection';
-import Hero from '@/components/Hero';
-import RealtedProjects from '@/components/RelatedProducts';
-import TopOfPage from '@/components/TopOfPage';
-import { getAllProjects, getProjectBySlug } from '@/lib/content';
-import { generateJsonLd } from '@/lib/generateJsonld';
-import { Project } from '@/types';
-import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import AnimatedSection from "@/components/AnimatedSection";
+import Hero from "@/components/Hero";
+import MdxContent from "@/components/MdxContent";
+import RealtedProjects from "@/components/RelatedProducts";
+import TableOfContents from "@/components/TableOfContents";
+import TopOfPage from "@/components/TopOfPage";
+import { getAllProjects, getProjectBySlug } from "@/lib/content";
+import { extractHeadings } from "@/lib/extractHeadings";
+import { generateJsonLd } from "@/lib/generateJsonld";
+import { Project } from "@/types";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(props: any) {
 	const params = await props.params;
@@ -18,8 +20,8 @@ export async function generateMetadata(props: any) {
 
 	if (!project) {
 		return {
-			title: 'Project Not Found | Josh Gretton',
-			description: 'The requested project could not be found.',
+			title: "Project Not Found | Josh Gretton",
+			description: "The requested project could not be found.",
 		};
 	}
 
@@ -28,7 +30,7 @@ export async function generateMetadata(props: any) {
 	return {
 		title: seo.title,
 		description: seo.description,
-		keywords: seo.keywords.join(', '),
+		keywords: seo.keywords.join(", "),
 		authors: [{ name: seo.author }],
 		creator: seo.author,
 		robots: seo.robots,
@@ -45,7 +47,7 @@ export async function generateMetadata(props: any) {
 					alt: seo.openGraph.imageAlt,
 				},
 			],
-			siteName: 'Josh Gretton Portfolio',
+			siteName: "Josh Gretton Portfolio",
 		},
 
 		// Twitter
@@ -63,7 +65,7 @@ export async function generateMetadata(props: any) {
 
 		// Additional metadata
 		other: {
-			'application-name': 'Josh Gretton Portfolio',
+			"application-name": "Josh Gretton Portfolio",
 		},
 	};
 }
@@ -74,7 +76,7 @@ export async function generateStaticParams() {
 
 		// Ensure projects exist and have valid slugs
 		if (!projects || projects.length === 0) {
-			console.warn('No projects found for static generation');
+			console.warn("No projects found for static generation");
 			return [];
 		}
 
@@ -84,7 +86,7 @@ export async function generateStaticParams() {
 				slug: project.slug,
 			}));
 	} catch (error) {
-		console.error('Error generating static params:', error);
+		console.error("Error generating static params:", error);
 		return []; // Return empty array to prevent build failure
 	}
 }
@@ -110,6 +112,8 @@ const Page = async (props: any) => {
 		seo,
 	} = project;
 
+	const headings = extractHeadings(content);
+
 	// Generate JSON-LD structured data
 	const jsonLd = generateJsonLd(seo);
 
@@ -131,11 +135,15 @@ const Page = async (props: any) => {
 						<div className="flex gap-12 sm:gap-16">
 							<div>
 								<p className="text-base font-medium">Client</p>
-								<p className="text-sm font-light">{client}</p>
+								<p className="text-sm font-light text-text dark:text-stone-300">
+									{client}
+								</p>
 							</div>
 							<div>
 								<p className="text-base font-medium">Technologies used</p>
-								<p className="text-sm font-light">{technologies.join(' · ')}</p>
+								<p className="text-sm font-light text-text dark:text-stone-300">
+									{technologies.join(" · ")}
+								</p>
 							</div>
 						</div>
 
@@ -184,45 +192,12 @@ const Page = async (props: any) => {
 					</div>
 
 					<div className="relative flex flex-col gap-x-5 md:flex-row">
-						<aside className="top-20 mt-20 h-fit w-full md:sticky md:w-1/4">
-							<p className="text-base font-medium">Client</p>
-							<p className="mb-5 ml-2 text-sm font-light">{client}</p>
-
-							<p className="text-base font-medium">Technologies used</p>
-							<ul className="ml-2">
-								{technologies.map((tag, index) => (
-									<li className="text-sm font-light" key={index}>
-										{tag}
-									</li>
-								))}
-							</ul>
-							<div className="mt-5 flex flex-col gap-3">
-								{liveUrl && (
-									<Link
-										href={liveUrl}
-										target="_blank"
-										className=" group inline-flex items-center gap-2 self-start text-sm text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
-									>
-										See the live project
-										<ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-									</Link>
-								)}
-								{githubUrl && (
-									<Link
-										href={githubUrl}
-										target="_blank"
-										className=" group inline-flex items-center gap-2 self-start text-sm text-gray-700 decoration-2 underline-offset-2 hover:underline dark:text-white"
-									>
-										View Github Repository
-										<ArrowTopRightOnSquareIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-									</Link>
-								)}
-							</div>
-						</aside>
+						<TableOfContents headings={headings} />
 						<article className="mt-20 grid flex-1">
-							<div className="prose dark:prose-invert prose-headings:font-medium prose-h2:text-2xl prose-a:hover:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl prose-a:dark:hover:text-blue-500 prose-img:dark:border-slate-700 min-w-full font-light">
+							<MdxContent source={content} />
+							{/* <div className="prose dark:prose-invert prose-headings:font-medium prose-h2:text-2xl prose-a:hover:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl prose-a:dark:hover:text-blue-500 prose-img:dark:border-slate-700 min-w-full font-light">
 								<MDXRemote source={content} />
-							</div>
+							</div> */}
 						</article>
 					</div>
 				</AnimatedSection>
