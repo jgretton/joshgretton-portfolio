@@ -132,20 +132,20 @@ const Page = async (props: any) => {
 			<div className="dark:bg-dark relative z-20 bg-gray-50 pb-10">
 				<AnimatedSection className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 pb-20 max-w-5xl sm:px-12">
 					<div className="flex flex-col gap-8 border-t py-10 border-gray-200 sm:flex-row sm:items-start sm:justify-between dark:border-white/10">
-						<div className="flex gap-12 sm:gap-16">
-							<div>
-								<p className="text-base font-medium">Client</p>
-								<p className="text-sm font-light text-text dark:text-stone-300">
-									{client}
-								</p>
-							</div>
-							<div>
-								<p className="text-base font-medium">Technologies used</p>
-								<p className="text-sm font-light text-text dark:text-stone-300">
-									{technologies.join(" · ")}
-								</p>
-							</div>
+						{/* <div className="flex flex-col gap-12 sm:gap-16"> */}
+						<div className="shrink-0">
+							<p className="text-base font-medium">Client</p>
+							<p className="text-sm font-light text-text dark:text-stone-300">
+								{client}
+							</p>
 						</div>
+						<div>
+							<p className="text-base font-medium">Technologies used</p>
+							<p className="text-sm font-light text-text dark:text-stone-300n">
+								{technologies.join(" · ")}
+							</p>
+						</div>
+						{/* </div> */}
 
 						{(liveUrl || githubUrl) && (
 							<div className="flex shrink-0 flex-col items-start gap-2">
