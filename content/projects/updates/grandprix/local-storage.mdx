@@ -1,0 +1,33 @@
+---
+title: "Local Storage for Tournament Scoring"
+date: "2026-06-12"
+summary: "Added localStorage persistence for tournament status and round scoring so a lost signal or page refresh doesn't take the data with it."
+---
+
+The plan was to use Zustand for the state management. It is well known that UK sports hall are notorious for having poor signal. So, the fact the users are working inside a sports hall and on mobile, there is lots of risk of data being lost. Especially if the user is only entering round details every 10-15 minutes. Before going head first into Zustand, i wanted to check for other options in relation to Laravel and Inertia. I did find _useRemember_, got quite excited as this goes hand in hand with useForm, then found out it does not store state locally, it is used for browser history navigation so it wont persist a hard refresh.
+
+I have used Zustand before, hence why i chose this as the first option. However, after some deliberation, it is complete overkill. I don't need app wide state management. The state is only kept for round scoring and once that is submitted and a success, it will be wiped. This information will not be accessed anywhere else. This is a classic case of using a sledgehammer to crack a nut. I think we can get away with just using the browsers localStorage API.
+
+## Local Storage
+
+So, the two main features that i am wanting to use local storage for is, dealing with the tournament status and then the tournament scoring. I decided against the tournament creation as i suspect this will be done before the tournament anyway. So, the plan is simple in thought but i need to rework all the functions to handle storing the data at the same time. I made notes of a few things i came across below that did require me to do some more research. In particular was reworking the functions to put the data in a variable before calling the state update to handle the asynchronous nature of React state. In refactoring some of these functions i learned what _Upserting_ is so i made its own separate function to keep it cleaner.
+
+## Complications
+
+**strings** - The first little gotcha moment is that all local storage is stored as a string. So, when storing the data, I needed to use `JSON.stringify()` and then after many a head scratch, realised if i am storing an object, i need to parse the data too `JSON.parse()`.
+
+**async state** - As reacts state is asynchronous - it will update the state, but it will do so once the function has finished. With this in mind, we cannot called setData, and then read Data straight away as it wont be updated. So, we set the data into a new variable first - as its set and read in the same synchronous execution, and then call that as we know the data will be up to date.
+
+```javascript
+const updatedRounds = data.rounds.filter(
+	(round) => round.round_number !== roundNumber,
+);
+
+setData("rounds", updatedRounds);
+
+localStorage.setItem(
+	`scoring-${tournament.id}`,
+
+	JSON.stringify({ rounds: updatedRounds }),
+);
+```

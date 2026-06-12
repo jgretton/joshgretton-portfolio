@@ -1,16 +1,18 @@
-'use client';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
-import { motion, useReducedMotion } from 'motion/react';
-import Link from 'next/link';
+"use client";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { motion, useReducedMotion } from "motion/react";
+import Link from "next/link";
 
 const Hero = ({
 	heading,
 	subHeading,
 	back,
+	backHref = "/",
 }: {
 	heading: string;
 	subHeading?: string;
 	back?: boolean;
+	backHref?: string;
 }) => {
 	const prefersReducedMotion = useReducedMotion();
 
@@ -18,21 +20,21 @@ const Hero = ({
 		<motion.section
 			initial={{ opacity: 0, translateX: prefersReducedMotion ? 0 : -100 }}
 			animate={{ opacity: 1, translateX: 0 }}
-			style={{ willChange: 'transform, opacity' }}
+			style={{ willChange: "transform, opacity" }}
 			transition={
 				prefersReducedMotion
 					? { duration: 0.01 }
 					: {
 							duration: 1.2,
-							opacity: { type: 'tween', ease: 'easeOut', delay: 0.1 },
-							translateX: { type: 'spring', damping: 25, stiffness: 120 },
+							opacity: { type: "tween", ease: "easeOut", delay: 0.1 },
+							translateX: { type: "spring", damping: 25, stiffness: 120 },
 						}
 			}
-			className={`dark:bg-dark relative z-0 mx-auto mt-20 flex h-[50svh] items-center px-4 pt-12 max-w-5xl sm:px-12`}
+			className={`dark:bg-dark relative z-0 flex items-center mx-auto mt-20 max-w-5xl px-4 py-64 sm:px-12`}
 		>
 			{back && (
 				<Link
-					href={'/'}
+					href={backHref}
 					className="group fixed top-10 inline-flex items-center gap-2"
 				>
 					<ArrowLeftIcon

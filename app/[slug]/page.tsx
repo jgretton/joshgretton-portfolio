@@ -4,7 +4,12 @@ import MdxContent from "@/components/MdxContent";
 import RealtedProjects from "@/components/RelatedProducts";
 import TableOfContents from "@/components/TableOfContents";
 import TopOfPage from "@/components/TopOfPage";
-import { getAllProjects, getProjectBySlug } from "@/lib/content";
+import UpdateBanner from "@/components/UpdateBanner";
+import {
+	getAllProjects,
+	getMostRecentUpdate,
+	getProjectBySlug,
+} from "@/lib/content";
 import { extractHeadings } from "@/lib/extractHeadings";
 import { generateJsonLd } from "@/lib/generateJsonld";
 import { Project } from "@/types";
@@ -94,6 +99,8 @@ const Page = async (props: any) => {
 	const { slug } = await props.params;
 
 	const project: Project = getProjectBySlug(slug);
+
+	const mostRecentUpdate = getMostRecentUpdate(slug);
 
 	if (!project) {
 		return notFound();
@@ -190,17 +197,15 @@ const Page = async (props: any) => {
 							fill
 						/>
 					</div>
-
+					<UpdateBanner update={mostRecentUpdate} projectSlug={slug} />
 					<div className="relative flex flex-col gap-x-5 md:flex-row">
 						<TableOfContents headings={headings} />
-						<article className="mt-20 grid flex-1">
+						<article className="mt-18 grid flex-1">
 							<MdxContent source={content} />
-							{/* <div className="prose dark:prose-invert prose-headings:font-medium prose-h2:text-2xl prose-a:hover:text-blue-500 prose-strong:font-normal prose-img:rounded-xl prose-img:border prose-img:border-slate-300 prose-img:shadow-xl prose-a:dark:hover:text-blue-500 prose-img:dark:border-slate-700 min-w-full font-light">
-								<MDXRemote source={content} />
-							</div> */}
 						</article>
 					</div>
 				</AnimatedSection>
+
 				<section className="dark:bg-dark relative mx-auto h-full w-full bg-gray-50 px-4 pt-20 max-w-5xl sm:px-12">
 					<RealtedProjects slug={slug} />
 				</section>

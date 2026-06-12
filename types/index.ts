@@ -108,3 +108,12 @@ export interface Til {
 	tags: string[];
 	slug: string;
 }
+
+export interface Update {
+	title: string;
+	slug: string;
+	projectSlug: string;
+	date: string;
+	summary: string;
+	content: string;
+}

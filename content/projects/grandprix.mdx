@@ -122,3 +122,10 @@ One major change I want to make going forwards is involving real users earlier i
 The immediate next steps are adding localStorage to the tournament scoring flow as a persistent safety net so if the page is closed or the browser crashes mid-session, the data survives until a successful submission clears it. Beyond that, a player analytics page giving the admin a view of each player's attendance, points total, and how they're trending across the season, alongside improvements to the leaderboard to make it clearer when a score was calculated from absence rather than actually played.
 
 A nice feature would be a multi-tenant system where other clubs can sign up, manage their own players and tournaments, and have their own public-facing leaderboard pages. Right now this is built for one club, but the underlying structure already lends itself to that kind of expansion.
+
+## Updates
+
+**Local Storage for Tournament Scoring**  
+_12 June 2026_ · [Read full update](/grandprix/local-storage)
+
+Added localStorage persistence for tournament status and round scoring so a lost signal or page refresh doesn't take the data with it.
