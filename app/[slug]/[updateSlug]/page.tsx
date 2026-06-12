@@ -85,7 +85,7 @@ const Page = async (props: any) => {
 						</div>
 					</div>
 
-					<article className="grid">
+					<article className="mt-10">
 						<MdxContent source={content} />
 					</article>
 				</AnimatedSection>
