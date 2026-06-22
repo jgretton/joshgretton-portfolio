@@ -1,0 +1,19 @@
+---
+title: 'Copying to clipboard'
+date: '2026-06-22'
+tags:
+  - typescript
+slug: 'copy-to-clipboard'
+---
+
+I found this nice little function for copying text to the clipboard in React.
+
+```typescript title="TypeScript"
+const copyToClipboard = async (text: string) => {
+	if ('clipboard' in navigator) {
+		return await navigator.clipboard.writeText(text);
+	} else return document.execCommand('copy', true, text);
+};
+```
+
+The `execCommand()` function is now deprecated but it's kept in there to make sure older browsers that don't support `navigator.clipboard` are still supported.
