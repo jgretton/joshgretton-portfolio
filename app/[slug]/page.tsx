@@ -86,7 +86,7 @@ export async function generateStaticParams() {
 		}
 
 		return projects
-			.filter((project) => project.slug) // Filter out any projects without slugs
+			.filter((project) => project.slug && !project.noArticle)
 			.map((project) => ({
 				slug: project.slug,
 			}));
@@ -102,7 +102,7 @@ const Page = async (props: any) => {
 
 	const mostRecentUpdate = getMostRecentUpdate(slug);
 
-	if (!project) {
+	if (!project || project.noArticle) {
 		return notFound();
 	}
 

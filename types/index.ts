@@ -18,6 +18,7 @@ export interface Project {
 	coverImage: string;
 	mobileImage: string;
 	draft: boolean;
+	noArticle?: boolean;
 	content?: string;
 	image_alt: string;
 	seo: {

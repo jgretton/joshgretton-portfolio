@@ -18,6 +18,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 		slug,
 		image_alt,
 		githubUrl,
+		noArticle,
 	} = project;
 
 	return (
@@ -52,14 +53,16 @@ const ProjectCard = ({ project }: { project: Project }) => {
 				</p>
 			</div>
 			<div className="mt-4 flex items-center justify-between">
-				<HoverPrefetchLink
-					href={`/${slug}`}
-					className="group inline-flex items-center gap-2 text-sm font-light text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-accent hover:underline dark:text-white/90 dark:hover:text-accent"
-				>
-					View project details
-					<ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
-				</HoverPrefetchLink>
-				<div className="flex items-center gap-4">
+				{!noArticle && (
+					<HoverPrefetchLink
+						href={`/${slug}`}
+						className="group inline-flex items-center gap-2 text-sm font-light text-gray-700 decoration-2 underline-offset-2 transition-colors hover:text-accent hover:underline dark:text-white/90 dark:hover:text-accent"
+					>
+						View project details
+						<ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
+					</HoverPrefetchLink>
+				)}
+				<div className="flex items-center gap-4 ml-auto">
 					{liveUrl && (
 						<HoverPrefetchLink
 							href={liveUrl}
