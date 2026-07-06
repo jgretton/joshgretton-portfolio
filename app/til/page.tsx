@@ -31,7 +31,6 @@ const TilPage = () => {
 										<div className="flex flex-wrap items-center gap-2 mb-2">
 											<p className="text-xs font-normal text-stone-600/60 sm:text-sm dark:text-white/40">
 												{new Date(til.date).toLocaleDateString('en-GB', {
-													day: 'numeric',
 													month: 'long',
 													year: 'numeric',
 												})}
