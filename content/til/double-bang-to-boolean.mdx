@@ -1,0 +1,23 @@
+---
+title: 'Using !! to convert a value to a boolean'
+date: '2026-07-08'
+tags:
+  - javascript
+slug: 'double-bang-to-boolean'
+---
+
+The double bang (`!!`) is a quick way to convert any value into a real boolean. The first `!` negates the value (converting it to a boolean along the way), and the second `!` flips it back — so you end up with `true` when there's a truthy value and `false` when there isn't.
+
+```javascript title="JavaScript"
+!!'hello'; // true
+!!''; // false
+!!0; // false
+!!42; // true
+!!null; // false
+```
+
+It's handy when you want a boolean from something that might be `null`, `undefined`, an empty string, or `0`:
+
+```javascript title="JavaScript"
+const hasName = !!user.name; // true only if user.name is a non-empty value
+```
