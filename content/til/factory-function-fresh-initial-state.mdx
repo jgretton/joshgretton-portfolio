@@ -1,0 +1,24 @@
+---
+title: 'Using a factory function for fresh initial state'
+date: '2026-07-26'
+tags:
+  - typescript
+  - zustand
+slug: 'factory-function-fresh-initial-state'
+---
+
+A single exported object used as default state is shared everywhere it's imported, so mutating it in place changes that one instance for everyone. Reusing it, like starting a new match, then carries over the old values instead of resetting. Returning it from a factory function hands back a fresh copy on every call, so state can't leak between resets.
+
+```ts title="Shared object - leaks state"
+// Shared object - mutating it leaks state into the next use
+export const initialSetData = {
+  timeouts: { home: 0, away: 0 },
+};
+```
+
+```ts title="Factory - a fresh copy every call"
+// Factory - a fresh copy every call
+export const createInitialSetData = () => ({
+  timeouts: { home: 0, away: 0 },
+});
+```
