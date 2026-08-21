@@ -1,0 +1,16 @@
+---
+title: "abort_unless() helper"
+date: "2026-08-21"
+tags:
+  - php
+  - laravel
+slug: "abort-unless-helper"
+---
+
+`abort_unless()` throws an HTTP exception when the expression you give it evaluates to `false`. It saves wrapping `abort()` in an `if`, so the check reads as a single guard clause at the top of a controller method.
+
+I used it in [VolleyJunior](/volleyjunior), where route model binding could hand back a player instead of a guardian.
+
+```php title="PHP"
+abort_unless($guardian->role === Role::GUARDIAN, 404);
+```
